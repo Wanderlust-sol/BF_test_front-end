@@ -3,7 +3,6 @@ import styled from "styled-components";
 import figlet from "figlet";
 import standard from "figlet/importable-fonts/Standard.js";
 import Typing from "react-typing-animation";
-import ComputerArt from "img/art1.svg";
 import Grain from "img/grain.png";
 
 const Intro = () => {
@@ -28,23 +27,22 @@ const Intro = () => {
   return (
     <>
       <IntroWrapper>
-        <ComputerASCII>
-          <GrainBg></GrainBg>
-          <Typing speed={50}>
-            <TypedText>
-              BF 테스트에 오신걸 환영합니다.
-              <br />
-              이 테스트를 통해 자신의 성향이 프론트엔드와 백엔드중 어디에 더
-              가까운지 알아보세요.
-              <br />
-              *경고* 이 테스트는 그저 테스트일 뿐이므로 참고만 해주시기
-              바랍니다.
-            </TypedText>
-          </Typing>
-          <MainText>
-            <code>{mainText}</code>
-          </MainText>
-        </ComputerASCII>
+        <GrainBg></GrainBg>
+        <Typing speed={50}>
+          <TypedText>
+            BF 테스트에 오신걸 환영합니다.
+            <br />
+            이 테스트를 통해 자신의 성향이 프론트엔드와 백엔드중 어디에 더
+            가까운지 알아보세요.
+            <br />
+            <br />
+            *경고*
+            <br />이 테스트는 그저 테스트일 뿐이므로 참고만 해주시기 바랍니다.
+          </TypedText>
+        </Typing>
+        <MainText>
+          <code>{mainText}</code>
+        </MainText>
       </IntroWrapper>
     </>
   );
@@ -59,17 +57,8 @@ const IntroWrapper = styled.div`
   overflow: hidden;
 `;
 
-const ComputerASCII = styled.div`
-  width: 90%;
-  height: 100vh;
-  margin: 0 auto;
-  background: url(${ComputerArt}) no-repeat;
-  background-size: cover;
-  position: relative;
-`;
-
 const GrainBg = styled.div`
-  width: 200%;
+  width: 100%;
   height: 100vh;
   background: url(${Grain});
   z-index: 40;
@@ -127,10 +116,13 @@ const TypedText = styled.p`
   color: #60bb5e;
   font-size: 18px;
   position: absolute;
-  left: 370px;
-  top: 180px;
+  /* left: 370px; */
+  /* top: 180px; */
+  top: 0;
   z-index: 100;
   line-height: 30px;
+  display: flex;
+  align-items: center;
 `;
 
 const MainText = styled.pre`
