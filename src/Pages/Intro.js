@@ -35,6 +35,11 @@ const Intro = props => {
     }
   };
 
+  const delayTime = () => {
+    setTimeout(() => {
+      setFinishType(true);
+    }, 500);
+  };
   const startClick = () => {
     props.history.push("/");
   };
@@ -47,9 +52,9 @@ const Intro = props => {
         <TypingBox>
           {!finishCount && (
             <Typing
-              speed={40}
+              speed={30}
               onFinishedTyping={() => {
-                setFinishType(true);
+                delayTime();
               }}
               className="tying-text"
             >
