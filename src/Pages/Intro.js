@@ -231,11 +231,13 @@ const TypedNum = styled.span`
     line-height: 20px;
   }
 
-  display: ${props => props.finishType && "none"};
-  font-size: 145px;
-  left: 45%;
-  top: 46%;
-  line-height: 20px;
+  @media only screen and (min-width: 416px) and (max-width: 768px) {
+    display: ${props => props.finishType && "none"};
+    font-size: 145px;
+    left: 45%;
+    top: 46%;
+    line-height: 20px;
+  }
 `;
 
 const MainWrapper = styled.div`
