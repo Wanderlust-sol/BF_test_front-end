@@ -52,7 +52,7 @@ const Intro = props => {
         <TypingBox>
           {!finishCount && (
             <Typing
-              speed={30}
+              speed={10}
               onFinishedTyping={() => {
                 delayTime();
               }}
