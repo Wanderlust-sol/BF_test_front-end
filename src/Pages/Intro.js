@@ -4,7 +4,7 @@ import styled from "styled-components";
 import figlet from "figlet";
 import standard from "figlet/importable-fonts/Standard.js";
 import Typing from "react-typing-animation";
-import Grain from "img/grain.png";
+import Grain from "Images/grain.png";
 
 const Intro = props => {
   const [mainText, setMainText] = useState("");
