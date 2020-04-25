@@ -1,9 +1,11 @@
 import React from "react";
 import styled from "styled-components";
-import BFICON from "Images/Group6.png";
 import Typing from "react-typing-animation";
+import BFICON from "Images/Group6.png";
+import QuestionMain from "Components/QuestionMain";
+// import TestBox from "Components/TestBox";
 
-const typeSpeed = 50;
+const typeSpeed = 20;
 
 const QuestionWindow = (props) => {
   return (
@@ -19,29 +21,34 @@ const QuestionWindow = (props) => {
         </QuestionsHeader>
         {/* main */}
         <QuestionMainDiv>
+          {/********** 타이핑 되는 부분 question layout 완성하고 나서 복구해야함 -시작 *********/}
+
           <Typing speed={typeSpeed}>
             <span>준비되셨나요 . . . ?</span>
-            {/* <Typing.Reset count={1} delay={1100} /> */}
             <Typing.Backspace
               count={18}
               speed={typeSpeed * 2}
-              delay={typeSpeed * 12}
+              delay={typeSpeed * 40}
             />
           </Typing>
           <Typing speed={typeSpeed}>
             <span>
               <Typing.Delay ms={typeSpeed * 100} />
-              자, 그럼 당신의 성향을 알려줄 BF -{" "}
+              자, 그럼 당신의 성향을 알려줄 BF -
               <Typing.Delay ms={typeSpeed * 20} />
               TEST 를 시작하겠습니다. . . !!!
             </span>
-            {/* <Typing.Reset count={20} delay={typeSpeed * 55} /> */}
             <Typing.Backspace
-              count={typeSpeed}
+              count={50}
               speed={typeSpeed}
-              delay={typeSpeed * 44}
+              delay={typeSpeed * 100}
             />
           </Typing>
+          {/********** 타이핑 되는 부분 question layout 완성하고 나서 복구해야함 -끝 *********/}
+          {/* <TestContainerDiv>
+            <TestBox />
+          </TestContainerDiv> */}
+          <QuestionMain></QuestionMain>
         </QuestionMainDiv>
       </QuestionsContainer>
     </QuestionsWrapper>
@@ -50,7 +57,14 @@ const QuestionWindow = (props) => {
 
 export default QuestionWindow;
 
-const QuestionsWrapper = styled.div``;
+// 추후에 컴포넌트로 사용될 시 이 컴포넌트를 감싸는 div는 position:relative 를 가지고 있어야한다.
+
+const QuestionsWrapper = styled.div`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+`;
 
 const QuestionsContainer = styled.div`
   box-shadow: 13px 10px 0px -1px rgba(74, 79, 79, 1);
@@ -60,7 +74,7 @@ const QuestionsContainer = styled.div`
 // window header
 
 const QuestionsHeader = styled.div`
-  width: 698px;
+  width: 100%;
   background: #fdfd96;
   border: 3px solid #000000;
   padding: 8px 0;
@@ -99,15 +113,20 @@ const CloseButtonDiv = styled.div`
 
 // window
 const QuestionMainDiv = styled.div`
-  width: 678px;
+  width: 100%;
   height: 626px;
   border: 3px solid black;
   border-top: 0px;
-  background-color: black;
+  background-color: #244c88;
   position: relative;
   padding: 10px;
   span {
     color: white;
     font-size: 20px;
   }
+`;
+
+const TestContainerDiv = styled.div`
+  width: 90%;
+  margin: auto;
 `;

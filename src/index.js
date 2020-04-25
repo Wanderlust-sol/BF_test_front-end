@@ -7,8 +7,11 @@ import Routes from "./Routes";
 const GlobalStyle = createGlobalStyle`
   ${reset}
   body {
-    font-family: 'Noto Sans KR', sans-serif;
+    font-family: 'Aldrich', sans-serif;
   }
+  *{
+    box-sizing:border-box;
+  } 
 `;
 ReactDOM.render(
   <React.StrictMode>
