@@ -18,9 +18,12 @@ const GlobalStyle = createGlobalStyle`
 
   }
   body {
-    font-family:  DungGuenMo, 'Noto Sans KR', sans-serif;
-
-  };     
+    font-family:  DungGuenMo, 'Noto Sans KR', sans-serif;   
+  };  
+  a {
+    text-decoration: none;
+    color: #000000
+  }   
 `;
 ReactDOM.render(
   <React.StrictMode>
