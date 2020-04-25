@@ -3,7 +3,7 @@ import styled from "styled-components";
 import Typing from "react-typing-animation";
 import BFICON from "Images/Group6.png";
 import QuestionMain from "Components/QuestionMain";
-// import TestBox from "Components/TestBox";
+import TestBox from "Components/TestBox";
 
 const typeSpeed = 20;
 
@@ -45,9 +45,9 @@ const QuestionWindow = (props) => {
             />
           </Typing>
           {/********** 타이핑 되는 부분 question layout 완성하고 나서 복구해야함 -끝 *********/}
-          {/* <TestContainerDiv>
-            <TestBox />
-          </TestContainerDiv> */}
+          {/* <TestContainerDiv> */}
+          {/* <TestBox /> */}
+          {/* </TestContainerDiv> */}
           <QuestionMain></QuestionMain>
         </QuestionMainDiv>
       </QuestionsContainer>
