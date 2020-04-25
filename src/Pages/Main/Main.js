@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import Nav from "Components/Nav";
 import About from "Components/About/About";
-import Question from "Components/Question/QuestionWindow";
+// import Question from "Components/Question/QuestionWindow";
+import Footer from "Components/ResultWindow/Footer";
 import RECYCLE from "Images/Main/trash.png";
 import COMPUTER from "Images/Main/computer.png";
 
@@ -26,6 +27,7 @@ const Main = (props) => {
         {about && <About />}
         {/* <Question /> */}
       </Section>
+      <Footer />
     </MainWrapper>
   );
 };
@@ -36,6 +38,10 @@ const MainWrapper = styled.div`
   width: 100vw;
   height: 100vh;
   border: 2px solid #000000;
+
+  @media only screen and (max-width: 415px) {
+    /* overflow: hidden; */
+  }
 `;
 
 const Section = styled.div`
@@ -46,12 +52,20 @@ const Section = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+
+  @media only screen and (max-width: 415px) {
+    height: calc(100% - 60px);
+  }
 `;
 
 const IconWrapper = styled.div`
   position: absolute;
   top: 100px;
   left: 40px;
+
+  /* @media only screen and (max-width: 415px) {
+    display: none;
+  } */
 `;
 
 const Icon = styled.div`

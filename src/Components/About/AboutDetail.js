@@ -50,6 +50,10 @@ const DetailWrapper = styled.div`
   position: absolute;
   right: 5%;
   z-index: 999;
+
+  @media only screen and (max-width: 415px) {
+    display: none;
+  }
 `;
 
 const Section = styled.div`
