@@ -7,7 +7,7 @@ import InfoData from "./AboutData";
 import MEMBERS from "Images/About/members.jpg";
 import CLICK from "Images/About/click.svg";
 
-const About = () => {
+const About = (props) => {
   const [info, setInfo] = useState({});
   const [detail, setDetail] = useState(false);
 
@@ -18,9 +18,14 @@ const About = () => {
     setInfo(Data[id]);
   };
 
+  const close = (value) => {
+    console.log("ee", value);
+    setDetail(value);
+  };
+
   return (
     <AboutWrapper>
-      <WindowNav title="About" />
+      <WindowNav title="About" close={(value) => close(value)} />
       <Section>
         <Text>
           <br />
