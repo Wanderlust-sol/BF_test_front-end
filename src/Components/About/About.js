@@ -13,7 +13,7 @@ const About = () => {
   const Data = { InfoData }.InfoData;
 
   const goToDetail = (id) => {
-    setDetail(!detail);
+    setDetail(true);
     setInfo(Data[id]);
   };
 
@@ -76,10 +76,17 @@ const AboutWrapper = styled.div`
   height: auto;
   border: 2px solid #000000;
   box-shadow: 13px 10px 0px -1px rgba(74, 79, 79, 1);
-  position: absolute;
-  top: 150px;
-  left: 30%;
   z-index: 99;
+
+  @media only screen and (max-width: 780px) {
+    margin: 0 20px;
+  }
+
+  @media only screen and (max-width: 415px) {
+    width: 100%;
+    height: 100%;
+    box-shadow: none;
+  }
 `;
 
 const Section = styled.div`
@@ -90,6 +97,13 @@ const Section = styled.div`
   justify-content: center;
   flex-direction: column;
   align-items: center;
+
+  @media only screen and (max-width: 415px) {
+    /* width: 100%; */
+    height: 100%;
+    display: flex;
+    justify-content: start;
+  }
 `;
 
 const Text = styled.div`
@@ -108,6 +122,22 @@ const ImageWrapper = styled.div`
   background: url(${MEMBERS}) no-repeat center center;
   background-size: cover;
   position: relative;
+
+  @media only screen and (max-width: 415px) {
+    width: 95%;
+    height: 200px;
+    margin-top: 50px;
+
+    h3,
+    img {
+      display: none;
+    }
+
+    div {
+      font-size: 0.7rem;
+      line-height: 1.6;
+    }
+  }
 `;
 
 const Rainbow = styled.div`

@@ -7,7 +7,7 @@ import BG from "Images/AboutDetail/BG.png";
 
 const AboutDetail = (props) => {
   const data = props.data;
-  console.log(data.img);
+
   return (
     <DetailWrapper>
       <WindowNav title={data.name} />
@@ -48,8 +48,7 @@ const DetailWrapper = styled.div`
   border: 2px solid #000000;
   background: #699584;
   position: absolute;
-  top: 20%;
-  right: -40%;
+  right: 5%;
   z-index: 999;
 `;
 
