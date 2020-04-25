@@ -6,9 +6,14 @@ import About from "Components/About/About";
 import Footer from "Components/ResultWindow/Footer";
 import RECYCLE from "Images/Main/trash.png";
 import COMPUTER from "Images/Main/computer.png";
+import WECODE from "Images/Main/WeTV.png";
 
 const Main = (props) => {
   const [about, setAbout] = useState(false);
+
+  const goToWecode = () => {
+    window.open("https://wecode.co.kr/");
+  };
 
   return (
     <MainWrapper>
@@ -22,6 +27,10 @@ const Main = (props) => {
           <Icon onClick={() => setAbout(!about)}>
             <img className="computer" src={COMPUTER} alt="computer" />
             <Text>Contributor</Text>
+          </Icon>
+          <Icon onClick={() => goToWecode()}>
+            <img className="wecode" src={WECODE} alt="computer" />
+            <Text>Wecode</Text>
           </Icon>
         </IconWrapper>
         {about && <About />}
@@ -38,10 +47,7 @@ const MainWrapper = styled.div`
   width: 100vw;
   height: 100vh;
   border: 2px solid #000000;
-
-  @media only screen and (max-width: 415px) {
-    /* overflow: hidden; */
-  }
+  overflow: hidden;
 `;
 
 const Section = styled.div`
@@ -73,17 +79,25 @@ const Icon = styled.div`
   flex-direction: column;
   align-items: center;
   margin-bottom: 20px;
-  cursor: pointer;
 
   .recycle {
     width: 60px;
     height: auto;
     margin-bottom: 5px;
+    cursor: pointer;
   }
 
   .computer {
     width: 80px;
     height: auto;
+    cursor: pointer;
+  }
+
+  .wecode {
+    width: 70px;
+    height: auto;
+    margin-bottom: 5px;
+    cursor: pointer;
   }
 `;
 
@@ -95,4 +109,5 @@ const Text = styled.div`
   line-height: 19px;
   background: #fabdfc;
   border: 1px solid #000000;
+  cursor: pointer;
 `;
