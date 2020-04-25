@@ -47,14 +47,13 @@ const NavContainer = styled.nav`
 `;
 
 const TitleSection = styled.div`
-  width: 25%;
+  width: 70%;
   display: flex;
   flex-direction: row;
 `;
 
 const LogoBox = styled.div`
   margin-left: 2px;
-
   width: 30px;
   height: 30px;
   display: flex;

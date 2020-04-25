@@ -21,14 +21,10 @@ const QuestionMain = (props) => {
     // setFinished(false);
     // 밑에 두 줄은 마지막 문제일 때, 결과보내는 용
     setSendResult(true);
-    console.log("테스트 테스트 마지막 입니다.");
 
     setQuesNum(quesNum + 1, console.log("문제에 찍히는 놈 : ", quesNum + 1));
     //quesNumUrl를 이용해서 데이터 통신을 해야힘
-    setQuesNumUrl(
-      quesNumUrl + 1,
-      console.log("url에 넣을 놈: ", quesNumUrl + 1)
-    );
+    setQuesNumUrl(quesNumUrl + 1);
 
     setPickData({ ...pickedData, [quesData.id]: quesData.choice[index].id });
     console.log("들어가는 벨류값", {
@@ -36,8 +32,62 @@ const QuestionMain = (props) => {
       [quesData.id]: quesData.choice[index].id,
     });
 
-    // if (quesNum === 14) {
-    // }
+    // if (quesNum > 13) {
+    //   //결과보기로 컴포넌트 체인지
+    //   props.getLoadingStatus(true);
+    // } else
+    if (quesNum === 13) {
+      if (quesNumUrl === 14) {
+        if (index === 0) {
+          setPickData(
+            { ...pickedData, type: "A" },
+            console.log("타입들어가는지 확인중", pickedData)
+          );
+          props.getLoadingStatus(true);
+        } else {
+          setPickData({ ...pickedData, type: "B" });
+          props.getLoadingStatus(true);
+        }
+      } else if (quesNumUrl === 15) {
+        setPickData(
+          { ...pickedData, type: "A" },
+          console.log("타입들어가는지 확인중", pickedData)
+        );
+        props.getLoadingStatus(true);
+      } else {
+        setPickData(
+          { ...pickedData, type: "B" },
+          console.log("타입들어가는지 확인중", pickedData)
+        );
+        props.getLoadingStatus(true);
+      }
+    } else {
+      if (quesNumUrl === 11) {
+        if (index === 0) {
+          setQuesNumUrl(quesNumUrl + 1);
+          console.log("11번문제 1번 선택", quesNumUrl + 1);
+        } else {
+          setQuesNumUrl(quesNumUrl + 2);
+          console.log("11번문제 2번 선택", quesNumUrl + 2);
+        }
+      } else if (quesNumUrl === 12) {
+        if (index === 0) {
+          setQuesNumUrl(quesNumUrl + 3);
+          console.log("12번문제 1번 선택", quesNumUrl + 3);
+        } else {
+          setQuesNumUrl(quesNumUrl + 2);
+          console.log("12번문제 2번 선택", quesNumUrl + 2);
+        }
+      } else if (quesNumUrl === 13) {
+        if (index === 0) {
+          setQuesNumUrl(quesNumUrl + 1);
+          console.log("13번문제 1번 선택", quesNumUrl + 1);
+        } else {
+          setQuesNumUrl(quesNumUrl + 3);
+          console.log("12번문제 2번 선택", quesNumUrl + 3);
+        }
+      }
+    }
   };
 
   // const a = new Typing();
@@ -64,7 +114,7 @@ const QuestionMain = (props) => {
       const gotFirstQues = await axios.get(
         // `http://localhost:3000/Data/question${quesNum}.json`
         // `http://10.58.6.69:8000/poll/${quesNum}`
-        `http://10.58.0.48:8000/poll/${quesNumUrl}`
+        `http://52.79.185.94:8000/poll/${quesNumUrl}`
       );
       const data = await gotFirstQues.data.question_data;
       console.log("받아지는 데이ㅓ: ", data);
@@ -84,6 +134,8 @@ const QuestionMain = (props) => {
       setTimeout(() => {
         fetchFirstQuestion();
       }, 8500);
+    } else if (quesNum > 13) {
+      return;
     } else {
       fetchFirstQuestion();
     }
@@ -110,13 +162,16 @@ const QuestionMain = (props) => {
           </Typing> */}
           {/********** 컴포넌트 분리함 **********/}
           {/* {finished ? ( */}
-          {quesNum < 14 ? (
+          {/* {quesNum < 14 ? (
             <div>
               {quesNum}. {quesData.question}
             </div>
           ) : (
-            "여가에는 로딩창 띄우기"
-          )}
+            ""
+          )} */}
+          <div>
+            {quesNum}. {quesData.question}
+          </div>
           {/* ) : (
             <TypingEffect
               speed={typeSpeed}
@@ -130,7 +185,7 @@ const QuestionMain = (props) => {
         </QuestionBox>
         {quesData.image_url ? (
           <QImgBox>
-            <QImg img={quesData.image_url}></QImg>
+            <QImg src={quesData.image_url}></QImg>
           </QImgBox>
         ) : (
           ""
@@ -154,7 +209,7 @@ export default QuestionMain;
 
 const QBoxWrapper = styled.div`
   width: 90%;
-  margin: 50px auto 0 auto;
+  margin: 35px auto 0 auto;
 `;
 
 const QBoxContainer = styled.div`
@@ -169,21 +224,24 @@ const QuestionBox = styled.div`
   line-height: 35px;
 `;
 
-const QImgBox = styled.div``;
+const QImgBox = styled.div`
+  margin: 0 auto;
+  margin-top: 10px;
+`;
 
-const QImg = styled.div`
-  width: 30%;
-  height: 30%;
-  background-image: ${(props) => `url(${props.img})`};
-  background-repeat: none;
-  background-size: cover;
+const QImg = styled.img`
+  width: 400px;
+  height: 300px;
+  // background-image: ${(props) => `url(${props.img})`};
+  // background-repeat: none;
+  // background-size: cover;
 `;
 const TextSelectBox = styled.div``;
 
 const SelectOutLineDiv = styled.div`
   width: 100%;
   border: 1px solid white;
-  margin: 40px 0;
+  margin-top: 20px;
   padding: 2px;
   display: ${(props) => (props.display ? "block" : "none")};
   display: block;
