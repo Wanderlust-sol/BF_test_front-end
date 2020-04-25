@@ -13,9 +13,13 @@ const GlobalStyle = createGlobalStyle`
   }
   
   ${reset}
+  *{
+    box-sizing: border-box ;
 
+  }
   body {
     font-family:  DungGuenMo, 'Noto Sans KR', sans-serif;
+
   };     
 `;
 ReactDOM.render(

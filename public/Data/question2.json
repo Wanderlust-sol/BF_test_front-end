@@ -1,0 +1,17 @@
+{
+  "question_data": {
+    "choice": [
+      {
+        "choice": "이게 왜? 잠기기만 하면 된다",
+        "id": 1
+      },
+      {
+        "choice": "신경쓰인다",
+        "id": 2
+      }
+    ],
+    "id": 2,
+    "image_url": null,
+    "question": "배가 아파서 화장실에 간 당신, 눈 앞에 보이는 문고리의 모습"
+  }
+}

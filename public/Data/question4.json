@@ -1,0 +1,17 @@
+{
+  "question_data": {
+    "choice": [
+      {
+        "choice": "ㅁㄴㅇㄹㅁㄴㅇ",
+        "id": 1
+      },
+      {
+        "choice": "ㅁㄴㅇㄹㄴㅁㅇㄹ",
+        "id": 2
+      }
+    ],
+    "id": 4,
+    "image_url": null,
+    "question": "이게뭐냐 뭐가 뭐긴 뭐냐"
+  }
+}
