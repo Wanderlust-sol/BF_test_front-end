@@ -2,17 +2,23 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import Nav from "Components/Nav";
 import About from "Components/About/About";
+import Question from "Components/Question/QuestionWindow";
+import Footer from "Components/ResultWindow/Footer";
 import RECYCLE from "Images/Main/trash.png";
 import COMPUTER from "Images/Main/computer.png";
-import Question from "Components/Question/QuestionWindow";
+import WECODE from "Images/Main/WeTV.png";
 
 const Main = (props) => {
   const [mode, setMode] = useState(false);
   const [postData, setPostData] = useState({});
+  const [about, setAbout] = useState(false);
 
   const getData = (postData) => {
     console.log("data왔다~~~ : ", postData);
     setPostData(postData);
+  };
+  const goToWecode = () => {
+    window.open("https://wecode.co.kr/");
   };
 
   return (
@@ -24,14 +30,19 @@ const Main = (props) => {
             <img className="recycle" src={RECYCLE} alt="computer" />
             <Text>Recycle Bin</Text>
           </Icon>
-          <Icon onClick={() => setMode(!mode)}>
+          <Icon onClick={() => setAbout(!about)}>
             <img className="computer" src={COMPUTER} alt="computer" />
             <Text>Contributor</Text>
           </Icon>
+          <Icon onClick={() => goToWecode()}>
+            <img className="wecode" src={WECODE} alt="computer" />
+            <Text>Wecode</Text>
+          </Icon>
         </IconWrapper>
-        {mode && <About />}
         <Question getData={(data) => getData(data)} />
+        {about && <About />}
       </Section>
+      <Footer />
     </MainWrapper>
   );
 };
@@ -42,6 +53,7 @@ const MainWrapper = styled.div`
   width: 100vw;
   height: 100vh;
   border: 2px solid #000000;
+  overflow: hidden;
 `;
 
 const Section = styled.div`
@@ -49,12 +61,23 @@ const Section = styled.div`
   height: 100%;
   background: #29bbbb;
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @media only screen and (max-width: 415px) {
+    height: calc(100% - 60px);
+  }
 `;
 
 const IconWrapper = styled.div`
   position: absolute;
   top: 100px;
   left: 40px;
+
+  /* @media only screen and (max-width: 415px) {
+    display: none;
+  } */
 `;
 
 const Icon = styled.div`
@@ -62,17 +85,25 @@ const Icon = styled.div`
   flex-direction: column;
   align-items: center;
   margin-bottom: 20px;
-  cursor: pointer;
 
   .recycle {
     width: 60px;
     height: auto;
     margin-bottom: 5px;
+    cursor: pointer;
   }
 
   .computer {
     width: 80px;
     height: auto;
+    cursor: pointer;
+  }
+
+  .wecode {
+    width: 70px;
+    height: auto;
+    margin-bottom: 5px;
+    cursor: pointer;
   }
 `;
 
@@ -84,4 +115,5 @@ const Text = styled.div`
   line-height: 19px;
   background: #fabdfc;
   border: 1px solid #000000;
+  cursor: pointer;
 `;

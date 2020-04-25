@@ -15,12 +15,16 @@ const GlobalStyle = createGlobalStyle`
   ${reset}
   *{
     box-sizing: border-box ;
+    cursor: default;
 
   }
   body {
-    font-family:  DungGuenMo, 'Noto Sans KR', sans-serif;
-
-  };     
+    font-family:  DungGuenMo, 'Noto Sans KR', sans-serif;   
+  };  
+  a {
+    text-decoration: none;
+    color: #000000
+  }   
 `;
 ReactDOM.render(
   <React.StrictMode>
