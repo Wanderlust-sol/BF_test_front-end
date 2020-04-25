@@ -1,27 +1,38 @@
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
+import axios from "axios";
 import WindowNav from "./WindowNav";
-import React, { useEffect } from "react";
+import Footer from "./Footer";
 
 const Result = (props) => {
-  useEffect(() => {}, []);
+  const [type, setType] = useState([]);
+  const [typeName, setTypeName] = useState("");
+  useEffect(() => {
+    fetchData();
+  });
 
-  // const FecthData = () => {
-  //   fetch("10.58.6.69:8000/poll/result", {
-  //     method: "POST",
-  //     body: JSON.stringify({
-  //       answer: {
-  //         "1": 1,
-  //         "2": 3,
-  //         "3": 5,
-  //         "4": 7,
-  //         "5": 10,
-  //       },
-  //       type: "A",
-  //     }),
-  //   })
-  //     .then((res) => res.json())
-  //     .then((res) => console.log(res));
-  // };
+  const handleType = (name) => {
+    const lastLetter = name[name.length - 3];
+    if (lastLetter === "풀") {
+      setTypeName("Full-Stack Developer");
+    } else if (lastLetter === "트") {
+      setTypeName("Front-End Developer");
+    } else {
+      setTypeName("Back-End Developer");
+    }
+  };
+
+  const handleContribute = () => {
+    alert("contribute window");
+  };
+
+  const fetchData = () => {
+    axios.get("http://localhost:3000/Data/result.json").then((response) => {
+      setType(response.data.result);
+      handleType(response.data.result.name);
+    });
+  };
+
   return (
     <Container>
       <WindowNav></WindowNav>
@@ -33,27 +44,20 @@ const Result = (props) => {
           <TypeResultBox>
             <Arrow>→</Arrow>
             <Wave>~ </Wave>
-            FRONT-END
+            <TitleName>{typeName}</TitleName>
           </TypeResultBox>
         </TypeContainer>
         <ResultContainer>
           <CardContainer>
             <CardBox>
-              <CardImg src="https://images.velog.io/images/carminchameleon/post/7c135c61-c37d-448b-92f6-a237f2e1718c/image.png"></CardImg>
+              <CardImg src={type.image_url}></CardImg>
             </CardBox>
           </CardContainer>
           <ContentContainer>
             <ContentWrapper>
               <ContentInner>
-                <TypeName>디자이너 갬성 물씬~ 완벽주의자 프론트엔드</TypeName>
-                <TypeContents>
-                  css는 미안해ㅜㅜ 대신 기능은 내가 책임져보겠다구우~! 눈으로
-                  무언가를 만들어 내는 것도 좋지만 로직을 생각하면 마음이
-                  설레이는 당신. 새로운 웹 사이트를 보면 빨리 저 기능을
-                  구현해보고 싶어 마음이 콩닥콩닥 합니다. 기능은 좋지만 css 만질
-                  생각에 머리가 지끈거린다구요? 너무 걱정하지 마세요~ 지금은
-                  완벽하지 않아도 괜찮아요~ css는 하다보면 익숙해 질 거예요.
-                </TypeContents>
+                <TypeName>{type.name}</TypeName>
+                <TypeContents>{type.description} </TypeContents>
               </ContentInner>
             </ContentWrapper>
           </ContentContainer>
@@ -65,13 +69,18 @@ const Result = (props) => {
           <TypeResultBox>
             <Arrow>→</Arrow>
             <Wave style={{ color: "#D7AEF7" }}>~ </Wave>
-            <FitTypeName>천사표, 나는 다 좋아요 백엔드</FitTypeName>
+            <FitTypeName>{type.dev_fit}</FitTypeName>
           </TypeResultBox>
         </RecommendContainer>
-        <ShareBox>
-          <GlobeIcon src="https://images.velog.io/images/carminchameleon/post/6ec8b50f-b0dc-41aa-90a5-f50adac0fcb9/image.png"></GlobeIcon>
+        <ShareBox
+          onclick={() => {
+            handleContribute();
+          }}
+        >
+          <GlobeIcon src="https://user-images.githubusercontent.com/53595582/80277881-12635800-872d-11ea-8377-ecf69598ed36.png"></GlobeIcon>
         </ShareBox>
       </Body>
+      <Footer></Footer>
     </Container>
   );
 };
@@ -91,11 +100,12 @@ const Container = styled.div`
   box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
 
   @media only screen and (max-width: 415px) {
-    width: 100vw;
+    width: 100%;
     height: 100vh;
     box-shadow: none;
     margin: 0;
     padding: 0;
+    overflow: hidden;
   }
 `;
 const Body = styled.div`
@@ -127,11 +137,16 @@ const TypeContainer = styled.div`
 `;
 const TypeTitleBox = styled.div``;
 
-const TitleName = styled.span``;
-const TypeResultBox = styled.div``;
+const TitleName = styled.span`
+  @media only screen and (max-width: 970px) {
+    font-size: 1.1rem;
+  }
+`;
+const TypeResultBox = styled.span``;
 const Arrow = styled.span`
   margin-right: 4px;
 `;
+
 const Wave = styled.span`
   font-family: Arial, Helvetica, sans-serif;
   font-size: 1.2rem;
@@ -144,7 +159,7 @@ const ResultContainer = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: start;
-  @media only screen and (max-width: 1024px) {
+  @media only screen and (max-width: 970px) {
     flex-direction: column;
     justify-content: center;
   }
@@ -164,7 +179,7 @@ const CardContainer = styled.div`
 const CardBox = styled.div`
   display: flex;
   flex-direction: row;
-  @media only screen and (max-width: 1024px) {
+  @media only screen and (max-width: 970px) {
     justify-content: center;
     margin-bottom: 10px;
   }
@@ -175,14 +190,19 @@ const CardBox = styled.div`
 `;
 
 const CardImg = styled.img`
-  width: 186px;
-  height: 266px;
+  width: 246px;
+  height: 326px;
+
   @media only screen and (max-width: 415px) {
     width: 50%;
     height: 50%;
   }
+  @media only screen and (max-height: 667px) and (max-width: 375px) {
+    width: 44%;
+    height: 44%;
+  }
 
-  @media only screen and (max-width: 375px) {
+  @media only screen and (max-width: 375px) and (min-height: 668px) {
     width: 246px;
     height: 326px;
   }
@@ -196,6 +216,16 @@ const ContentContainer = styled.div`
   flex-direction: row;
   justify-content: center;
   position: relative;
+  @media only screen and (max-width: 415px) {
+  }
+  /* iphone 6/7/8 size */
+  @media only screen and (max-width: 375px) and (max-height: 667px) {
+    min-height: 198px;
+  }
+  /* iphone X size */
+  @media only screen and (max-width: 375px) and (min-height: 668px) {
+    min-height: 214px;
+  }
 `;
 const ContentWrapper = styled.div`
   width: 93%;
@@ -212,7 +242,7 @@ const ContentInner = styled.div`
   margin: 3px auto;
   text-align: center;
   @media only screen and (max-width: 415px) {
-    height: 97%;
+    height: 95%;
     width: 98%;
   }
 `;
@@ -220,8 +250,8 @@ const ContentInner = styled.div`
 const TypeName = styled.div`
   border: 2px dotted white;
   margin: 10px;
-  line-height: 1.9rem;
-  font-size: 1rem;
+  line-height: 2rem;
+  font-size: 1.4rem;
   @media only screen and (max-width: 1175px) {
     font-size: 0.8rem;
     line-height: 1.2rem;
@@ -229,13 +259,21 @@ const TypeName = styled.div`
   }
   @media only screen and (max-width: 415px) {
     font-size: 0.9rem;
-    line-height: 1.9rem;
+    line-height: 1.5rem;
+  }
+  /* iphone 6/7/8 size */
+  @media only screen and (max-width: 375px) and (max-height: 667px) {
+    font-size: 0.8rem;
+    line-height: 1.6rem;
+  }
+  /* iphone X size */
+  @media only screen and (max-width: 375px) and (min-height: 668px) {
   }
 `;
 
 const TypeContents = styled.div`
   text-align: justify;
-  font-size: 0.9em;
+  font-size: 1.2em;
   margin: 10px;
   line-height: 1.4rem;
   letter-spacing: 0.4px;
@@ -247,16 +285,22 @@ const TypeContents = styled.div`
   }
   @media only screen and (max-width: 415px) {
     font-size: 0.9rem;
-    line-height: 1.2rem;
-    letter-spacing: 0.3px;
+    line-height: 1rem;
+  }
+  /* iphone 6/7/8 size */
+  @media only screen and (max-width: 375px) and (max-height: 667px) {
+    font-size: 0.7rem;
+  }
+  /* iphone X size */
+  @media only screen and (max-width: 375px) and (min-height: 668px) {
   }
 `;
 
 const RecommendContainer = styled.div`
   margin-top: 10px;
   margin-left: 10px;
-  font-size: 1.2rem;
-  line-height: 1.6rem;
+  font-size: 1.6rem;
+  line-height: 2rem;
   color: white;
   position: relative;
   margin-bottom: 10px;
@@ -265,12 +309,17 @@ const RecommendContainer = styled.div`
     line-height: 1.2rem;
     margin-bottom: 0px;
   }
+  @media only screen and (max-width: 970px) {
+  }
 `;
 
 const FitTypeName = styled.span`
   font-size: 1.2rem;
+  @media only screen and (max-width: 970px) {
+    font-size: 1.1rem;
+  }
   @media only screen and (max-width: 415px) {
-    font-size: 1rem;
+    font-size: 0.9rem;
   }
 `;
 
@@ -290,4 +339,17 @@ const GlobeIcon = styled.img`
   width: 55px;
   margin-right: 10px;
   height: 55px;
+  @media only screen and (max-width: 415px) {
+    width: 50px;
+    height: 50px;
+  }
+  @media only screen and (max-width: 375px) and (max-height: 667px) {
+    width: 50px;
+    height: 50px;
+  }
+  /* iphone X size */
+  @media only screen and (max-width: 375px) and (min-height: 668px) {
+    width: 65px;
+    height: 65px;
+  }
 `;
