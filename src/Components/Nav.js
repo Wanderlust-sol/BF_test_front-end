@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import Logo from "Images/Group6.png";
+import LOGO from "Images/Group6.png";
 import BTR from "Images/Nav/BTR.png";
-import Sun from "Images/Nav/SUN.png";
-import Moon from "Images/Nav/Moon.png";
+import SUN from "Images/Nav/SUN.png";
+import MOON from "Images/Nav/Moon.png";
 
 const Nav = () => {
   const [time, setTime] = useState("");
@@ -32,14 +32,14 @@ const Nav = () => {
   return (
     <NavWrapper>
       <NavLeft>
-        <img className="logo" src={Logo} alt="logo" />
+        <img className="logo" src={LOGO} alt="logo" />
         <div>Test</div>
       </NavLeft>
       <NavRight>
-        {hour >= 7 && hour <= 18 ? (
-          <img src={Sun} alt="sun" />
+        {hour >= 7 && hour < 18 ? (
+          <img className="sun" src={SUN} alt="sun" />
         ) : (
-          <img src={Moon} alt="moon" />
+          <img className="moon" src={MOON} alt="moon" />
         )}
         <img className="battery" src={BTR} alt="battery" />
         <div>{time}</div>
@@ -84,9 +84,16 @@ const NavRight = styled.div`
   display: flex;
   align-items: center;
 
-  img {
-    width: auto;
-    height: 35px;
+  .sun {
+    width: 30px;
+    height: auto;
+  }
+
+  .moon {
+    width: 12px;
+    height: auto;
+    transform: rotate(45deg);
+    margin-right: 5px;
   }
 
   .battery {

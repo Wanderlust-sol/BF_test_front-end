@@ -5,7 +5,7 @@ import CLOSEICON from "Images/Nav/close.png";
 import EXPANDICON from "Images/Nav/expand.png";
 import MINICON from "Images/Nav/min.png";
 
-const WindowNav = () => {
+const WindowNav = (data) => {
   return (
     <NavContainer>
       <TitleSection>
@@ -13,7 +13,7 @@ const WindowNav = () => {
           <Logo></Logo>
         </LogoBox>
         <MenuBox>
-          <Menu>RESULT</Menu>
+          <Menu>{data.title}</Menu>
         </MenuBox>
       </TitleSection>
       <ControlSection>
@@ -100,6 +100,7 @@ const Min = styled.img`
   width: 23px;
   height: 23px;
   margin-right: 3px;
+  cursor: pointer;
 `;
 
 const Expand = styled.img`
@@ -107,10 +108,12 @@ const Expand = styled.img`
   width: 23px;
   height: 23px;
   margin-right: 3px;
+  cursor: pointer;
 `;
 const Close = styled.img`
   margin: 0 auto;
   width: 23px;
   height: 23px;
   margin-right: 3px;
+  cursor: pointer;
 `;

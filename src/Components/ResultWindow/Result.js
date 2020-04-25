@@ -6,7 +6,7 @@ const Result = (props) => {
   return (
     <ResultWrapper>
       <Container>
-        <WindowNav></WindowNav>
+        <WindowNav title="Result"></WindowNav>
         <Body>
           <TypeContainer>
             <TypeTitleBox>
