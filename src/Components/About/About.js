@@ -1,10 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import styled, { keyframes } from "styled-components";
 import WindowNav from "Components/ResultWindow/WindowNav";
+import AboutDetail from "Components/About/AboutDetail";
+import InfoData from "./AboutData";
 import MEMBERS from "Images/About/members.jpg";
 import CLICK from "Images/About/click.svg";
 
 const About = () => {
+  const [info, setInfo] = useState({});
+  const [detail, setDetail] = useState(false);
+
+  const Data = { InfoData }.InfoData;
+
+  const goToDetail = (id) => {
+    setDetail(!detail);
+    setInfo(Data[id]);
+  };
+
   return (
     <AboutWrapper>
       <WindowNav title="About" />
@@ -34,19 +46,24 @@ const About = () => {
         </Text>
         <ImageWrapper>
           <Rainbow>
-            <Color className="red">HONG_DEV</Color>
-            <Color className="orange">CARMIN</Color>
-            <Color className="yellow">SUNNY</Color>
-            <Color className="green">whybein</Color>
-            <Color className="blue">SOL</Color>
-            <Color className="navy">AIDEN</Color>
-            <Color className="purple">KAY</Color>
+            {Data.map((card) => {
+              return (
+                <Color
+                  className={card.color}
+                  key={card.id}
+                  onClick={() => goToDetail(card.id)}
+                >
+                  {card.name}
+                </Color>
+              );
+            })}
           </Rainbow>
           <Click>
             <h3>click here</h3>
             <img className="click" src={CLICK} alt="click" />
           </Click>
         </ImageWrapper>
+        {detail && <AboutDetail data={info} />}
       </Section>
     </AboutWrapper>
   );
@@ -61,7 +78,7 @@ const AboutWrapper = styled.div`
   box-shadow: 13px 10px 0px -1px rgba(74, 79, 79, 1);
   position: absolute;
   top: 150px;
-  right: 30%;
+  left: 30%;
   z-index: 99;
 `;
 
