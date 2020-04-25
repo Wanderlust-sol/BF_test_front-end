@@ -49,7 +49,7 @@ const NavContainer = styled.nav`
 `;
 
 const TitleSection = styled.div`
-  width: 25%;
+  width: 70%;
   display: flex;
   flex-direction: row;
 `;
