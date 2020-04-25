@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import { FaGithub } from "react-icons/fa";
-import { FaInstagram } from "react-icons/fa";
+import { Github } from "@styled-icons/boxicons-logos";
+import { Instagram } from "@styled-icons/boxicons-logos";
 import WindowNav from "Components/ResultWindow/WindowNav";
 import BG from "Images/AboutDetail/BG.png";
 
@@ -18,7 +18,7 @@ const AboutDetail = (props) => {
           <Position>{data.position} </Position>
           <LinkWrapper>
             <Link>
-              <FaGithub />
+              <GithubIcon />
               <a
                 className="github"
                 href={data.git}
@@ -29,7 +29,7 @@ const AboutDetail = (props) => {
               </a>
             </Link>
             <Link>
-              <FaInstagram />
+              <InstaIcon />
               <a href={data.insta} target="_blank" rel="noopener noreferrer">
                 INSTAGRAM
               </a>
@@ -85,7 +85,8 @@ const Name = styled.div`
 `;
 
 const Position = styled.div`
-  font-size: 20px;
+  font-size: 25px;
+  margin-top: 10px;
 `;
 
 const LinkWrapper = styled.div`
@@ -100,9 +101,23 @@ const Link = styled.div`
   margin-top: 3px;
   display: flex;
   justify-content: center;
-  cursor: pointer;
 
+  a {
+    cursor: pointer;
+  }
   .github {
     margin-left: 3px;
   }
+`;
+
+const GithubIcon = styled(Github)`
+  width: 20px;
+  height: auto;
+  cursor: pointer;
+`;
+
+const InstaIcon = styled(Instagram)`
+  width: 20px;
+  height: auto;
+  cursor: pointer;
 `;
