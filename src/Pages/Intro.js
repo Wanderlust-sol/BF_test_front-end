@@ -6,7 +6,7 @@ import standard from "figlet/importable-fonts/Standard.js";
 import Typing from "react-typing-animation";
 import Grain from "Images/grain.png";
 
-const Intro = props => {
+const Intro = (props) => {
   const [mainText, setMainText] = useState("");
   const [count, setCount] = useState(3);
   const [finishType, setFinishType] = useState(false);
@@ -18,7 +18,7 @@ const Intro = props => {
     figlet.text(
       "BF-TEST",
       {
-        font: "Standard"
+        font: "Standard",
       },
       function (err, data) {
         console.log(data);
@@ -186,7 +186,7 @@ const TypedText = styled.p`
   z-index: 100;
 
   @media only screen and (max-width: 415px) {
-    display: ${props => props.finishType && "none"};
+    display: ${(props) => props.finishType && "none"};
     font-size: 15px;
     width: 92%;
   }

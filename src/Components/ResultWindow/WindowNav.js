@@ -41,6 +41,9 @@ const NavContainer = styled.nav`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  @media only screen and (max-width: 415px) {
+    width: 100vw;
+  }
 `;
 
 const TitleSection = styled.div`
