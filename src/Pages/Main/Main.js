@@ -1,24 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import Nav from "Components/Nav";
-import Recycle from "Images/Main/trash.png";
-import Computer from "Images/Main/computer.png";
+import About from "Components/About/About";
+import Detail from "Components/About/Detail";
+import RECYCLE from "Images/Main/trash.png";
+import COMPUTER from "Images/Main/computer.png";
 
-const Main = () => {
+const Main = (props) => {
+  const [mode, setMode] = useState(true);
+
   return (
     <MainWrapper>
       <Nav />
       <Section>
         <IconWrapper>
           <Icon>
-            <img className="recycle" src={Recycle} alt="computer" />
+            <img className="recycle" src={RECYCLE} alt="computer" />
             <Text>Recycle Bin</Text>
           </Icon>
-          <Icon>
-            <img className="computer" src={Computer} alt="computer" />
+          <Icon onClick={() => setMode(!mode)}>
+            <img className="computer" src={COMPUTER} alt="computer" />
             <Text>Contributor</Text>
           </Icon>
         </IconWrapper>
+        {mode && <About />}
+        <Detail />
       </Section>
     </MainWrapper>
   );
