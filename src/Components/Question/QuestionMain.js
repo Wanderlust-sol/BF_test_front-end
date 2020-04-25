@@ -5,7 +5,7 @@ import axios from "axios";
 // import TypingEffect from "Components/TypingEffect";
 
 // const typeSpeed = 50;
-const QuestionMain = (props) => {
+const QuestionMain = props => {
   const [quesData, setData] = useState({});
   const [quesNum, setQuesNum] = useState(1);
   const [quesNumUrl, setQuesNumUrl] = useState(1);
@@ -17,7 +17,7 @@ const QuestionMain = (props) => {
   // const [finished, setFinished] = useState(false);
   // const typeRef = useRef(null);
 
-  const clickChoice = (index) => {
+  const clickChoice = index => {
     // setFinished(false);
     // 밑에 두 줄은 마지막 문제일 때, 결과보내는 용
     setSendResult(true);
@@ -33,7 +33,7 @@ const QuestionMain = (props) => {
     setPickData({ ...pickedData, [quesData.id]: quesData.choice[index].id });
     console.log("들어가는 벨류값", {
       ...pickedData,
-      [quesData.id]: quesData.choice[index].id,
+      [quesData.id]: quesData.choice[index].id
     });
 
     // if (quesNum === 14) {
@@ -64,7 +64,7 @@ const QuestionMain = (props) => {
       const gotFirstQues = await axios.get(
         // `http://localhost:3000/Data/question${quesNum}.json`
         // `http://10.58.6.69:8000/poll/${quesNum}`
-        `http://10.58.0.48:8000/poll/${quesNumUrl}`
+        `http://52.79.185.94:8000/poll/${quesNumUrl}`
       );
       const data = await gotFirstQues.data.question_data;
       console.log("받아지는 데이ㅓ: ", data);
@@ -115,7 +115,7 @@ const QuestionMain = (props) => {
               {quesNum}. {quesData.question}
             </div>
           ) : (
-            "여가에는 로딩창 띄우기"
+            "여기에는 로딩창 띄우기"
           )}
           {/* ) : (
             <TypingEffect
@@ -174,7 +174,7 @@ const QImgBox = styled.div``;
 const QImg = styled.div`
   width: 30%;
   height: 30%;
-  background-image: ${(props) => `url(${props.img})`};
+  background-image: ${props => `url(${props.img})`};
   background-repeat: none;
   background-size: cover;
 `;
@@ -185,7 +185,7 @@ const SelectOutLineDiv = styled.div`
   border: 1px solid white;
   margin: 40px 0;
   padding: 2px;
-  display: ${(props) => (props.display ? "block" : "none")};
+  display: ${props => (props.display ? "block" : "none")};
   display: block;
 `;
 
