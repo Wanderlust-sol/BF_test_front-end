@@ -2,15 +2,21 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import Nav from "Components/Nav";
 import About from "Components/About/About";
-// import Question from "Components/Question/QuestionWindow";
+import Question from "Components/Question/QuestionWindow";
 import Footer from "Components/ResultWindow/Footer";
 import RECYCLE from "Images/Main/trash.png";
 import COMPUTER from "Images/Main/computer.png";
 import WECODE from "Images/Main/WeTV.png";
 
 const Main = (props) => {
+  const [mode, setMode] = useState(false);
+  const [postData, setPostData] = useState({});
   const [about, setAbout] = useState(false);
 
+  const getData = (postData) => {
+    console.log("data왔다~~~ : ", postData);
+    setPostData(postData);
+  };
   const goToWecode = () => {
     window.open("https://wecode.co.kr/");
   };
@@ -33,8 +39,8 @@ const Main = (props) => {
             <Text>Wecode</Text>
           </Icon>
         </IconWrapper>
+        <Question getData={(data) => getData(data)} />
         {about && <About />}
-        {/* <Question /> */}
       </Section>
       <Footer />
     </MainWrapper>
