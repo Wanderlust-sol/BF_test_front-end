@@ -5,6 +5,7 @@ import figlet from "figlet";
 import standard from "figlet/importable-fonts/Standard.js";
 import Typing from "react-typing-animation";
 import Grain from "Images/grain.png";
+import Mono from "Styles/Fonts/monospace.ttf";
 
 const Intro = props => {
   const [mainText, setMainText] = useState("");
@@ -81,10 +82,10 @@ const Intro = props => {
                 .<br />
                 <br />
                 2020년 4월, 훌륭한 프론트엔드와 백엔드 개발자로 성장한 이들이
-                결심을 이루러 모였습니다.
+                결심을 이루기 위해 모였습니다.
                 <br />
                 <br />
-                기대되지 않으신가요?
+                기대되지 않나요?
                 <br />
                 프론트엔드와 백엔드 중 당신의 성향에 맞는 포지션을 찾아주는
                 전설의 심리테스트!
@@ -212,7 +213,7 @@ const TypedText = styled.p`
     line-height: 20px;
   }
 
-  @media only screen and (min-width: 416px) and (max-width: 768px) {
+  @media only screen and (min-width: 416px) and (max-width: 970px) {
     display: ${props => props.finishType && "none"};
     font-size: 15px;
     width: 90%;
@@ -236,7 +237,7 @@ const TypedNum = styled.span`
     line-height: 20px;
   }
 
-  @media only screen and (min-width: 416px) and (max-width: 768px) {
+  @media only screen and (min-width: 416px) and (max-width: 970px) {
     display: ${props => props.finishType && "none"};
     font-size: 145px;
     left: 45%;
@@ -259,14 +260,20 @@ const MainWrapper = styled.div`
 const MainText = styled.pre`
   color: #60bb5e;
   font-size: 30px;
-  font-family: monospace;
+  font-family: monospace Mono;
   animation: blinker 0.4s infinite;
+
+  @font-face {
+    font-family: Mono;
+    font-weight: 400;
+    src: url(${Mono});
+  }
 
   @media only screen and (max-width: 415px) {
     font-size: 1rem;
   }
 
-  @media only screen and (min-width: 416px) and (max-width: 768px) {
+  @media only screen and (min-width: 416px) and (max-width: 970px) {
     font-size: 1.5rem;
   }
 
