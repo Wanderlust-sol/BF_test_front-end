@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Typing from "react-typing-animation";
 import BFICON from "Images/Group6.png";
-import QuestionMain from "Components/QuestionMain";
+import QuestionMain from "Components/Question/QuestionMain";
 import TestBox from "Components/TestBox";
 
 const typeSpeed = 20;

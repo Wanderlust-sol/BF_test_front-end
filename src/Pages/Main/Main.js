@@ -2,12 +2,13 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import Nav from "Components/Nav";
 import About from "Components/About/About";
-import Detail from "Components/About/Detail";
+// import Detail from "Components/About/Detail";
 import RECYCLE from "Images/Main/trash.png";
 import COMPUTER from "Images/Main/computer.png";
+import Question from "Components/Question/QuestionWindow";
 
 const Main = (props) => {
-  const [mode, setMode] = useState(true);
+  const [mode, setMode] = useState(false);
 
   return (
     <MainWrapper>
@@ -24,7 +25,8 @@ const Main = (props) => {
           </Icon>
         </IconWrapper>
         {mode && <About />}
-        <Detail />
+        <Question />
+        {/* <Detail /> */}
       </Section>
     </MainWrapper>
   );

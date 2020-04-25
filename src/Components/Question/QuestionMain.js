@@ -8,7 +8,9 @@ import axios from "axios";
 const QuestionMain = (props) => {
   const [quesData, setData] = useState({});
   const [quesNum, setQuesNum] = useState(1);
+  const [quesNumUrl, setQuesNumUrl] = useState(1);
   const [pickedData, setPickData] = useState({});
+  const [loading, setLoading] = useState(false);
   const [sendResult, setSendResult] = useState(false);
   // const [sec, setSec] = useState(10);
   // const [apperChoice, setAppearChoice] = useState(false);
@@ -17,21 +19,25 @@ const QuestionMain = (props) => {
 
   const clickChoice = (index) => {
     // setFinished(false);
-    // 테스트용 if문
-    if (quesData.id === 7) {
-      setSendResult(true);
-      console.log("테스트 테스트 마지막 입니다.");
-    } else {
-      setQuesNum(
-        quesNum + 1,
-        console.log("버튼 클릭할 때 찍히는 넘 : ", quesNum)
-      );
-      setPickData({ ...pickedData, [quesData.id]: quesData.choice[index].id });
-      console.log("들어가는 벨류값", {
-        ...pickedData,
-        [quesData.id]: quesData.choice[index].id,
-      });
-    }
+    // 밑에 두 줄은 마지막 문제일 때, 결과보내는 용
+    setSendResult(true);
+    console.log("테스트 테스트 마지막 입니다.");
+
+    setQuesNum(quesNum + 1, console.log("문제에 찍히는 놈 : ", quesNum + 1));
+    //quesNumUrl를 이용해서 데이터 통신을 해야힘
+    setQuesNumUrl(
+      quesNumUrl + 1,
+      console.log("url에 넣을 놈: ", quesNumUrl + 1)
+    );
+
+    setPickData({ ...pickedData, [quesData.id]: quesData.choice[index].id });
+    console.log("들어가는 벨류값", {
+      ...pickedData,
+      [quesData.id]: quesData.choice[index].id,
+    });
+
+    // if (quesNum === 14) {
+    // }
   };
 
   // const a = new Typing();
@@ -54,11 +60,11 @@ const QuestionMain = (props) => {
   // }, 1000);
 
   const fetchFirstQuestion = async () => {
-    console.log("여기인가?");
     try {
       const gotFirstQues = await axios.get(
         // `http://localhost:3000/Data/question${quesNum}.json`
-        `http://10.58.6.69:8000/poll/${quesNum}`
+        // `http://10.58.6.69:8000/poll/${quesNum}`
+        `http://10.58.0.48:8000/poll/${quesNumUrl}`
       );
       const data = await gotFirstQues.data.question_data;
       console.log("받아지는 데이ㅓ: ", data);
@@ -104,9 +110,13 @@ const QuestionMain = (props) => {
           </Typing> */}
           {/********** 컴포넌트 분리함 **********/}
           {/* {finished ? ( */}
-          <div>
-            {quesData.id}. {quesData.question}
-          </div>
+          {quesNum < 14 ? (
+            <div>
+              {quesNum}. {quesData.question}
+            </div>
+          ) : (
+            "여가에는 로딩창 띄우기"
+          )}
           {/* ) : (
             <TypingEffect
               speed={typeSpeed}
