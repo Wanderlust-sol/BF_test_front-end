@@ -12,7 +12,7 @@ const QuestionWindow = (props) => {
   const [loading, setLoading] = useState(false);
 
   const getLoadingStatus = (status) => {
-    setLoading(status);
+    setTimeout(setLoading(status), 2000);
   };
 
   return (
@@ -29,40 +29,44 @@ const QuestionWindow = (props) => {
         </QuestionsHeader> */}
         {/* main */}
         <QuestionMainDiv>
-          {!loading ? (
-            <>
-              <Typing speed={typeSpeed}>
-                <span>준비되셨나요 . . . ?</span>
-                <Typing.Backspace
-                  count={18}
-                  speed={typeSpeed * 2}
-                  delay={typeSpeed * 40}
-                />
-              </Typing>
-              <Typing speed={typeSpeed}>
-                <span>
-                  <Typing.Delay ms={typeSpeed * 100} />
-                  자, 그럼 당신의 성향을 알려줄 BF -
-                  <Typing.Delay ms={typeSpeed * 20} />
-                  TEST 를 시작하겠습니다. . . !!!
-                </span>
-                <Typing.Backspace
-                  count={50}
-                  speed={typeSpeed}
-                  delay={typeSpeed * 100}
-                />
-              </Typing>
-              {/********** 타이핑 되는 부분 question layout 완성하고 나서 복구해야함 -끝 *********/}
-              {/* <TestContainerDiv> */}
-              {/* <TestBox /> */}
-              {/* </TestContainerDiv> */}
-              <QuestionMain
-                getLoadingStatus={(status) => getLoadingStatus(status)}
-              ></QuestionMain>
-            </>
+          {/* {!loading ? (
+            <> */}
+          <Typing speed={typeSpeed}>
+            <span>준비되셨나요 . . . ?</span>
+            <Typing.Backspace
+              count={18}
+              speed={typeSpeed * 2}
+              delay={typeSpeed * 40}
+            />
+          </Typing>
+          <Typing speed={typeSpeed}>
+            <span>
+              <Typing.Delay ms={typeSpeed * 100} />
+              자, 그럼 당신의 성향을 알려줄 BF -
+              <Typing.Delay ms={typeSpeed * 20} />
+              TEST 를 시작하겠습니다. . . !!!
+            </span>
+            <Typing.Backspace
+              count={50}
+              speed={typeSpeed}
+              delay={typeSpeed * 100}
+            />
+          </Typing>
+          {/********** 타이핑 되는 부분 question layout 완성하고 나서 복구해야함 -끝 *********/}
+          {/* <TestContainerDiv> */}
+          {/* <TestBox /> */}
+          {/* </TestContainerDiv> */}
+          <QuestionMain
+            getLoadingStatus={(status) => getLoadingStatus(status)}
+            getData={(data) => {
+              props.getData(data);
+            }}
+            loading={loading}
+          ></QuestionMain>
+          {/* </>
           ) : (
             ""
-          )}
+          )} */}
         </QuestionMainDiv>
       </QuestionsContainer>
     </QuestionsWrapper>
@@ -88,44 +92,6 @@ const QuestionsContainer = styled.div`
 
 // window header
 
-const QuestionsHeader = styled.div`
-  width: 100%;
-  background: #fdfd96;
-  border: 3px solid #000000;
-  padding: 8px 0;
-  display: flex;
-  align-items: center;
-  position: relative;
-`;
-
-const HeadContent = styled.span`
-  font-family: Aldrich;
-  font-size: 30px;
-  color: black;
-  margin-left: 10px;
-`;
-
-const BFIconDiv = styled.div`
-  margin-left: 10px;
-  background-image: url(${BFICON});
-  background-position: center;
-  background-repeat: none;
-  background-size: cover;
-  width: 33px;
-  height: 33px;
-`;
-
-const ButtonBox = styled.div`
-  position: absolute;
-  right: 10px;
-`;
-
-const CloseButtonDiv = styled.div`
-  width: 36px;
-  border: 3px solid #000000;
-  background-color: transparent;
-`;
-
 // window
 const QuestionMainDiv = styled.div`
   width: 100%;
@@ -139,9 +105,4 @@ const QuestionMainDiv = styled.div`
     color: white;
     font-size: 20px;
   }
-`;
-
-const TestContainerDiv = styled.div`
-  width: 90%;
-  margin: auto;
 `;

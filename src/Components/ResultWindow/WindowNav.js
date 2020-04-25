@@ -50,6 +50,7 @@ const TitleSection = styled.div`
   width: 70%;
   display: flex;
   flex-direction: row;
+  align-items: center;
 `;
 
 const LogoBox = styled.div`
