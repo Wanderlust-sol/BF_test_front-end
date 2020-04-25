@@ -16,13 +16,16 @@ export default Footer;
 const FooterContainer = styled.div`
   display: none;
   @media only screen and (max-width: 415px) {
-    border: 2px solid black;
+    border-top: 2px solid black;
+    width: 100%;
     height: 30px;
     display: block;
     background-color: #0312ef;
     display: flex;
     flex-direction: row;
     justify-content: center;
+    /* position: absolute;
+    bottom: 0; */
   }
 `;
 
