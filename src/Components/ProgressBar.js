@@ -26,7 +26,7 @@ const useInterval = (callback, delay) => {
   }, [delay]);
 };
 
-const ProgressBar = (props) => {
+const ProgressBar = props => {
   const [progress, setProgress] = useState(0);
   const [showResult, setShowResult] = useState(false);
   const [result, setResult] = useState(false);
@@ -38,8 +38,17 @@ const ProgressBar = (props) => {
   //     }, 100);
   //   }, [a]);
 
-  const clickResult = () => {
+  const clickResult = async () => {
     setResult(true);
+    try {
+      const res = await axios.post("http://52.79.185.94:8000/poll/result", {
+        answer: props.postData,
+        type: "A"
+      });
+      console.log(res);
+    } catch (err) {
+      console.log("err", err);
+    }
   };
   useLayoutEffect(() => {
     const interval =
@@ -112,18 +121,17 @@ const MovingDog = styled.div`
     width: 40px;
     height: 40px;
     background: url('${Dog}') no-repeat;
-    background-position-x: ${(props) =>
-      props.progress % 2 ? "5px" : "-35.5px"};
+    background-position-x: ${props => (props.progress % 2 ? "5px" : "-35.5px")};
     background-size: 75px;
     position: absolute;
     top: -35px;
-    left: ${(props) => props.progress * 5}px;
+    left: ${props => props.progress * 5}px;
     z-index: 5;
 `;
 const HomeDog = styled.div`
     width: 60px;
     height: 60px;
-    background: url('${(props) =>
+    background: url('${props =>
       props.progress % 2 ? Home : HomeBF}') no-repeat;
     background-size: cover;
     position: absolute;
@@ -133,7 +141,7 @@ const HomeDog = styled.div`
 
 `;
 const InProgress = styled.div`
-  width: ${(props) => props.progress && props.progress}%;
+  width: ${props => props.progress && props.progress}%;
   height: 100%;
   position: absolute;
   background-color: white;

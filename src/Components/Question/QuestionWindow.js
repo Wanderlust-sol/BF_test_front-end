@@ -9,15 +9,15 @@ import ProgressBar from "Components/ProgressBar";
 
 const typeSpeed = 20;
 
-const QuestionWindow = (props) => {
-  const [loading, setLoading] = useState(false);
+const QuestionWindow = props => {
+  const [loading, setLoading] = useState(true);
   const [postData, setPostData] = useState({});
 
-  const getLoadingStatus = (status) => {
+  const getLoadingStatus = status => {
     setTimeout(setLoading(status), 2000);
   };
 
-  const getData = (postData) => {
+  const getData = postData => {
     console.log("data왔다~~~ : ", postData);
     setPostData(postData);
   };
@@ -65,8 +65,8 @@ const QuestionWindow = (props) => {
           {/* <TestBox /> */}
           {/* </TestContainerDiv> */}
           <QuestionMain
-            getLoadingStatus={(status) => getLoadingStatus(status)}
-            getData={(data) => {
+            getLoadingStatus={status => getLoadingStatus(status)}
+            getData={data => {
               getData(data);
             }}
             loading={loading}
@@ -74,7 +74,7 @@ const QuestionWindow = (props) => {
           {/* </>
           ) : (
             )} */}
-          {loading && <ProgressBar loading={loading} />}
+          {loading && <ProgressBar postData={postData} loading={loading} />}
         </QuestionMainDiv>
       </QuestionsContainer>
     </QuestionsWrapper>
