@@ -4,11 +4,11 @@ import axios from "axios";
 import WindowNav from "./WindowNav";
 import Footer from "./Footer";
 
-const Result = props => {
+const Result = (props) => {
   const [type, setType] = useState([]);
   const [typeName, setTypeName] = useState("");
 
-  const handleType = name => {
+  const handleType = (name) => {
     const lastLetter = name[name.length - 3];
     if (lastLetter === "풀") {
       setTypeName("Full-Stack Developer");
@@ -19,36 +19,16 @@ const Result = props => {
     }
   };
 
+  const fetchMockData = () => {
+    fetch();
+  };
+
   const handleContribute = () => {
     alert("contribute window");
   };
 
-  const fetchData = async () => {
-    try {
-      const res = await axios.post("http://52.79.185.94:8000/poll/result", {
-        answer: {
-          "1": 3,
-          "2": 5,
-          "3": 5,
-          "4": 7,
-          "5": 10
-        },
-        type: "A"
-      });
-      // console.log(res.data.result);
-      setType(res.data.result);
-      handleType(res.data.result.name);
-    } catch (err) {
-      console.log("err", err);
-    }
-  };
-
-  useEffect(() => {
-    fetchData();
-  }, []);
-
   return (
-    <Container>
+    <Container id="capture">
       <WindowNav></WindowNav>
       <Body>
         <TypeContainer>
@@ -86,12 +66,16 @@ const Result = props => {
             <FitTypeName>{type.dev_fit}</FitTypeName>
           </TypeResultBox>
         </RecommendContainer>
-        <ShareBox
-          onclick={() => {
-            handleContribute();
-          }}
-        >
-          <GlobeIcon src="https://user-images.githubusercontent.com/53595582/80277881-12635800-872d-11ea-8377-ecf69598ed36.png"></GlobeIcon>
+        <ShareBox>
+          <CaptureIcon onClick={() => {}}>Capture</CaptureIcon>
+
+          <GlobeIcon
+            id="captureBtn"
+            onClick={() => {
+              handleContribute();
+            }}
+            src="https://user-images.githubusercontent.com/53595582/80277881-12635800-872d-11ea-8377-ecf69598ed36.png"
+          ></GlobeIcon>
         </ShareBox>
       </Body>
       <Footer></Footer>
@@ -184,7 +168,7 @@ const ResultContainer = styled.div`
 `;
 
 const CardContainer = styled.div`
-  margin-left: 10px;
+  margin-left: 2%;
   @media only screen and (max-width: 415px) {
     margin: 0;
   }
@@ -346,6 +330,7 @@ const ShareBox = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
+    cursor: pointer;
   }
 `;
 
@@ -366,4 +351,9 @@ const GlobeIcon = styled.img`
     width: 65px;
     height: 65px;
   }
+`;
+
+const CaptureIcon = styled.div`
+  color: white;
+  border: 1px solid yellow;
 `;
