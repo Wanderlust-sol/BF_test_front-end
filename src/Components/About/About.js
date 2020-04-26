@@ -84,7 +84,7 @@ const AboutWrapper = styled.div`
 
   @media only screen and (max-width: 780px) {
     margin: 0 20px;
-    border: none;
+    border: 2px solid #000000;
   }
 
   @media only screen and (max-width: 415px) {
@@ -158,6 +158,10 @@ const ImageWrapper = styled.div`
       font-size: 0.7rem;
       line-height: 1.6;
     }
+  }
+
+  @media only screen and (min-height: 700px) and (max-height: 815px) {
+    margin: auto 0;
   }
 `;
 

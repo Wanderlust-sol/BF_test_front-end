@@ -68,6 +68,7 @@ const Section = styled.div`
 
   @media only screen and (max-width: 415px) {
     height: calc(100% - 60px);
+    background: #244c88;
   }
 `;
 
@@ -76,9 +77,16 @@ const IconWrapper = styled.div`
   top: 100px;
   left: 40px;
 
-  /* @media only screen and (max-width: 415px) {
+  @media only screen and (min-width: 500px) and (max-width: 780px) {
+    top: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+  }
+
+  @media only screen and (max-width: 415px) {
     display: none;
-  } */
+  }
 `;
 
 const Icon = styled.div`
@@ -86,6 +94,10 @@ const Icon = styled.div`
   flex-direction: column;
   align-items: center;
   margin-bottom: 20px;
+
+  @media only screen and (min-width: 500px) and (max-width: 780px) {
+    margin-right: 10px;
+  }
 
   .recycle {
     width: 60px;
