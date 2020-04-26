@@ -94,7 +94,6 @@ const QuestionMain = props => {
         fetchFirstQuestion();
       }, 8700);
     } else if (quesNum === 14) {
-      console.log("13번 문제에서 클릭했을때");
       props.getData(pickedData, type);
       props.getLoadingStatus(true);
     } else {
