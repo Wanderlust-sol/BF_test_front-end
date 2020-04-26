@@ -9,15 +9,7 @@ import COMPUTER from "Images/Main/computer.png";
 import WECODE from "Images/Main/WeTV.png";
 
 const Main = props => {
-  // const [mode, setMode] = useState(false);
-  //태솔 => 고른 선택지에 대한 데이터에요. postData 쓰면됩니다
-  // const [postData, setPostData] = useState({});
   const [about, setAbout] = useState(false);
-
-  // const getData = (postData) => {
-  //   console.log("data왔다~~~ : ", postData);
-  //   setPostData(postData);
-  // };
   const goToWecode = () => {
     window.open("https://wecode.co.kr/");
   };

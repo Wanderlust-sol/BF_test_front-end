@@ -12,60 +12,34 @@ const QuestionMain = (props) => {
   const [quesNumUrl, setQuesNumUrl] = useState(1);
   const [pickedData, setPickData] = useState({});
   const [type, setType] = useState();
-  // const [loading, setLoading] = useState(false);
   const [sendResult, setSendResult] = useState(false);
-  // const [sec, setSec] = useState(10);
-  // const [apperChoice, setAppearChoice] = useState(false);
-  // const [finished, setFinished] = useState(false);
-  // const typeRef = useRef(null);
 
   const clickChoice = (index) => {
     // setFinished(false);
     // 밑에 두 줄은 마지막 문제일 때, 결과보내는 용
     setSendResult(true);
 
-    setQuesNum(quesNum + 1, console.log("문제에 찍히는 놈 : ", quesNum + 1));
+    setQuesNum(quesNum + 1);
     //quesNumUrl를 이용해서 데이터 통신을 해야힘
     setQuesNumUrl(quesNumUrl + 1);
 
     setPickData({ ...pickedData, [quesData.id]: quesData.choice[index].id });
-    console.log("들어가는 벨류값", {
-      ...pickedData,
-      [quesData.id]: quesData.choice[index].id,
-    });
-
-    // if (quesNum > 13) {
-    //   //결과보기로 컴포넌트 체인지
-    //   props.getLoadingStatus(true);
-    // } else
     if (quesNum === 13) {
       if (quesNumUrl === 14) {
         if (index === 0) {
-          // setPickData({ ...pickedData, type: "A" });
           setType("A");
-
           props.getData(pickedData, type);
           props.getLoadingStatus(true);
         } else {
-          // setPickData({ ...pickedData, type: "B" });
           setType("B");
-
           props.getData(pickedData, type);
           props.getLoadingStatus(true);
         }
       } else if (quesNumUrl === 15) {
-        // setPickData(
-        //   { ...pickedData, type: "A" },
-        //   console.log("타입들어가는지 확인중", pickedData)
-        // );
         setType("A");
         props.getData(pickedData, type);
         props.getLoadingStatus(true);
       } else {
-        // setPickData(
-        //   { ...pickedData, type: "B" },
-        //   console.log("타입들어가는지 확인중", pickedData)
-        // );
         setType("B");
         props.getData(pickedData, type);
         props.getLoadingStatus(true);
@@ -99,13 +73,11 @@ const QuestionMain = (props) => {
     }
   };
 
-  console.log("타입들어가는지 확인중", pickedData);
+  // console.log("타입들어가는지 확인중", pickedData);
   const fetchFirstQuestion = async () => {
     try {
       const gotFirstQues = await axios.get(`${URL}/poll/${quesNumUrl}`);
       const data = await gotFirstQues.data.question_data;
-      console.log("받아지는 데이ㅓ: ", data);
-      console.log("질문: ", data.question, "초이스들:", data.choice);
 
       setData(data);
       // setAppearChoice(false);
@@ -120,9 +92,9 @@ const QuestionMain = (props) => {
     if (quesNum === 1) {
       setTimeout(() => {
         fetchFirstQuestion();
-      }, 8500);
+      }, 8700);
     } else if (quesNum === 14) {
-      console.log("나나나");
+      console.log("13번 문제에서 클릭했을때");
       props.getData(pickedData, type);
       props.getLoadingStatus(true);
     } else {
@@ -135,35 +107,9 @@ const QuestionMain = (props) => {
     <QBoxWrapper loading={props.loading}>
       <QBoxContainer>
         <QuestionBox>
-          {/* <button onClick={CLICK_A}>gpd</button>
-          <button onClick={CLICK_R}>gpd</button>
-          <button onClick={CLICK_U}>gpd</button>
-          <button onClick={CLICK_E}>gpd</button> */}
-          {/* <Typing ref={typeRef} speed={typeSpeed} onFinishedTyping={appearQues}>
-            >{quesData.question}
-          </Typing> */}
-          {/********** 컴포넌트 분리함 **********/}
-          {/* {finished ? ( */}
-          {/* {quesNum < 14 ? (
-            <div>
-              {quesNum}. {quesData.question}
-            </div>
-          ) : (
-            ""
-          )} */}
           <div>
             {quesNum}. {quesData.question}
           </div>
-          {/* ) : (
-            <TypingEffect
-              speed={typeSpeed}
-              changeAppearChoice={changeAppearChoice}
-              question={quesData.question}
-              onFinishedTyping={appearQues}
-            />
-          )} */}
-
-          {/* >{quesData.question} */}
         </QuestionBox>
         {quesData.image_url ? (
           <QImgBox>
@@ -172,7 +118,6 @@ const QuestionMain = (props) => {
         ) : (
           ""
         )}
-        {/* const a = () => {} */}
         <TextSelectBox>
           <SelectOutLineDiv onClick={() => clickChoice(0)}>
             <TextSelect>{quesData.choice[0].choice}</TextSelect>
