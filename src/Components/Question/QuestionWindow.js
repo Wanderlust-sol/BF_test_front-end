@@ -1,11 +1,9 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import Typing from "react-typing-animation";
-import BFICON from "Images/Group6.png";
 import QuestionMain from "Components/Question/QuestionMain";
 import WindowNav from "Components/ResultWindow/WindowNav";
 import ProgressBar from "Components/ProgressBar";
-// import TestBox from "Components/TestBox";
 
 const typeSpeed = 20;
 
@@ -29,19 +27,8 @@ const QuestionWindow = (props) => {
     <QuestionsWrapper>
       <QuestionsContainer>
         <WindowNav title="Front...? Back...?" />
-        {/* header*/}
-        {/* <QuestionsHeader>
-          <BFIconDiv></BFIconDiv>
-          <HeadContent>Front...? Back...?</HeadContent>
-          <ButtonBox>
-            <CloseButtonDiv></CloseButtonDiv>
-          </ButtonBox>
-        </QuestionsHeader> */}
-        {/* main */}
 
         <QuestionMainDiv>
-          {/* {!loading ? (
-            <> */}
           <Typing speed={typeSpeed}>
             <span>준비되셨나요 . . . ?</span>
             <Typing.Backspace
@@ -63,10 +50,7 @@ const QuestionWindow = (props) => {
               delay={typeSpeed * 100}
             />
           </Typing>
-          {/********** 타이핑 되는 부분 question layout 완성하고 나서 복구해야함 -끝 *********/}
-          {/* <TestContainerDiv> */}
-          {/* <TestBox /> */}
-          {/* </TestContainerDiv> */}
+
           <QuestionMain
             getLoadingStatus={(status) => getLoadingStatus(status)}
             getData={(data, type) => {
@@ -74,9 +58,7 @@ const QuestionWindow = (props) => {
             }}
             loading={loading}
           ></QuestionMain>
-          {/* </>
-          ) : (
-            )} */}
+
           {loading && <ProgressBar loading={loading} />}
         </QuestionMainDiv>
       </QuestionsContainer>
