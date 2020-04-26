@@ -29,6 +29,7 @@ const useInterval = (callback, delay) => {
 const ProgressBar = () => {
   const [progress, setProgress] = useState(0);
   const [speed, setSpeed] = useState(1);
+  const [showResult, setShowResult] = useState(false);
   const [result, setResult] = useState(false);
   //   const [showResult, setShowResult] = useState(false);
 
@@ -38,25 +39,32 @@ const ProgressBar = () => {
   //     }, 100);
   //   }, [a]);
 
+  const clickResult = () => {
+    setResult(true);
+  };
   useLayoutEffect(() => {
     const interval =
       progress < 100 &&
       setInterval(() => {
         setProgress(progress + 1);
       }, 100);
-
+    progress === 100 && setShowResult(true);
     return () => clearInterval(interval);
   }, [progress]);
   return (
     <>
       <Wrapper>
-        <Title>잠시만 기다려주세요</Title>
+        {/* <BarWrapper> */}
+        <Title>잠시만 기다려주세요...!</Title>
         <ProgressBox>
           <MovingDog progress={progress}></MovingDog>
           <HomeDog progress={progress}></HomeDog>
           <InProgress progress={progress}></InProgress>
         </ProgressBox>
-        <Result>결과보기</Result>
+        {/* </BarWrapper> */}
+        <Result showResult={showResult} onClick={clickResult}>
+          결과보기
+        </Result>
       </Wrapper>
     </>
   );
@@ -72,6 +80,15 @@ const Wrapper = styled.div`
   align-items: center;
   flex-direction: column;
 `;
+
+// const BarWrapper = styled.div`
+//   width: 100%;
+//   height: 300px;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   flex-direction: column;
+// `;
 
 const Title = styled.div`
   width: 80%;
@@ -134,4 +151,7 @@ const Result = styled.div`
   justify-content: center;
   align-items: center;
   margin-top: 30px;
+  cursor: pointer;
+
+  visibility: ${props => (props.showResult ? "visible" : "hidden")};
 `;
