@@ -80,6 +80,8 @@ const AboutWrapper = styled.div`
   height: auto;
   border: 2px solid #000000;
   box-shadow: 13px 10px 0px -1px rgba(74, 79, 79, 1);
+  position: absolute;
+  right: 10%;
   z-index: 99;
 
   @media only screen and (max-width: 780px) {
@@ -92,6 +94,10 @@ const AboutWrapper = styled.div`
     height: 100%;
     margin: 0;
     box-shadow: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: none;
   }
 `;
 

@@ -7,33 +7,21 @@ import Footer from "Components/ResultWindow/Footer";
 import RECYCLE from "Images/Main/trash.png";
 import COMPUTER from "Images/Main/computer.png";
 import WECODE from "Images/Main/WeTV.png";
-<<<<<<< HEAD
-import Result from "Components/ResultWindow/Result";
+
 const Main = (props) => {
   const [mode, setMode] = useState(false);
   const [postData, setPostData] = useState({});
-  const [about, setAbout] = useState(false);
+  const [about, setAbout] = useState(true);
 
   const getData = (postData) => {
     console.log("data왔다~~~ : ", postData);
     setPostData(postData);
   };
-=======
-
-const Main = (props) => {
-  // const [mode, setMode] = useState(false);
-  //태솔 => 고른 선택지에 대한 데이터에요. postData 쓰면됩니다
-  // const [postData, setPostData] = useState({});
-  const [about, setAbout] = useState(false);
-
-  // const getData = (postData) => {
-  //   console.log("data왔다~~~ : ", postData);
-  //   setPostData(postData);
-  // };
->>>>>>> 617cd5f21d97d0016929b27786affe1216a22f22
   const goToWecode = () => {
     window.open("https://wecode.co.kr/");
   };
+
+  console.log(about);
 
   return (
     <MainWrapper>
@@ -53,7 +41,6 @@ const Main = (props) => {
             <Text>Wecode</Text>
           </Icon>
         </IconWrapper>
-        <Question />
         {about && <About />}
       </Section>
       <Footer />
