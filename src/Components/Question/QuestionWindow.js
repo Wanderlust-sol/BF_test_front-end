@@ -4,7 +4,8 @@ import Typing from "react-typing-animation";
 import BFICON from "Images/Group6.png";
 import QuestionMain from "Components/Question/QuestionMain";
 import WindowNav from "Components/ResultWindow/WindowNav";
-import TestBox from "Components/TestBox";
+import ProgressBar from "Components/ProgressBar";
+// import TestBox from "Components/TestBox";
 
 const typeSpeed = 20;
 
@@ -28,45 +29,46 @@ const QuestionWindow = (props) => {
           </ButtonBox>
         </QuestionsHeader> */}
         {/* main */}
+
         <QuestionMainDiv>
-          {/* {!loading ? (
-            <> */}
-          <Typing speed={typeSpeed}>
-            <span>준비되셨나요 . . . ?</span>
-            <Typing.Backspace
-              count={18}
-              speed={typeSpeed * 2}
-              delay={typeSpeed * 40}
-            />
-          </Typing>
-          <Typing speed={typeSpeed}>
-            <span>
-              <Typing.Delay ms={typeSpeed * 100} />
-              자, 그럼 당신의 성향을 알려줄 BF -
-              <Typing.Delay ms={typeSpeed * 20} />
-              TEST 를 시작하겠습니다. . . !!!
-            </span>
-            <Typing.Backspace
-              count={50}
-              speed={typeSpeed}
-              delay={typeSpeed * 100}
-            />
-          </Typing>
-          {/********** 타이핑 되는 부분 question layout 완성하고 나서 복구해야함 -끝 *********/}
-          {/* <TestContainerDiv> */}
-          {/* <TestBox /> */}
-          {/* </TestContainerDiv> */}
-          <QuestionMain
-            getLoadingStatus={(status) => getLoadingStatus(status)}
-            getData={(data) => {
-              props.getData(data);
-            }}
-            loading={loading}
-          ></QuestionMain>
-          {/* </>
+          {!loading ? (
+            <>
+              <Typing speed={typeSpeed}>
+                <span>준비되셨나요 . . . ?</span>
+                <Typing.Backspace
+                  count={18}
+                  speed={typeSpeed * 2}
+                  delay={typeSpeed * 40}
+                />
+              </Typing>
+              <Typing speed={typeSpeed}>
+                <span>
+                  <Typing.Delay ms={typeSpeed * 100} />
+                  자, 그럼 당신의 성향을 알려줄 BF -
+                  <Typing.Delay ms={typeSpeed * 20} />
+                  TEST 를 시작하겠습니다. . . !!!
+                </span>
+                <Typing.Backspace
+                  count={50}
+                  speed={typeSpeed}
+                  delay={typeSpeed * 100}
+                />
+              </Typing>
+              {/********** 타이핑 되는 부분 question layout 완성하고 나서 복구해야함 -끝 *********/}
+              {/* <TestContainerDiv> */}
+              {/* <TestBox /> */}
+              {/* </TestContainerDiv> */}
+              <QuestionMain
+                getLoadingStatus={(status) => getLoadingStatus(status)}
+                getData={(data) => {
+                  props.getData(data);
+                }}
+                loading={loading}
+              ></QuestionMain>
+            </>
           ) : (
-            ""
-          )} */}
+            <ProgressBar />
+          )}
         </QuestionMainDiv>
       </QuestionsContainer>
     </QuestionsWrapper>
@@ -91,7 +93,7 @@ const QuestionsWrapper = styled.div`
 const QuestionsContainer = styled.div`
   box-shadow: 13px 10px 0px -1px rgba(74, 79, 79, 1);
   width: 700px;
-  // border: 2px solid #000000;
+  border: 2px solid #000000;
   @media only screen and (max-width: 720px) {
     width: 100vw;
     box-shadow: none;
@@ -116,6 +118,6 @@ const QuestionMainDiv = styled.div`
   }
   @media only screen and (max-width: 720px) {
     width: 100vw;
-    height: 92.3vh;
+    height: 100vh;
   }
 `;

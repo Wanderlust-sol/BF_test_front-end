@@ -12,9 +12,13 @@ const About = (props) => {
 
   const Data = { InfoData }.InfoData;
 
-  const goToDetail = (id) => {
+  const openDetail = (id) => {
     setDetail(true);
     setInfo(Data[id]);
+  };
+
+  const closeDetail = () => {
+    setDetail(false);
   };
 
   return (
@@ -51,7 +55,7 @@ const About = (props) => {
                 <Color
                   className={card.color}
                   key={card.id}
-                  onClick={() => goToDetail(card.id)}
+                  onClick={() => openDetail(card.id)}
                 >
                   {card.name}
                 </Color>
@@ -63,7 +67,7 @@ const About = (props) => {
             <img className="click" src={CLICK} alt="click" />
           </Click>
         </ImageWrapper>
-        {detail && <AboutDetail data={info} />}
+        {detail && <AboutDetail data={info} close={closeDetail} />}
       </Section>
     </AboutWrapper>
   );

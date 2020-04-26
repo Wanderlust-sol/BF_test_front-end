@@ -202,7 +202,6 @@ const QuestionBox = styled.div`
   font-size: 22px;
   color: white;
   line-height: 35px;
-
   @media only screen and (max-width: 415px) {
     font-size: 1.2rem;
   }

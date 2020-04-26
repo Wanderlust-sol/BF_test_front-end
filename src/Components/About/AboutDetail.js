@@ -5,12 +5,10 @@ import { Instagram } from "@styled-icons/boxicons-logos";
 import WindowNav from "Components/ResultWindow/WindowNav";
 import BG from "Images/AboutDetail/BG.png";
 
-const AboutDetail = (props) => {
-  const data = props.data;
-
+const AboutDetail = ({ data, close }) => {
   return (
     <DetailWrapper>
-      <WindowNav title={data.name} />
+      <WindowNav title={data.name} close={close} />
       <Section>
         <Image src={require(`Images/AboutDetail/${data.img}`)}></Image>
         <TextWrapper>

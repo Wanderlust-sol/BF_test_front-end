@@ -4,14 +4,11 @@ import axios from "axios";
 import WindowNav from "./WindowNav";
 import Footer from "./Footer";
 
-const Result = (props) => {
+const Result = props => {
   const [type, setType] = useState([]);
   const [typeName, setTypeName] = useState("");
-  useEffect(() => {
-    fetchData();
-  });
 
-  const handleType = (name) => {
+  const handleType = name => {
     const lastLetter = name[name.length - 3];
     if (lastLetter === "풀") {
       setTypeName("Full-Stack Developer");
@@ -26,12 +23,29 @@ const Result = (props) => {
     alert("contribute window");
   };
 
-  const fetchData = () => {
-    axios.get("http://localhost:3000/Data/result.json").then((response) => {
-      setType(response.data.result);
-      handleType(response.data.result.name);
-    });
+  const fetchData = async () => {
+    try {
+      const res = await axios.post("http://52.79.185.94:8000/poll/result", {
+        answer: {
+          "1": 3,
+          "2": 5,
+          "3": 5,
+          "4": 7,
+          "5": 10
+        },
+        type: "A"
+      });
+      // console.log(res.data.result);
+      setType(res.data.result);
+      handleType(res.data.result.name);
+    } catch (err) {
+      console.log("err", err);
+    }
   };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
 
   return (
     <Container>
