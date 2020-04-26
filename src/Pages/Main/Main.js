@@ -8,11 +8,20 @@ import RECYCLE from "Images/Main/trash.png";
 import COMPUTER from "Images/Main/computer.png";
 import WECODE from "Images/Main/WeTV.png";
 
-const Main = props => {
-  const [about, setAbout] = useState(false);
+const Main = (props) => {
+  const [mode, setMode] = useState(false);
+  const [postData, setPostData] = useState({});
+  const [about, setAbout] = useState(true);
+
+  const getData = (postData) => {
+    console.log("data왔다~~~ : ", postData);
+    setPostData(postData);
+  };
   const goToWecode = () => {
     window.open("https://wecode.co.kr/");
   };
+
+  console.log(about);
 
   return (
     <MainWrapper>
@@ -32,7 +41,6 @@ const Main = props => {
             <Text>Wecode</Text>
           </Icon>
         </IconWrapper>
-        <Question />
         {about && <About />}
       </Section>
       <Footer />
