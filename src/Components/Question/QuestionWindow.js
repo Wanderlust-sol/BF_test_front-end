@@ -18,7 +18,6 @@ const QuestionWindow = (props) => {
   const getData = (postData, typeData) => {
     //postData 는 문제(키:벨류)/ type는 type
     const result = [postData, typeData];
-    console.log("data왔다~~~ : ", result);
     setPostData(result);
   };
 

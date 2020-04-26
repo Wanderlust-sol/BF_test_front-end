@@ -40,7 +40,7 @@ const QuestionMain = (props) => {
         props.getData(pickedData, type);
         props.getLoadingStatus(true);
       } else {
-        setType("B");
+        setType("C");
         props.getData(pickedData, type);
         props.getLoadingStatus(true);
       }
@@ -55,10 +55,10 @@ const QuestionMain = (props) => {
         }
       } else if (quesNumUrl === 12) {
         if (index === 0) {
-          setQuesNumUrl(quesNumUrl + 3);
+          setQuesNumUrl(quesNumUrl + 2);
           console.log("12번문제 1번 선택", quesNumUrl + 3);
         } else {
-          setQuesNumUrl(quesNumUrl + 2);
+          setQuesNumUrl(quesNumUrl + 3);
           console.log("12번문제 2번 선택", quesNumUrl + 2);
         }
       } else if (quesNumUrl === 13) {
@@ -94,7 +94,6 @@ const QuestionMain = (props) => {
         fetchFirstQuestion();
       }, 8700);
     } else if (quesNum === 14) {
-      console.log("13번 문제에서 클릭했을때");
       props.getData(pickedData, type);
       props.getLoadingStatus(true);
     } else {
