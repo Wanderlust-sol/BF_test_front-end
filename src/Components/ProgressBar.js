@@ -28,7 +28,6 @@ const useInterval = (callback, delay) => {
 
 const ProgressBar = () => {
   const [progress, setProgress] = useState(0);
-  const [speed, setSpeed] = useState(1);
   const [showResult, setShowResult] = useState(false);
   const [result, setResult] = useState(false);
   //   const [showResult, setShowResult] = useState(false);
