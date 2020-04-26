@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import styled, { keyframes } from "styled-components";
 import WindowNav from "Components/ResultWindow/WindowNav";
-
 import AboutDetail from "Components/About/AboutDetail";
 import InfoData from "./AboutData";
 import MEMBERS from "Images/About/members.jpg";
@@ -18,14 +17,9 @@ const About = (props) => {
     setInfo(Data[id]);
   };
 
-  const close = (value) => {
-    console.log("ee", value);
-    setDetail(value);
-  };
-
   return (
     <AboutWrapper>
-      <WindowNav title="About" close={(value) => close(value)} />
+      <WindowNav title="About" />
       <Section>
         <Text>
           <br />

@@ -199,23 +199,27 @@ const QBoxContainer = styled.div`
 `;
 
 const QuestionBox = styled.div`
-  font-size: 20px;
+  font-size: 22px;
   color: white;
   line-height: 35px;
+
+  @media only screen and (max-width: 415px) {
+    font-size: 1.2rem;
+  }
 `;
 
 const QImgBox = styled.div`
-  margin: 0 auto;
-  margin-top: 10px;
+  margin: 10px auto 0;
+  text-align: center;
+  @media only screen and (max-width: 415px) {
+    margin: 30px auto 20px;
+  }
 `;
 
 const QImg = styled.img`
-  width: 400px;
-  height: 300px;
-  // background-image: ${(props) => `url(${props.img})`};
-  // background-repeat: none;
-  // background-size: cover;
+  width: 60%;
 `;
+
 const TextSelectBox = styled.div``;
 
 const SelectOutLineDiv = styled.div`

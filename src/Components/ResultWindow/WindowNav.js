@@ -6,10 +6,6 @@ import EXPANDICON from "Images/Nav/expand.png";
 import MINICON from "Images/Nav/min.png";
 
 const WindowNav = (data) => {
-  const giveClose = (value) => {
-    console.log("value", value);
-    data.close(value);
-  };
   return (
     <NavContainer>
       <TitleSection>
@@ -28,7 +24,7 @@ const WindowNav = (data) => {
           <Expand src={EXPANDICON}></Expand>
         </ControlBox>
         <ControlBox>
-          <Close src={CLOSEICON} onClick={() => giveClose(false)}></Close>
+          <Close src={CLOSEICON}></Close>
         </ControlBox>
       </ControlSection>
     </NavContainer>
