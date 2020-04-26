@@ -52,8 +52,8 @@ export default Nav;
 
 const NavWrapper = styled.div`
   width: 100%;
-  height: 40px;
-  font-size: 30px;
+  height: 35px;
+  font-size: 26px;
   background: #fdfd96;
   border-bottom: 2px solid #000000;
   display: flex;
@@ -72,7 +72,7 @@ const NavLeft = styled.div`
   align-items: center;
 
   .logo {
-    width: 30px;
+    width: 25px;
     height: auto;
   }
 
@@ -91,24 +91,25 @@ const NavLeft = styled.div`
 `;
 
 const NavRight = styled.div`
+  font-size: 26px;
   margin-right: 15px;
   display: flex;
   align-items: center;
 
   .sun {
-    width: 30px;
+    width: 25px;
     height: auto;
   }
 
   .moon {
-    width: 12px;
+    width: 10px;
     height: auto;
     transform: rotate(45deg);
     margin-right: 5px;
   }
 
   .battery {
-    width: 50px;
+    width: 40px;
     height: auto;
     margin: 0 10px;
   }
