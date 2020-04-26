@@ -9,10 +9,10 @@ import ProgressBar from "Components/ProgressBar";
 
 const typeSpeed = 20;
 
-const QuestionWindow = props => {
-  const [loading, setLoading] = useState(true);
+const QuestionWindow = (props) => {
+  const [loading, setLoading] = useState(false);
 
-  const getLoadingStatus = status => {
+  const getLoadingStatus = (status) => {
     setTimeout(setLoading(status), 2000);
   };
 
@@ -59,8 +59,8 @@ const QuestionWindow = props => {
               {/* <TestBox /> */}
               {/* </TestContainerDiv> */}
               <QuestionMain
-                getLoadingStatus={status => getLoadingStatus(status)}
-                getData={data => {
+                getLoadingStatus={(status) => getLoadingStatus(status)}
+                getData={(data) => {
                   props.getData(data);
                 }}
                 loading={loading}
