@@ -8,9 +8,8 @@ const Result = (props) => {
   const [type, setType] = useState([]);
   const [typeName, setTypeName] = useState("");
 
-  const handleType = () => {
-    const TypeName = type.name;
-    const lastLetter = TypeName[TypeName.length - 3];
+  const handleType = (name) => {
+    const lastLetter = name[name.length - 3];
     if (lastLetter === "풀") {
       setTypeName("Full-Stack Developer");
     } else if (lastLetter === "트") {
@@ -20,7 +19,13 @@ const Result = (props) => {
     }
   };
 
-  const handleContribute = () => {};
+  const fetchMockData = () => {
+    fetch();
+  };
+
+  const handleContribute = () => {
+    alert("contribute window");
+  };
 
   return (
     <Container id="capture">
