@@ -7,6 +7,18 @@ import Footer from "Components/ResultWindow/Footer";
 import RECYCLE from "Images/Main/trash.png";
 import COMPUTER from "Images/Main/computer.png";
 import WECODE from "Images/Main/WeTV.png";
+<<<<<<< HEAD
+import Result from "Components/ResultWindow/Result";
+const Main = (props) => {
+  const [mode, setMode] = useState(false);
+  const [postData, setPostData] = useState({});
+  const [about, setAbout] = useState(false);
+
+  const getData = (postData) => {
+    console.log("data왔다~~~ : ", postData);
+    setPostData(postData);
+  };
+=======
 
 const Main = (props) => {
   // const [mode, setMode] = useState(false);
@@ -18,6 +30,7 @@ const Main = (props) => {
   //   console.log("data왔다~~~ : ", postData);
   //   setPostData(postData);
   // };
+>>>>>>> 617cd5f21d97d0016929b27786affe1216a22f22
   const goToWecode = () => {
     window.open("https://wecode.co.kr/");
   };
