@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
+import axios from "axios";
+import WindowNav from "./WindowNav";
 import Footer from "./Footer";
-// import Canvas from "./Canvas";
 
 const Result = (props) => {
   const [type, setType] = useState([]);
