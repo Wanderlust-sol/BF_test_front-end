@@ -34,7 +34,6 @@ const ProgressBar = props => {
   const [progress, setProgress] = useState(0);
   const [popupResult, setPopupResult] = useState(false);
   const [result, setResult] = useState(false);
-  //   const [showResult, setShowResult] = useState(false);
 
   //   useCallback(() => {
   //     const a = useInterval(() => {
@@ -49,7 +48,6 @@ const ProgressBar = props => {
         answer: props.postData[0],
         type: props.postData[1]
       });
-      console.log(res);
       addResult(res.data.result);
     } catch (err) {
       console.log("err", err);
@@ -69,14 +67,12 @@ const ProgressBar = props => {
   return (
     <>
       <Wrapper>
-        {/* <BarWrapper> */}
         <Title>잠시만 기다려주세요...!</Title>
         <ProgressBox>
           <MovingDog progress={progress}></MovingDog>
           <HomeDog progress={progress}></HomeDog>
           <InProgress progress={progress}></InProgress>
         </ProgressBox>
-        {/* </BarWrapper> */}
         <Result popupResult={popupResult} onClick={clickResult}>
           결과보기
         </Result>
@@ -103,15 +99,6 @@ const Wrapper = styled.div`
   align-items: center;
   flex-direction: column;
 `;
-
-// const BarWrapper = styled.div`
-//   width: 100%;
-//   height: 300px;
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   flex-direction: column;
-// `;
 
 const Title = styled.div`
   width: 80%;
