@@ -7,12 +7,10 @@ import Footer from "./Footer";
 const Result = (props) => {
   const [type, setType] = useState([]);
   const [typeName, setTypeName] = useState("");
-  useEffect(() => {
-    fetchData();
-  });
 
-  const handleType = (name) => {
-    const lastLetter = name[name.length - 3];
+  const handleType = () => {
+    const TypeName = type.name;
+    const lastLetter = TypeName[TypeName.length - 3];
     if (lastLetter === "풀") {
       setTypeName("Full-Stack Developer");
     } else if (lastLetter === "트") {
@@ -22,19 +20,10 @@ const Result = (props) => {
     }
   };
 
-  const handleContribute = () => {
-    alert("contribute window");
-  };
-
-  const fetchData = () => {
-    axios.get("http://localhost:3000/Data/result.json").then((response) => {
-      setType(response.data.result);
-      handleType(response.data.result.name);
-    });
-  };
+  const handleContribute = () => {};
 
   return (
-    <Container>
+    <Container id="capture">
       <WindowNav></WindowNav>
       <Body>
         <TypeContainer>
@@ -72,12 +61,16 @@ const Result = (props) => {
             <FitTypeName>{type.dev_fit}</FitTypeName>
           </TypeResultBox>
         </RecommendContainer>
-        <ShareBox
-          onclick={() => {
-            handleContribute();
-          }}
-        >
-          <GlobeIcon src="https://user-images.githubusercontent.com/53595582/80277881-12635800-872d-11ea-8377-ecf69598ed36.png"></GlobeIcon>
+        <ShareBox>
+          <CaptureIcon onClick={() => {}}>Capture</CaptureIcon>
+
+          <GlobeIcon
+            id="captureBtn"
+            onClick={() => {
+              handleContribute();
+            }}
+            src="https://user-images.githubusercontent.com/53595582/80277881-12635800-872d-11ea-8377-ecf69598ed36.png"
+          ></GlobeIcon>
         </ShareBox>
       </Body>
       <Footer></Footer>
@@ -170,7 +163,7 @@ const ResultContainer = styled.div`
 `;
 
 const CardContainer = styled.div`
-  margin-left: 10px;
+  margin-left: 2%;
   @media only screen and (max-width: 415px) {
     margin: 0;
   }
@@ -332,6 +325,7 @@ const ShareBox = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
+    cursor: pointer;
   }
 `;
 
@@ -352,4 +346,9 @@ const GlobeIcon = styled.img`
     width: 65px;
     height: 65px;
   }
+`;
+
+const CaptureIcon = styled.div`
+  color: white;
+  border: 1px solid yellow;
 `;
