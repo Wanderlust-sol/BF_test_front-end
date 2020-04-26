@@ -11,9 +11,15 @@ const typeSpeed = 20;
 
 const QuestionWindow = (props) => {
   const [loading, setLoading] = useState(false);
+  const [postData, setPostData] = useState({});
 
   const getLoadingStatus = (status) => {
     setTimeout(setLoading(status), 2000);
+  };
+
+  const getData = (postData) => {
+    console.log("data왔다~~~ : ", postData);
+    setPostData(postData);
   };
 
   return (
@@ -31,44 +37,44 @@ const QuestionWindow = (props) => {
         {/* main */}
 
         <QuestionMainDiv>
-          {!loading ? (
-            <>
-              <Typing speed={typeSpeed}>
-                <span>준비되셨나요 . . . ?</span>
-                <Typing.Backspace
-                  count={18}
-                  speed={typeSpeed * 2}
-                  delay={typeSpeed * 40}
-                />
-              </Typing>
-              <Typing speed={typeSpeed}>
-                <span>
-                  <Typing.Delay ms={typeSpeed * 100} />
-                  자, 그럼 당신의 성향을 알려줄 BF -
-                  <Typing.Delay ms={typeSpeed * 20} />
-                  TEST 를 시작하겠습니다. . . !!!
-                </span>
-                <Typing.Backspace
-                  count={50}
-                  speed={typeSpeed}
-                  delay={typeSpeed * 100}
-                />
-              </Typing>
-              {/********** 타이핑 되는 부분 question layout 완성하고 나서 복구해야함 -끝 *********/}
-              {/* <TestContainerDiv> */}
-              {/* <TestBox /> */}
-              {/* </TestContainerDiv> */}
-              <QuestionMain
-                getLoadingStatus={(status) => getLoadingStatus(status)}
-                getData={(data) => {
-                  props.getData(data);
-                }}
-                loading={loading}
-              ></QuestionMain>
-            </>
+          {/* {!loading ? (
+            <> */}
+          <Typing speed={typeSpeed}>
+            <span>준비되셨나요 . . . ?</span>
+            <Typing.Backspace
+              count={18}
+              speed={typeSpeed * 2}
+              delay={typeSpeed * 40}
+            />
+          </Typing>
+          <Typing speed={typeSpeed}>
+            <span>
+              <Typing.Delay ms={typeSpeed * 100} />
+              자, 그럼 당신의 성향을 알려줄 BF -
+              <Typing.Delay ms={typeSpeed * 20} />
+              TEST 를 시작하겠습니다. . . !!!
+            </span>
+            <Typing.Backspace
+              count={50}
+              speed={typeSpeed}
+              delay={typeSpeed * 100}
+            />
+          </Typing>
+          {/********** 타이핑 되는 부분 question layout 완성하고 나서 복구해야함 -끝 *********/}
+          {/* <TestContainerDiv> */}
+          {/* <TestBox /> */}
+          {/* </TestContainerDiv> */}
+          <QuestionMain
+            getLoadingStatus={(status) => getLoadingStatus(status)}
+            getData={(data) => {
+              getData(data);
+            }}
+            loading={loading}
+          ></QuestionMain>
+          {/* </>
           ) : (
-            <ProgressBar />
-          )}
+            )} */}
+          {loading && <ProgressBar loading={loading} />}
         </QuestionMainDiv>
       </QuestionsContainer>
     </QuestionsWrapper>
@@ -84,12 +90,21 @@ const QuestionsWrapper = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  @media only screen and (max-width: 720px) {
+    width: 100vw;
+    height: 100%;
+  }
 `;
 
 const QuestionsContainer = styled.div`
   box-shadow: 13px 10px 0px -1px rgba(74, 79, 79, 1);
   width: 700px;
-  border: 3px solid #000000;
+  border: 2px solid #000000;
+  @media only screen and (max-width: 720px) {
+    width: 100vw;
+    box-shadow: none;
+    border: none;
+  }
 `;
 
 // window header
@@ -106,5 +121,9 @@ const QuestionMainDiv = styled.div`
   span {
     color: white;
     font-size: 20px;
+  }
+  @media only screen and (max-width: 720px) {
+    width: 100vw;
+    height: 100vh;
   }
 `;

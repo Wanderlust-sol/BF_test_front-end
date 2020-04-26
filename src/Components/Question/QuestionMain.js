@@ -5,7 +5,7 @@ import axios from "axios";
 // import TypingEffect from "Components/TypingEffect";
 
 // const typeSpeed = 50;
-const QuestionMain = props => {
+const QuestionMain = (props) => {
   const [quesData, setData] = useState({});
   const [quesNum, setQuesNum] = useState(1);
   const [quesNumUrl, setQuesNumUrl] = useState(1);
@@ -17,7 +17,7 @@ const QuestionMain = props => {
   // const [finished, setFinished] = useState(false);
   // const typeRef = useRef(null);
 
-  const clickChoice = index => {
+  const clickChoice = (index) => {
     // setFinished(false);
     // 밑에 두 줄은 마지막 문제일 때, 결과보내는 용
     setSendResult(true);
@@ -29,7 +29,7 @@ const QuestionMain = props => {
     setPickData({ ...pickedData, [quesData.id]: quesData.choice[index].id });
     console.log("들어가는 벨류값", {
       ...pickedData,
-      [quesData.id]: quesData.choice[index].id
+      [quesData.id]: quesData.choice[index].id,
     });
 
     // if (quesNum > 13) {
@@ -118,7 +118,7 @@ const QuestionMain = props => {
       setTimeout(() => {
         fetchFirstQuestion();
       }, 8500);
-    } else if (quesNum > 13) {
+    } else if (quesNum === 14) {
       console.log("나나나");
       props.getData(pickedData);
       props.getLoadingStatus(true);
@@ -199,20 +199,26 @@ const QBoxContainer = styled.div`
 `;
 
 const QuestionBox = styled.div`
-  font-size: 20px;
+  font-size: 22px;
   color: white;
   line-height: 35px;
+  @media only screen and (max-width: 415px) {
+    font-size: 1.2rem;
+  }
 `;
 
 const QImgBox = styled.div`
-  margin: 0 auto;
-  margin-top: 10px;
+  margin: 10px auto 0;
+  text-align: center;
+  @media only screen and (max-width: 415px) {
+    margin: 30px auto 20px;
+  }
 `;
 
 const QImg = styled.img`
-  width: 400px;
-  height: 300px;
+  width: 60%;
 `;
+
 const TextSelectBox = styled.div``;
 
 const SelectOutLineDiv = styled.div`
@@ -220,7 +226,7 @@ const SelectOutLineDiv = styled.div`
   border: 1px solid white;
   margin-top: 20px;
   padding: 2px;
-  display: ${props => (props.display ? "block" : "none")};
+  display: ${(props) => (props.display ? "block" : "none")};
   display: block;
 `;
 
