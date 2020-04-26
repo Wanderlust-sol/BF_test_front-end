@@ -8,7 +8,7 @@ import RECYCLE from "Images/Main/trash.png";
 import COMPUTER from "Images/Main/computer.png";
 import WECODE from "Images/Main/WeTV.png";
 
-const Main = (props) => {
+const Main = props => {
   const [about, setAbout] = useState(false);
   const goToWecode = () => {
     window.open("https://wecode.co.kr/");

@@ -7,22 +7,20 @@ import ProgressBar from "Components/ProgressBar";
 
 const typeSpeed = 20;
 
-const QuestionWindow = (props) => {
+const QuestionWindow = props => {
   const [loading, setLoading] = useState(false);
   const [postData, setPostData] = useState([]);
 
-  const getLoadingStatus = (status) => {
+  const getLoadingStatus = status => {
     setTimeout(setLoading(status), 2000);
   };
 
   const getData = (postData, typeData) => {
     //postData 는 문제(키:벨류)/ type는 type
     const result = [postData, typeData];
-    console.log("data왔다~~~ : ", result);
     setPostData(result);
   };
 
-  console.log(postData);
   return (
     <QuestionsWrapper>
       <QuestionsContainer>
@@ -52,14 +50,13 @@ const QuestionWindow = (props) => {
           </Typing>
 
           <QuestionMain
-            getLoadingStatus={(status) => getLoadingStatus(status)}
+            getLoadingStatus={status => getLoadingStatus(status)}
             getData={(data, type) => {
               getData(data, type);
             }}
             loading={loading}
           ></QuestionMain>
-
-          {loading && <ProgressBar loading={loading} />}
+          {loading && <ProgressBar postData={postData} loading={loading} />}
         </QuestionMainDiv>
       </QuestionsContainer>
     </QuestionsWrapper>
