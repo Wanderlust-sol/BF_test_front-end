@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import styled from "styled-components";
 import axios from "axios";
+import { URL } from "config";
 // import Typing from "react-typing-animation";
 // import TypingEffect from "Components/TypingEffect";
 
@@ -10,6 +11,7 @@ const QuestionMain = (props) => {
   const [quesNum, setQuesNum] = useState(1);
   const [quesNumUrl, setQuesNumUrl] = useState(1);
   const [pickedData, setPickData] = useState({});
+  const [type, setType] = useState();
   // const [loading, setLoading] = useState(false);
   const [sendResult, setSendResult] = useState(false);
   // const [sec, setSec] = useState(10);
@@ -39,28 +41,33 @@ const QuestionMain = (props) => {
     if (quesNum === 13) {
       if (quesNumUrl === 14) {
         if (index === 0) {
-          setPickData({ ...pickedData, type: "A" });
+          // setPickData({ ...pickedData, type: "A" });
+          setType("A");
 
-          props.getData(pickedData);
+          props.getData(pickedData, type);
           props.getLoadingStatus(true);
         } else {
-          setPickData({ ...pickedData, type: "B" });
-          props.getData(pickedData);
+          // setPickData({ ...pickedData, type: "B" });
+          setType("B");
+
+          props.getData(pickedData, type);
           props.getLoadingStatus(true);
         }
       } else if (quesNumUrl === 15) {
-        setPickData(
-          { ...pickedData, type: "A" },
-          console.log("타입들어가는지 확인중", pickedData)
-        );
-        props.getData(pickedData);
+        // setPickData(
+        //   { ...pickedData, type: "A" },
+        //   console.log("타입들어가는지 확인중", pickedData)
+        // );
+        setType("A");
+        props.getData(pickedData, type);
         props.getLoadingStatus(true);
       } else {
-        setPickData(
-          { ...pickedData, type: "B" },
-          console.log("타입들어가는지 확인중", pickedData)
-        );
-        props.getData(pickedData);
+        // setPickData(
+        //   { ...pickedData, type: "B" },
+        //   console.log("타입들어가는지 확인중", pickedData)
+        // );
+        setType("B");
+        props.getData(pickedData, type);
         props.getLoadingStatus(true);
       }
     } else {
@@ -95,11 +102,7 @@ const QuestionMain = (props) => {
   console.log("타입들어가는지 확인중", pickedData);
   const fetchFirstQuestion = async () => {
     try {
-      const gotFirstQues = await axios.get(
-        // `http://localhost:3000/Data/question${quesNum}.json`
-        // `http://10.58.6.69:8000/poll/${quesNum}`
-        `http://52.79.185.94:8000/poll/${quesNumUrl}`
-      );
+      const gotFirstQues = await axios.get(`${URL}/poll/${quesNumUrl}`);
       const data = await gotFirstQues.data.question_data;
       console.log("받아지는 데이ㅓ: ", data);
       console.log("질문: ", data.question, "초이스들:", data.choice);
@@ -120,7 +123,7 @@ const QuestionMain = (props) => {
       }, 8500);
     } else if (quesNum === 14) {
       console.log("나나나");
-      props.getData(pickedData);
+      props.getData(pickedData, type);
       props.getLoadingStatus(true);
     } else {
       fetchFirstQuestion();
@@ -202,6 +205,7 @@ const QuestionBox = styled.div`
   font-size: 22px;
   color: white;
   line-height: 35px;
+
   @media only screen and (max-width: 415px) {
     font-size: 1.2rem;
   }
