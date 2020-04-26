@@ -1,12 +1,12 @@
 const AboutData = [
   {
     id: 0,
-    name: "DEV_HONG",
+    name: "HONG_DEV",
     img: "Hong.jpg",
     position: "Back-end",
     git: "https://github.com/hong-dev",
     insta: "https://www.instagram.com/hong._.dev",
-    color: "red",
+    color: "red"
   },
   {
     id: 1,
@@ -15,7 +15,7 @@ const AboutData = [
     position: "Front-end",
     git: "https://github.com/carminchameleon",
     insta: "https://instagram.com/hwanggee20",
-    color: "orange",
+    color: "orange"
   },
   {
     id: 2,
@@ -24,7 +24,7 @@ const AboutData = [
     position: "Front-end",
     git: "https://github.com/sunghaeJoung",
     insta: "https://instagram.com/_sunghae__",
-    color: "yellow",
+    color: "yellow"
   },
   {
     id: 3,
@@ -33,7 +33,7 @@ const AboutData = [
     position: "Back-end",
     git: "https://github.com/whybein",
     insta: "https://instagram.com/whybein",
-    color: "green",
+    color: "green"
   },
   {
     id: 4,
@@ -42,7 +42,7 @@ const AboutData = [
     position: "Front-end",
     git: "https://github.com/Wanderlust-sol",
     insta: "https://instagram.com/wanderlust_sol",
-    color: "blue",
+    color: "blue"
   },
   {
     id: 5,
@@ -51,7 +51,7 @@ const AboutData = [
     position: "Front-end",
     git: "https://github.com/ki-hyeonkwon",
     insta: "https://www.instagram.com/1hr_1min/?hl=ko",
-    color: "navy",
+    color: "navy"
   },
   {
     id: 6,
@@ -60,8 +60,8 @@ const AboutData = [
     position: "Back-end",
     git: "https://github.com/k904808",
     insta: "https://www.instagram.com/kaaaaaaay_yoo/",
-    color: "purple",
-  },
+    color: "purple"
+  }
 ];
 
 export default AboutData;

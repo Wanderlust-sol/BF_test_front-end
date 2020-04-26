@@ -1,6 +1,9 @@
 import React, { useState, useLayoutEffect, useEffect, useRef } from "react";
 import axios from "axios";
+import { connect } from "react-redux";
+import { showResult, closeResult, addResult } from "Redux/Actions";
 import styled from "styled-components";
+import { URL } from "config";
 import Dog from "Images/Progress/Dog.png";
 import HomeBF from "Images/Progress/home_bf.png";
 import Home from "Images/Progress/home.png";
@@ -27,8 +30,9 @@ const useInterval = (callback, delay) => {
 };
 
 const ProgressBar = props => {
+  const { res, showResult, closeResult, addResult } = props;
   const [progress, setProgress] = useState(0);
-  const [showResult, setShowResult] = useState(false);
+  const [popupResult, setPopupResult] = useState(false);
   const [result, setResult] = useState(false);
   //   const [showResult, setShowResult] = useState(false);
 
@@ -41,14 +45,16 @@ const ProgressBar = props => {
   const clickResult = async () => {
     setResult(true);
     try {
-      const res = await axios.post("http://52.79.185.94:8000/poll/result", {
+      const res = await axios.post(`${URL}/poll/result`, {
         answer: props.postData[0],
         type: props.postData[1]
       });
       console.log(res);
+      addResult(res.data.result);
     } catch (err) {
       console.log("err", err);
     }
+    showResult();
   };
   useLayoutEffect(() => {
     const interval =
@@ -56,9 +62,10 @@ const ProgressBar = props => {
       setInterval(() => {
         setProgress(progress + 1);
       }, 50);
-    progress === 100 && setShowResult(true);
+    progress === 100 && setPopupResult(true);
     return () => clearInterval(interval);
   }, [progress]);
+
   return (
     <>
       <Wrapper>
@@ -70,7 +77,7 @@ const ProgressBar = props => {
           <InProgress progress={progress}></InProgress>
         </ProgressBox>
         {/* </BarWrapper> */}
-        <Result showResult={showResult} onClick={clickResult}>
+        <Result popupResult={popupResult} onClick={clickResult}>
           결과보기
         </Result>
       </Wrapper>
@@ -78,7 +85,15 @@ const ProgressBar = props => {
   );
 };
 
-export default ProgressBar;
+const mapStateToProps = state => {
+  return {
+    res: state.controlResult.res
+  };
+};
+
+export default connect(mapStateToProps, { showResult, closeResult, addResult })(
+  ProgressBar
+);
 
 const Wrapper = styled.div`
   width: 100%;
@@ -169,5 +184,5 @@ const Result = styled.div`
   margin-top: 30px;
   cursor: pointer;
 
-  visibility: ${props => (props.showResult ? "visible" : "hidden")};
+  visibility: ${props => (props.popupResult ? "visible" : "hidden")};
 `;
