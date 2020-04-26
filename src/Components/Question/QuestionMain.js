@@ -5,7 +5,7 @@ import axios from "axios";
 // import TypingEffect from "Components/TypingEffect";
 
 // const typeSpeed = 50;
-const QuestionMain = (props) => {
+const QuestionMain = props => {
   const [quesData, setData] = useState({});
   const [quesNum, setQuesNum] = useState(1);
   const [quesNumUrl, setQuesNumUrl] = useState(1);
@@ -17,7 +17,7 @@ const QuestionMain = (props) => {
   // const [finished, setFinished] = useState(false);
   // const typeRef = useRef(null);
 
-  const clickChoice = (index) => {
+  const clickChoice = index => {
     // setFinished(false);
     // 밑에 두 줄은 마지막 문제일 때, 결과보내는 용
     setSendResult(true);
@@ -29,7 +29,7 @@ const QuestionMain = (props) => {
     setPickData({ ...pickedData, [quesData.id]: quesData.choice[index].id });
     console.log("들어가는 벨류값", {
       ...pickedData,
-      [quesData.id]: quesData.choice[index].id,
+      [quesData.id]: quesData.choice[index].id
     });
 
     // if (quesNum > 13) {
@@ -212,9 +212,6 @@ const QImgBox = styled.div`
 const QImg = styled.img`
   width: 400px;
   height: 300px;
-  // background-image: ${(props) => `url(${props.img})`};
-  // background-repeat: none;
-  // background-size: cover;
 `;
 const TextSelectBox = styled.div``;
 
@@ -223,7 +220,7 @@ const SelectOutLineDiv = styled.div`
   border: 1px solid white;
   margin-top: 20px;
   padding: 2px;
-  display: ${(props) => (props.display ? "block" : "none")};
+  display: ${props => (props.display ? "block" : "none")};
   display: block;
 `;
 
