@@ -166,6 +166,10 @@ const QImgBox = styled.div`
 
 const QImg = styled.img`
   width: 60%;
+
+  @media only screen and (max-width: 415px) {
+    width: 80%;
+  }
 `;
 
 const TextSelectBox = styled.div``;
