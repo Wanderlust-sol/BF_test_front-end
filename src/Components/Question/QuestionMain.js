@@ -10,7 +10,7 @@ const QuestionMain = props => {
   const [quesNum, setQuesNum] = useState(1);
   const [quesNumUrl, setQuesNumUrl] = useState(1);
   const [pickedData, setPickData] = useState({});
-  const [loading, setLoading] = useState(false);
+  // const [loading, setLoading] = useState(false);
   const [sendResult, setSendResult] = useState(false);
   // const [sec, setSec] = useState(10);
   // const [apperChoice, setAppearChoice] = useState(false);
@@ -39,13 +39,13 @@ const QuestionMain = props => {
     if (quesNum === 13) {
       if (quesNumUrl === 14) {
         if (index === 0) {
-          setPickData(
-            { ...pickedData, type: "A" },
-            console.log("타입들어가는지 확인중", pickedData)
-          );
+          setPickData({ ...pickedData, type: "A" });
+
+          props.getData(pickedData);
           props.getLoadingStatus(true);
         } else {
           setPickData({ ...pickedData, type: "B" });
+          props.getData(pickedData);
           props.getLoadingStatus(true);
         }
       } else if (quesNumUrl === 15) {
@@ -53,12 +53,14 @@ const QuestionMain = props => {
           { ...pickedData, type: "A" },
           console.log("타입들어가는지 확인중", pickedData)
         );
+        props.getData(pickedData);
         props.getLoadingStatus(true);
       } else {
         setPickData(
           { ...pickedData, type: "B" },
           console.log("타입들어가는지 확인중", pickedData)
         );
+        props.getData(pickedData);
         props.getLoadingStatus(true);
       }
     } else {
@@ -90,25 +92,7 @@ const QuestionMain = props => {
     }
   };
 
-  // const a = new Typing();
-  // console.log(a);
-
-  // 시간 딜레이 시키는 메소드
-  // const appearQues = () => {
-  //   setTimeout(changeAppearChoice, 1000);
-  // };
-
-  //display 바꾸기 위해서 state의 토글 값 바꾸는 메소드
-  // const changeAppearChoice = (boolean) => {
-  //   setAppearChoice(boolean);
-  // };
-
-  //1초에 1씩 뺸다.
-  // const interval = setInterval(() => {
-  //   setSec((sec) => sec - 1);
-  //   console.log(sec);
-  // }, 1000);
-
+  console.log("타입들어가는지 확인중", pickedData);
   const fetchFirstQuestion = async () => {
     try {
       const gotFirstQues = await axios.get(
@@ -135,22 +119,17 @@ const QuestionMain = props => {
         fetchFirstQuestion();
       }, 8500);
     } else if (quesNum > 13) {
-      return;
+      console.log("나나나");
+      props.getData(pickedData);
+      props.getLoadingStatus(true);
     } else {
       fetchFirstQuestion();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [quesNum]);
 
-  // const appearQues = () => {
-  //   setFinished(true);
-  //   setTimeout(() => {
-  //     changeAppearChoice(true);
-  //   }, 1000);
-  // };
-
   return quesData.choice ? (
-    <QBoxWrapper>
+    <QBoxWrapper loading={props.loading}>
       <QBoxContainer>
         <QuestionBox>
           {/* <button onClick={CLICK_A}>gpd</button>
@@ -210,6 +189,7 @@ export default QuestionMain;
 const QBoxWrapper = styled.div`
   width: 90%;
   margin: 35px auto 0 auto;
+  display: ${(props) => (props.loading ? "none" : "block")};
 `;
 
 const QBoxContainer = styled.div`
@@ -219,7 +199,7 @@ const QBoxContainer = styled.div`
 `;
 
 const QuestionBox = styled.div`
-  font-size: 28px;
+  font-size: 20px;
   color: white;
   line-height: 35px;
 `;
@@ -247,8 +227,8 @@ const SelectOutLineDiv = styled.div`
 const TextSelect = styled.div`
   color: white;
   border: 1px solid white;
-  font-size: 25px;
-  padding: 10px;
+  font-size: 18px;
+  padding: 13px;
   &:hover {
     color: #244c88;
     background-color: white;

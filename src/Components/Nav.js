@@ -55,10 +55,7 @@ const NavWrapper = styled.div`
   height: 40px;
   font-size: 30px;
   background: #fdfd96;
-  border-top: 2px solid #000000;
   border-bottom: 2px solid #000000;
-  position: absolute;
-  top: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
