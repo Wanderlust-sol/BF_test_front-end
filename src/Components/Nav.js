@@ -63,11 +63,16 @@ const NavWrapper = styled.div`
   justify-content: space-between;
   align-items: center;
   z-index: 999;
+
+  @media only screen and (max-width: 415px) {
+    height: 30px;
+  }
 `;
 
 const NavLeft = styled.div`
   margin-left: 15px;
   display: flex;
+  align-items: center;
 
   .logo {
     width: 30px;
@@ -76,6 +81,15 @@ const NavLeft = styled.div`
 
   div {
     margin-left: 10px;
+  }
+
+  @media only screen and (max-width: 415px) {
+    .logo {
+      width: 1.5rem;
+    }
+    div {
+      font-size: 1.5rem;
+    }
   }
 `;
 
@@ -100,5 +114,23 @@ const NavRight = styled.div`
     width: 50px;
     height: auto;
     margin: 0 10px;
+  }
+
+  @media only screen and (max-width: 415px) {
+    .sun {
+      width: 1.5rem;
+    }
+
+    .moon {
+      width: 0.6rem;
+    }
+
+    .battery {
+      width: 2.5rem;
+      margin: 0 5px;
+    }
+    div {
+      font-size: 1.5rem;
+    }
   }
 `;

@@ -41,35 +41,44 @@ const NavContainer = styled.nav`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+
   @media only screen and (max-width: 415px) {
     width: 100vw;
+    height: 4%;
   }
 `;
 
 const TitleSection = styled.div`
-  width: 25%;
+  width: 70%;
   display: flex;
   flex-direction: row;
 `;
 
 const LogoBox = styled.div`
   margin-left: 2px;
-
   width: 30px;
   height: 30px;
   display: flex;
-  justify-content: column;
-  flex-direction: row;
+  justify-content: center;
+  flex-direction: column;
 `;
 
 const Logo = styled.div`
-  width: 25px;
-  height: 25px;
-  margin: 3px auto;
+  width: 23px;
+  height: 23px;
+  margin: 0px auto;
   background-image: url(${BFICON});
   background-position: center;
   background-repeat: none;
   background-size: cover;
+
+  @media only screen and (max-width: 375px) and (max-height: 667px) {
+    width: 20px;
+    height: 20px;
+  }
+  /* iphone X size */
+  @media only screen and (max-width: 375px) and (min-height: 668px) {
+  }
 `;
 
 const MenuBox = styled.div`
@@ -87,13 +96,14 @@ const ControlSection = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  margin-right: 3px;
 `;
 
 const ControlBox = styled.div`
   width: 25%;
   height: 80%;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   margin: 3px;
 `;
@@ -104,6 +114,11 @@ const Min = styled.img`
   height: 23px;
   margin-right: 3px;
   cursor: pointer;
+  @media only screen and (max-width: 415px) {
+    width: 21px;
+    height: 21px;
+    margin: 0 auto;
+  }
 `;
 
 const Expand = styled.img`
@@ -112,6 +127,11 @@ const Expand = styled.img`
   height: 23px;
   margin-right: 3px;
   cursor: pointer;
+  @media only screen and (max-width: 415px) {
+    width: 21px;
+    height: 21px;
+    margin: 0 auto;
+  }
 `;
 const Close = styled.img`
   margin: 0 auto;
@@ -119,4 +139,9 @@ const Close = styled.img`
   height: 23px;
   margin-right: 3px;
   cursor: pointer;
+  @media only screen and (max-width: 415px) {
+    width: 21px;
+    height: 21px;
+    margin: 0 auto;
+  }
 `;

@@ -3,24 +3,31 @@ import styled from "styled-components";
 import Typing from "react-typing-animation";
 import BFICON from "Images/Group6.png";
 import QuestionMain from "Components/Question/QuestionMain";
-import TestBox from "Components/TestBox";
+import WindowNav from "Components/ResultWindow/WindowNav";
+import ProgressBar from "Components/ProgressBar";
+// import TestBox from "Components/TestBox";
 
 const typeSpeed = 20;
 
 const QuestionWindow = props => {
   const [loading, setLoading] = useState(true);
 
+  const getLoadingStatus = status => {
+    setLoading(status);
+  };
+
   return (
     <QuestionsWrapper>
       <QuestionsContainer>
+        <WindowNav title="Front...? Back...?" />
         {/* header*/}
-        <QuestionsHeader>
+        {/* <QuestionsHeader>
           <BFIconDiv></BFIconDiv>
           <HeadContent>Front...? Back...?</HeadContent>
           <ButtonBox>
             <CloseButtonDiv></CloseButtonDiv>
           </ButtonBox>
-        </QuestionsHeader>
+        </QuestionsHeader> */}
         {/* main */}
 
         <QuestionMainDiv>
@@ -47,10 +54,12 @@ const QuestionWindow = props => {
                   delay={typeSpeed * 100}
                 />
               </Typing>
-              <QuestionMain></QuestionMain>
+              <QuestionMain
+                getLoadingStatus={status => getLoadingStatus(status)}
+              ></QuestionMain>
             </>
           ) : (
-            <TestBox></TestBox>
+            <ProgressBar />
           )}
         </QuestionMainDiv>
       </QuestionsContainer>
@@ -72,6 +81,7 @@ const QuestionsWrapper = styled.div`
 const QuestionsContainer = styled.div`
   box-shadow: 13px 10px 0px -1px rgba(74, 79, 79, 1);
   width: 700px;
+  border: 3px solid #000000;
 `;
 
 // window header
@@ -118,8 +128,8 @@ const CloseButtonDiv = styled.div`
 const QuestionMainDiv = styled.div`
   width: 100%;
   height: 626px;
-  border: 3px solid black;
-  border-top: 0px;
+  // border: 3px solid black;
+  border-top: 3px;
   background-color: #244c88;
   position: relative;
   padding: 10px;
@@ -127,9 +137,4 @@ const QuestionMainDiv = styled.div`
     color: white;
     font-size: 20px;
   }
-`;
-
-const TestContainerDiv = styled.div`
-  width: 90%;
-  margin: auto;
 `;

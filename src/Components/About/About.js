@@ -1,10 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import styled, { keyframes } from "styled-components";
 import WindowNav from "Components/ResultWindow/WindowNav";
+import AboutDetail from "Components/About/AboutDetail";
+import InfoData from "./AboutData";
 import MEMBERS from "Images/About/members.jpg";
 import CLICK from "Images/About/click.svg";
 
 const About = () => {
+  const [info, setInfo] = useState({});
+  const [detail, setDetail] = useState(false);
+
+  const Data = { InfoData }.InfoData;
+
+  const goToDetail = (id) => {
+    setDetail(true);
+    setInfo(Data[id]);
+  };
+
   return (
     <AboutWrapper>
       <WindowNav title="About" />
@@ -34,19 +46,24 @@ const About = () => {
         </Text>
         <ImageWrapper>
           <Rainbow>
-            <Color className="red">HONG_DEV</Color>
-            <Color className="orange">CARMIN</Color>
-            <Color className="yellow">SUNNY</Color>
-            <Color className="green">whybein</Color>
-            <Color className="blue">SOL</Color>
-            <Color className="navy">AIDEN</Color>
-            <Color className="purple">KAY</Color>
+            {Data.map((card) => {
+              return (
+                <Color
+                  className={card.color}
+                  key={card.id}
+                  onClick={() => goToDetail(card.id)}
+                >
+                  {card.name}
+                </Color>
+              );
+            })}
           </Rainbow>
           <Click>
             <h3>click here</h3>
             <img className="click" src={CLICK} alt="click" />
           </Click>
         </ImageWrapper>
+        {detail && <AboutDetail data={info} />}
       </Section>
     </AboutWrapper>
   );
@@ -59,10 +76,17 @@ const AboutWrapper = styled.div`
   height: auto;
   border: 2px solid #000000;
   box-shadow: 13px 10px 0px -1px rgba(74, 79, 79, 1);
-  position: absolute;
-  top: 150px;
-  right: 30%;
   z-index: 99;
+
+  @media only screen and (max-width: 780px) {
+    margin: 0 20px;
+  }
+
+  @media only screen and (max-width: 415px) {
+    width: 100%;
+    height: 100%;
+    box-shadow: none;
+  }
 `;
 
 const Section = styled.div`
@@ -73,6 +97,13 @@ const Section = styled.div`
   justify-content: center;
   flex-direction: column;
   align-items: center;
+
+  @media only screen and (max-width: 415px) {
+    /* width: 100%; */
+    height: 100%;
+    display: flex;
+    justify-content: start;
+  }
 `;
 
 const Text = styled.div`
@@ -91,6 +122,22 @@ const ImageWrapper = styled.div`
   background: url(${MEMBERS}) no-repeat center center;
   background-size: cover;
   position: relative;
+
+  @media only screen and (max-width: 415px) {
+    width: 95%;
+    height: 200px;
+    margin-top: 50px;
+
+    h3,
+    img {
+      display: none;
+    }
+
+    div {
+      font-size: 0.7rem;
+      line-height: 1.6;
+    }
+  }
 `;
 
 const Rainbow = styled.div`

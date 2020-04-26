@@ -2,13 +2,12 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import Nav from "Components/Nav";
 import About from "Components/About/About";
-// import Detail from "Components/About/Detail";
+import Question from "Components/Question/QuestionWindow";
 import RECYCLE from "Images/Main/trash.png";
 import COMPUTER from "Images/Main/computer.png";
-import Question from "Components/Question/QuestionWindow";
 
-const Main = (props) => {
-  const [mode, setMode] = useState(false);
+const Main = props => {
+  const [about, setAbout] = useState(false);
 
   return (
     <MainWrapper>
@@ -19,14 +18,13 @@ const Main = (props) => {
             <img className="recycle" src={RECYCLE} alt="computer" />
             <Text>Recycle Bin</Text>
           </Icon>
-          <Icon onClick={() => setMode(!mode)}>
+          <Icon onClick={() => setAbout(!about)}>
             <img className="computer" src={COMPUTER} alt="computer" />
             <Text>Contributor</Text>
           </Icon>
         </IconWrapper>
-        {mode && <About />}
+        {about && <About />}
         <Question />
-        {/* <Detail /> */}
       </Section>
     </MainWrapper>
   );
@@ -45,6 +43,9 @@ const Section = styled.div`
   height: 100%;
   background: #29bbbb;
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 const IconWrapper = styled.div`
