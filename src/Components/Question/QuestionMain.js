@@ -118,7 +118,7 @@ const QuestionMain = (props) => {
       setTimeout(() => {
         fetchFirstQuestion();
       }, 8500);
-    } else if (quesNum > 13) {
+    } else if (quesNum === 14) {
       console.log("나나나");
       props.getData(pickedData);
       props.getLoadingStatus(true);
