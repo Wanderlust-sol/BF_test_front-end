@@ -9,10 +9,10 @@ import ProgressBar from "Components/ProgressBar";
 
 const typeSpeed = 20;
 
-const QuestionWindow = props => {
-  const [loading, setLoading] = useState(true);
+const QuestionWindow = (props) => {
+  const [loading, setLoading] = useState(false);
 
-  const getLoadingStatus = status => {
+  const getLoadingStatus = (status) => {
     setTimeout(setLoading(status), 2000);
   };
 
@@ -59,8 +59,8 @@ const QuestionWindow = props => {
               {/* <TestBox /> */}
               {/* </TestContainerDiv> */}
               <QuestionMain
-                getLoadingStatus={status => getLoadingStatus(status)}
-                getData={data => {
+                getLoadingStatus={(status) => getLoadingStatus(status)}
+                getData={(data) => {
                   props.getData(data);
                 }}
                 loading={loading}
@@ -84,12 +84,21 @@ const QuestionsWrapper = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  @media only screen and (max-width: 720px) {
+    width: 100vw;
+    height: 100%;
+  }
 `;
 
 const QuestionsContainer = styled.div`
   box-shadow: 13px 10px 0px -1px rgba(74, 79, 79, 1);
   width: 700px;
-  border: 3px solid #000000;
+  border: 2px solid #000000;
+  @media only screen and (max-width: 720px) {
+    width: 100vw;
+    box-shadow: none;
+    border: none;
+  }
 `;
 
 // window header
@@ -106,5 +115,9 @@ const QuestionMainDiv = styled.div`
   span {
     color: white;
     font-size: 20px;
+  }
+  @media only screen and (max-width: 720px) {
+    width: 100vw;
+    height: 100vh;
   }
 `;

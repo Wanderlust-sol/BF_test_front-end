@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import styled, { keyframes } from "styled-components";
 import WindowNav from "Components/ResultWindow/WindowNav";
-
 import AboutDetail from "Components/About/AboutDetail";
 import InfoData from "./AboutData";
 import MEMBERS from "Images/About/members.jpg";

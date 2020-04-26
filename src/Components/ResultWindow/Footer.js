@@ -24,8 +24,8 @@ const FooterContainer = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: center;
-    /* position: absolute;
-    bottom: 0; */
+    //  position 뺴지마 css다 터져
+    position: relative;
   }
 `;
 
