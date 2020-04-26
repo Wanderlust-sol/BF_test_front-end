@@ -6,7 +6,7 @@ import { URL } from "config";
 // import TypingEffect from "Components/TypingEffect";
 
 // const typeSpeed = 50;
-const QuestionMain = (props) => {
+const QuestionMain = props => {
   const [quesData, setData] = useState({});
   const [quesNum, setQuesNum] = useState(1);
   const [quesNumUrl, setQuesNumUrl] = useState(1);
@@ -14,7 +14,7 @@ const QuestionMain = (props) => {
   const [type, setType] = useState();
   const [sendResult, setSendResult] = useState(false);
 
-  const clickChoice = (index) => {
+  const clickChoice = index => {
     // setFinished(false);
     // 밑에 두 줄은 마지막 문제일 때, 결과보내는 용
     setSendResult(true);
@@ -40,7 +40,7 @@ const QuestionMain = (props) => {
         props.getData(pickedData, type);
         props.getLoadingStatus(true);
       } else {
-        setType("B");
+        setType("C");
         props.getData(pickedData, type);
         props.getLoadingStatus(true);
       }
@@ -55,10 +55,10 @@ const QuestionMain = (props) => {
         }
       } else if (quesNumUrl === 12) {
         if (index === 0) {
-          setQuesNumUrl(quesNumUrl + 3);
+          setQuesNumUrl(quesNumUrl + 2);
           console.log("12번문제 1번 선택", quesNumUrl + 3);
         } else {
-          setQuesNumUrl(quesNumUrl + 2);
+          setQuesNumUrl(quesNumUrl + 3);
           console.log("12번문제 2번 선택", quesNumUrl + 2);
         }
       } else if (quesNumUrl === 13) {
@@ -137,7 +137,7 @@ export default QuestionMain;
 const QBoxWrapper = styled.div`
   width: 90%;
   margin: 35px auto 0 auto;
-  display: ${(props) => (props.loading ? "none" : "block")};
+  display: ${props => (props.loading ? "none" : "block")};
 `;
 
 const QBoxContainer = styled.div`
@@ -179,7 +179,7 @@ const SelectOutLineDiv = styled.div`
   border: 1px solid white;
   margin-top: 20px;
   padding: 2px;
-  display: ${(props) => (props.display ? "block" : "none")};
+  display: ${props => (props.display ? "block" : "none")};
   display: block;
 `;
 
@@ -193,4 +193,10 @@ const TextSelect = styled.div`
     background-color: white;
   }
   cursor: pointer;
+  @media only screen and (max-width: 768px) {
+    &:hover {
+      color: white;
+      background-color: #244c88;
+    }
+  }
 `;

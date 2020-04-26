@@ -1,19 +1,22 @@
 import React, { useState } from "react";
+import { connect } from "react-redux";
 import styled from "styled-components";
 import Nav from "Components/Nav";
 import About from "Components/About/About";
 import Question from "Components/Question/QuestionWindow";
+import Result from "Components/ResultWindow/Result";
 import Footer from "Components/ResultWindow/Footer";
 import RECYCLE from "Images/Main/trash.png";
 import COMPUTER from "Images/Main/computer.png";
 import WECODE from "Images/Main/WeTV.png";
 
-const Main = (props) => {
+const Main = props => {
+  const { res } = props;
   const [mode, setMode] = useState(false);
   const [postData, setPostData] = useState({});
-  const [about, setAbout] = useState(true);
+  const [about, setAbout] = useState(false);
 
-  const getData = (postData) => {
+  const getData = postData => {
     console.log("data왔다~~~ : ", postData);
     setPostData(postData);
   };
@@ -42,13 +45,20 @@ const Main = (props) => {
           </Icon>
         </IconWrapper>
         {about && <About />}
+        {!res ? <Question /> : <Result />}
       </Section>
       <Footer />
     </MainWrapper>
   );
 };
 
-export default Main;
+const mapStateToProps = state => {
+  return {
+    res: state.controlResult.res
+  };
+};
+
+export default connect(mapStateToProps)(Main);
 
 const MainWrapper = styled.div`
   width: 100vw;

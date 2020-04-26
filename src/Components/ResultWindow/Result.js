@@ -1,17 +1,20 @@
 import React, { useEffect, useState } from "react";
+import { connect } from "react-redux";
 import styled, { keyframes } from "styled-components";
 import WindowNav from "./WindowNav";
 import About from "Components/About/About";
 
-const Result = (props) => {
-  const [type, setType] = useState([]);
+const Result = props => {
+  const { type } = props;
+  // const [type, setType] = useState([]);
   const [typeName, setTypeName] = useState("");
   const [about, setAbout] = useState(false);
 
   useEffect(() => {
-    fetchMockData();
-  });
-  const handleType = (name) => {
+    handleType(type.name);
+  }, []);
+
+  const handleType = name => {
     const lastLetter = name[name.length - 3];
     if (lastLetter === "풀") {
       setTypeName("Full-Stack Developer");
@@ -22,15 +25,15 @@ const Result = (props) => {
     }
   };
 
-  const fetchMockData = () => {
-    fetch("http://localhost:3000/Data/result.json")
-      .then((res) => res.json())
-      .then((res) => {
-        setType(res.result);
-        handleType(res.result.name);
-      });
-  };
-
+  // const fetchMockData = () => {
+  //   fetch("http://localhost:3000/Data/result.json")
+  //     .then(res => res.json())
+  //     .then(res => {
+  //       setType(res.result);
+  //       handleType(res.result.name);
+  //     });
+  // };
+  console.log("type", type);
   return (
     <Container>
       {about}
@@ -88,7 +91,14 @@ const Result = (props) => {
   );
 };
 
-export default Result;
+const mapStateToProps = state => {
+  console.log(state);
+  return {
+    type: state.getResult
+  };
+};
+
+export default connect(mapStateToProps)(Result);
 
 const Container = styled.div`
   margin: 0 auto;
@@ -279,6 +289,8 @@ const TypeName = styled.div`
   }
   /* iphone X size */
   @media only screen and (max-width: 375px) and (min-height: 668px) {
+    font-size: 0.8rem;
+    line-height: 1.6rem;
   }
 `;
 
@@ -326,6 +338,9 @@ const FitTypeName = styled.span`
   }
   @media only screen and (max-width: 415px) {
     font-size: 0.9rem;
+  }
+  @media only screen and (max-width: 375px) and (min-height: 668px) {
+    font-size: 0.8rem;
   }
 `;
 
