@@ -1,20 +1,25 @@
 import React, { useState } from "react";
 import styled, { keyframes } from "styled-components";
 import WindowNav from "Components/ResultWindow/WindowNav";
+
 import AboutDetail from "Components/About/AboutDetail";
 import InfoData from "./AboutData";
 import MEMBERS from "Images/About/members.jpg";
 import CLICK from "Images/About/click.svg";
 
-const About = () => {
+const About = (props) => {
   const [info, setInfo] = useState({});
   const [detail, setDetail] = useState(false);
 
   const Data = { InfoData }.InfoData;
 
-  const goToDetail = (id) => {
+  const openDetail = (id) => {
     setDetail(true);
     setInfo(Data[id]);
+  };
+
+  const closeDetail = () => {
+    setDetail(false);
   };
 
   return (
@@ -51,7 +56,7 @@ const About = () => {
                 <Color
                   className={card.color}
                   key={card.id}
-                  onClick={() => goToDetail(card.id)}
+                  onClick={() => openDetail(card.id)}
                 >
                   {card.name}
                 </Color>
@@ -63,7 +68,7 @@ const About = () => {
             <img className="click" src={CLICK} alt="click" />
           </Click>
         </ImageWrapper>
-        {detail && <AboutDetail data={info} />}
+        {detail && <AboutDetail data={info} close={closeDetail} />}
       </Section>
     </AboutWrapper>
   );
@@ -80,11 +85,13 @@ const AboutWrapper = styled.div`
 
   @media only screen and (max-width: 780px) {
     margin: 0 20px;
+    border: none;
   }
 
   @media only screen and (max-width: 415px) {
     width: 100%;
     height: 100%;
+    margin: 0;
     box-shadow: none;
   }
 `;
@@ -99,7 +106,6 @@ const Section = styled.div`
   align-items: center;
 
   @media only screen and (max-width: 415px) {
-    /* width: 100%; */
     height: 100%;
     display: flex;
     justify-content: start;
@@ -126,7 +132,23 @@ const ImageWrapper = styled.div`
   @media only screen and (max-width: 415px) {
     width: 95%;
     height: 200px;
-    margin-top: 50px;
+    margin-top: 70px;
+
+    h3,
+    img {
+      display: none;
+    }
+
+    div {
+      font-size: 0.7rem;
+      line-height: 1.6;
+    }
+  }
+
+  @media only screen and (max-width: 375px) {
+    width: 95%;
+    height: 200px;
+    margin-top: 20px;
 
     h3,
     img {
@@ -154,6 +176,10 @@ const Color = styled.div`
   height: 100%;
   text-align: center;
   cursor: pointer;
+
+  @media only screen and (max-width: 415px) {
+    cursor: none;
+  }
 
   &.red {
     background: red;

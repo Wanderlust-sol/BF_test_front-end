@@ -5,7 +5,7 @@ import CLOSEICON from "Images/Nav/close.png";
 import EXPANDICON from "Images/Nav/expand.png";
 import MINICON from "Images/Nav/min.png";
 
-const WindowNav = (data) => {
+const WindowNav = ({ title, close }) => {
   return (
     <NavContainer>
       <TitleSection>
@@ -13,7 +13,7 @@ const WindowNav = (data) => {
           <Logo></Logo>
         </LogoBox>
         <MenuBox>
-          <Menu>{data.title}</Menu>
+          <Menu>{title}</Menu>
         </MenuBox>
       </TitleSection>
       <ControlSection>
@@ -24,7 +24,7 @@ const WindowNav = (data) => {
           <Expand src={EXPANDICON}></Expand>
         </ControlBox>
         <ControlBox>
-          <Close src={CLOSEICON}></Close>
+          <Close src={CLOSEICON} onClick={close}></Close>
         </ControlBox>
       </ControlSection>
     </NavContainer>
@@ -43,15 +43,15 @@ const NavContainer = styled.nav`
   justify-content: space-between;
 
   @media only screen and (max-width: 415px) {
-    width: 100vw;
-    height: 4%;
+    display: none;
   }
 `;
 
 const TitleSection = styled.div`
-  width: 25%;
+  width: 70%;
   display: flex;
   flex-direction: row;
+  align-items: center;
 `;
 
 const LogoBox = styled.div`

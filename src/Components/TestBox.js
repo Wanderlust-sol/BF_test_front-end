@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import styled, { keyframes, css } from "styled-components";
 
-const TestBox = (props) => {
+const TestBox = props => {
   const [ani, setAni] = useState(false);
   const [num, setNum] = useState(0);
 
   const changeAni = () => {
     //   increase num
     const interval = setInterval(() => {
-      setNum((num) => num + 1);
+      setNum(num => num + 1);
       console.log(num);
     }, 1000);
 
@@ -46,7 +46,7 @@ const TestBoxWrapper = styled.div`
   height: 300px;
   border: 1px dashed white;
   display: flex;
-  align-item: end;
+  align-items: flex-end;
   position: relative;
 `;
 
@@ -70,7 +70,7 @@ const AniDiv = styled.div`
   background-color: white;
   position: absolute;
   bottom: 0;
-  ${(props) => {
+  ${props => {
     if (props.ani) {
       return css`
         animation-name: ${verticalCover};
