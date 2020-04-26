@@ -13,6 +13,10 @@ const Nav = () => {
   let minute = date.getMinutes();
   let second = date.getSeconds();
 
+  const goToMain = () => {
+    window.location.reload();
+  };
+
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const timeCheck = () => {
     setTime(
@@ -32,7 +36,12 @@ const Nav = () => {
   return (
     <NavWrapper>
       <NavLeft>
-        <img className="logo" src={LOGO} alt="logo" />
+        <img
+          className="logo"
+          src={LOGO}
+          alt="logo"
+          onClick={() => goToMain()}
+        />
         <div>Test</div>
       </NavLeft>
       <NavRight>
@@ -74,6 +83,7 @@ const NavLeft = styled.div`
   .logo {
     width: 25px;
     height: auto;
+    cursor: pointer;
   }
 
   div {

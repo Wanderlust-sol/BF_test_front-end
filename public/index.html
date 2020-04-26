@@ -9,6 +9,14 @@
       name="BF-TEST"
       content="프론트엔드와 백엔드 중 자신의 성향에 맞는 포지션을 알 수 있는 심리테스트"
     />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="BF-TEST" />
+    <meta
+      property="og:description"
+      content="프론트엔드와 백엔드 중 자신의 성향에 맞는 포지션을 알 수 있는 심리테스트"
+    />
+    <meta property="og:image" content="%PUBLIC_URL%/Logo2.png" />
+
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
     <title>BF-TEST</title>
@@ -16,13 +24,18 @@
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-164286373-1"></script>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-164286373-1"
+    ></script>
     <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-      gtag('config', 'UA-164286373-1');
+      gtag("config", "UA-164286373-1");
     </script>
     <div id="root"></div>
   </body>
