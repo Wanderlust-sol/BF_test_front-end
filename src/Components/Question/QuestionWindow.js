@@ -11,15 +11,16 @@ const typeSpeed = 20;
 
 const QuestionWindow = props => {
   const [loading, setLoading] = useState(true);
-  const [postData, setPostData] = useState({});
+  const [postData, setPostData] = useState([]);
 
   const getLoadingStatus = status => {
     setTimeout(setLoading(status), 2000);
   };
 
-  const getData = postData => {
-    console.log("data왔다~~~ : ", postData);
-    setPostData(postData);
+  const getData = (postData, typeData) => {
+    //postData 는 문제(키:벨류)/ type는 type
+    const result = [postData, typeData];
+    setPostData(result);
   };
 
   return (
@@ -66,8 +67,8 @@ const QuestionWindow = props => {
           {/* </TestContainerDiv> */}
           <QuestionMain
             getLoadingStatus={status => getLoadingStatus(status)}
-            getData={data => {
-              getData(data);
+            getData={(data, type) => {
+              getData(data, type);
             }}
             loading={loading}
           ></QuestionMain>
@@ -90,6 +91,7 @@ const QuestionsWrapper = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+
   @media only screen and (max-width: 720px) {
     width: 100vw;
     height: 100%;

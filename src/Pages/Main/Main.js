@@ -8,7 +8,7 @@ import RECYCLE from "Images/Main/trash.png";
 import COMPUTER from "Images/Main/computer.png";
 import WECODE from "Images/Main/WeTV.png";
 
-const Main = (props) => {
+const Main = props => {
   // const [mode, setMode] = useState(false);
   //태솔 => 고른 선택지에 대한 데이터에요. postData 쓰면됩니다
   // const [postData, setPostData] = useState({});
@@ -68,6 +68,7 @@ const Section = styled.div`
 
   @media only screen and (max-width: 415px) {
     height: calc(100% - 60px);
+    background: #244c88;
   }
 `;
 
@@ -76,9 +77,16 @@ const IconWrapper = styled.div`
   top: 100px;
   left: 40px;
 
-  /* @media only screen and (max-width: 415px) {
+  @media only screen and (min-width: 500px) and (max-width: 780px) {
+    top: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+  }
+
+  @media only screen and (max-width: 415px) {
     display: none;
-  } */
+  }
 `;
 
 const Icon = styled.div`
@@ -86,6 +94,10 @@ const Icon = styled.div`
   flex-direction: column;
   align-items: center;
   margin-bottom: 20px;
+
+  @media only screen and (min-width: 500px) and (max-width: 780px) {
+    margin-right: 10px;
+  }
 
   .recycle {
     width: 60px;

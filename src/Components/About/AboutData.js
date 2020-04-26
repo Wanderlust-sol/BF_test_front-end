@@ -29,7 +29,7 @@ const AboutData = [
   {
     id: 3,
     name: "WHYBEIN",
-    img: "",
+    img: "Whybein.jpg",
     position: "Back-end",
     git: "https://github.com/whybein",
     insta: "https://instagram.com/whybein",

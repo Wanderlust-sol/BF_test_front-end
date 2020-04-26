@@ -8,6 +8,9 @@ const Result = (props) => {
   const [type, setType] = useState([]);
   const [typeName, setTypeName] = useState("");
 
+  useEffect(() => {
+    fetchMockData();
+  });
   const handleType = (name) => {
     const lastLetter = name[name.length - 3];
     if (lastLetter === "풀") {
@@ -20,7 +23,12 @@ const Result = (props) => {
   };
 
   const fetchMockData = () => {
-    fetch();
+    fetch("http://localhost:3000/Data/result.json")
+      .then((res) => res.json())
+      .then((res) => {
+        setType(res.result);
+        handleType(res.result.name);
+      });
   };
 
   const handleContribute = () => {
@@ -28,7 +36,7 @@ const Result = (props) => {
   };
 
   return (
-    <Container id="capture">
+    <Container>
       <WindowNav></WindowNav>
       <Body>
         <TypeContainer>
@@ -67,8 +75,6 @@ const Result = (props) => {
           </TypeResultBox>
         </RecommendContainer>
         <ShareBox>
-          <CaptureIcon onClick={() => {}}>Capture</CaptureIcon>
-
           <GlobeIcon
             id="captureBtn"
             onClick={() => {
@@ -78,7 +84,6 @@ const Result = (props) => {
           ></GlobeIcon>
         </ShareBox>
       </Body>
-      <Footer></Footer>
     </Container>
   );
 };
@@ -87,28 +92,25 @@ export default Result;
 
 const Container = styled.div`
   margin: 0 auto;
-  width: 50%;
-  height: 60%;
+  width: 700px;
   border: 2px solid black;
   display: flex;
   flex-direction: column;
   justify-content: start;
-  -webkit-box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
-  box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
-
+  box-shadow: 13px 10px 0px -1px rgba(74, 79, 79, 1);
+  z-index: 10;
   @media only screen and (max-width: 415px) {
     width: 100%;
-    height: 100vh;
+    height: 100%;
     box-shadow: none;
     margin: 0;
     padding: 0;
     overflow: hidden;
   }
 `;
+
 const Body = styled.div`
   width: 100%;
-  height: 93%;
   border: 1px solid black;
   background-color: black;
   display: flex;
@@ -135,11 +137,7 @@ const TypeContainer = styled.div`
 `;
 const TypeTitleBox = styled.div``;
 
-const TitleName = styled.span`
-  @media only screen and (max-width: 970px) {
-    font-size: 1.1rem;
-  }
-`;
+const TitleName = styled.span``;
 const TypeResultBox = styled.span``;
 const Arrow = styled.span`
   margin-right: 4px;
@@ -157,7 +155,7 @@ const ResultContainer = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: start;
-  @media only screen and (max-width: 970px) {
+  @media only screen and (max-width: 700px) {
     flex-direction: column;
     justify-content: center;
   }
@@ -214,6 +212,8 @@ const ContentContainer = styled.div`
   flex-direction: row;
   justify-content: center;
   position: relative;
+  max-height: 326px;
+
   @media only screen and (max-width: 415px) {
   }
   /* iphone 6/7/8 size */
@@ -229,15 +229,14 @@ const ContentWrapper = styled.div`
   width: 93%;
   border: 1.5px solid white;
   display: flex;
-  flex-direction: row;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: start;
+  padding: 2px;
 `;
 
 const ContentInner = styled.div`
-  height: 96%;
-  width: 98%;
+  height: 100%;
   border: 1.5px solid white;
-  margin: 3px auto;
   text-align: center;
   @media only screen and (max-width: 415px) {
     height: 95%;
@@ -249,12 +248,8 @@ const TypeName = styled.div`
   border: 2px dotted white;
   margin: 10px;
   line-height: 2rem;
-  font-size: 1.4rem;
-  @media only screen and (max-width: 1175px) {
-    font-size: 0.8rem;
-    line-height: 1.2rem;
-    letter-spacing: 0.3px;
-  }
+  font-size: 1.2rem;
+
   @media only screen and (max-width: 415px) {
     font-size: 0.9rem;
     line-height: 1.5rem;
@@ -275,12 +270,6 @@ const TypeContents = styled.div`
   margin: 10px;
   line-height: 1.4rem;
   letter-spacing: 0.4px;
-
-  @media only screen and (max-width: 1175px) {
-    font-size: 0.7rem;
-    line-height: 1.2rem;
-    letter-spacing: 0.3px;
-  }
   @media only screen and (max-width: 415px) {
     font-size: 0.9rem;
     line-height: 1rem;
@@ -351,9 +340,4 @@ const GlobeIcon = styled.img`
     width: 65px;
     height: 65px;
   }
-`;
-
-const CaptureIcon = styled.div`
-  color: white;
-  border: 1px solid yellow;
 `;

@@ -42,8 +42,8 @@ const ProgressBar = props => {
     setResult(true);
     try {
       const res = await axios.post("http://52.79.185.94:8000/poll/result", {
-        answer: props.postData,
-        type: "A"
+        answer: props.postData[0],
+        type: props.postData[1]
       });
       console.log(res);
     } catch (err) {
@@ -55,7 +55,7 @@ const ProgressBar = props => {
       progress < 100 &&
       setInterval(() => {
         setProgress(progress + 1);
-      }, 100);
+      }, 50);
     progress === 100 && setShowResult(true);
     return () => clearInterval(interval);
   }, [progress]);
@@ -127,6 +127,14 @@ const MovingDog = styled.div`
     top: -35px;
     left: ${props => props.progress * 5}px;
     z-index: 5;
+
+    @media only screen and (max-width: 720px) {
+      left: ${props => props.progress - 11}%;
+    }
+
+    @media only screen and (max-width: 415px) {
+      left: ${props => props.progress - 14}%;
+    }
 `;
 const HomeDog = styled.div`
     width: 60px;
