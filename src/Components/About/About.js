@@ -124,7 +124,7 @@ const Text = styled.div`
   text-align: justify;
 
   @media only screen and (max-width: 415px) {
-    height: 45%;
+    height: 40%;
     overflow: scroll;
   }
 
