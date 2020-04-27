@@ -91,15 +91,8 @@ const NavLeft = styled.div`
   }
 
   @media only screen and (max-width: 415px) {
-    .logo {
-      width: 1.5rem;
-    }
-    div {
-      font-size: 1.5rem;
-    }
-  }
+    margin-left: 2px;
 
-  @media only screen and (max-width: 320px) {
     .logo {
       width: 1.3rem;
     }
@@ -134,24 +127,7 @@ const NavRight = styled.div`
   }
 
   @media only screen and (max-width: 415px) {
-    .sun {
-      width: 1.5rem;
-    }
-
-    .moon {
-      width: 0.6rem;
-    }
-
-    .battery {
-      width: 2.5rem;
-      margin: 0 5px;
-    }
-    div {
-      font-size: 1.5rem;
-    }
-  }
-
-  @media only screen and (max-width: 320px) {
+    margin-right: 5px;
     .sun {
       width: 1.3rem;
     }

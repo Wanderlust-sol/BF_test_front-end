@@ -29,6 +29,7 @@ const FooterContainer = styled.div`
     flex-direction: row;
     justify-content: center;
     position: relative;
+    z-index: 99999;
   }
 `;
 

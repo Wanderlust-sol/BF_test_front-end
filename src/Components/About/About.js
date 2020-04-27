@@ -47,26 +47,8 @@ const About = (props) => {
           그럼 다들 멋진 개발자로 성장하시길 응원합니다!!
           <br />
         </Text>
-        <ImgContainer>
-          <ImageWrapper>
-            {/* <Rainbow>
-            {Data.map((card) => {
-              return (
-                <Color
-                  className={card.color}
-                  key={card.id}
-                  onClick={() => handleOpenDetail(card.id)}
-                >
-                  {card.name}
-                </Color>
-              );
-            })}
-          </Rainbow> */}
-            <Click>
-              <h3>click here</h3>
-              <img className="click" src={CLICK} alt="click" />
-            </Click>
-          </ImageWrapper>
+        <ImgWrapper>
+          <img src={MEMBERS} alt="members" />
           <Rainbow>
             {Data.map((card) => {
               return (
@@ -80,7 +62,11 @@ const About = (props) => {
               );
             })}
           </Rainbow>
-        </ImgContainer>
+          <Click>
+            <h3>click here</h3>
+            <img className="click" src={CLICK} alt="click" />
+          </Click>
+        </ImgWrapper>
         {detail && <AboutDetail data={info} />}
       </Section>
       <Footer />
@@ -121,14 +107,11 @@ const Section = styled.div`
   height: auto;
   background: #244c88;
   display: flex;
-  justify-content: center;
   flex-direction: column;
   align-items: center;
 
   @media only screen and (max-width: 415px) {
-    // height: 100%;
-    /* display: flex; */
-    /* justify-content: start; */
+    height: 100%;
   }
 `;
 
@@ -141,24 +124,32 @@ const Text = styled.div`
   text-align: justify;
 
   @media only screen and (max-width: 415px) {
+    height: 50%;
     overflow: scroll;
   }
 
   @media only screen and (max-width: 320px) {
+    height: 45%;
+    overflow: scroll;
     font-size: 0.8rem;
   }
 `;
 
-const ImgContainer = styled.div`
-  width: 90%;
+const ImgWrapper = styled.div`
+  width: 80%;
+
+  img {
+    width: 100%;
+    height: auto;
+    margin: 20px auto 0;
+  }
 `;
 
-const ImageWrapper = styled.div`
+const Image = styled.img`
   width: 100%;
-  height: 350px;
+  height: auto;
   margin: 20px auto 0;
-  background: url(${MEMBERS}) no-repeat center center;
-  background-size: cover;
+
   position: relative;
 
   @media only screen and (max-width: 415px) {
@@ -193,37 +184,43 @@ const ImageWrapper = styled.div`
     }
   }
 
+  @media only screen and (max-width: 325px) {
+    div {
+      font-size: 0.6rem;
+      line-height: 1.9;
+    }
+  }
+
   @media only screen and (min-height: 700px) and (max-height: 815px) {
     height: 350px;
   }
 `;
 
-// const Rainbow = styled.div`
-//   width: 100%;
-//   height: 20px;
-//   position: absolute;
-//   bottom: 0;
-//   display: flex;
-//   z-index: 999;
-// `;
-
 const Rainbow = styled.div`
   width: 100%;
   height: 20px;
+  margin-bottom: 10px;
   display: flex;
+
+  @media only screen and (max-width: 420px) {
+    margin-bottom: 0;
+  }
 `;
+
 const Color = styled.div`
   width: calc(100% / 7);
   height: 100%;
   text-align: center;
   cursor: pointer;
 
-  /* @media only screen and (max-width: 415px) {
-    cursor: none;
-  } */
+  @media only screen and (max-width: 420px) {
+    font-size: 0.7rem;
+    line-height: 1.7;
+  }
 
-  @media only screen and (max-width: 320px) {
+  @media only screen and (max-width: 325px) {
     font-size: 0.6rem;
+    line-height: 1.9;
   }
 
   &.red {
@@ -260,18 +257,21 @@ to {
 
 const Click = styled.div`
   position: absolute;
-  bottom: 0;
-  left: -50px;
+  bottom: 10px;
+  left: 30px;
   animation: ${drop} 1.5s linear infinite;
 
   h3 {
     color: #ffffff;
-    margin-bottom: 15px;
     transform: rotate(-30deg);
   }
 
   img {
     width: 40px;
     height: auto;
+  }
+
+  @media only screen and (max-width: 420px) {
+    display: none;
   }
 `;
