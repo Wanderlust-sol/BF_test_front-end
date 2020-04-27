@@ -19,11 +19,6 @@ const GlobalStyle = createGlobalStyle`
   *{
     box-sizing: border-box ;
     cursor: default;
-
-  }
-  html, body {
-    width: 100%,
-    height: 100%
   }
   body {
     font-family:  DungGuenMo, 'Noto Sans KR', sans-serif;   
@@ -32,10 +27,6 @@ const GlobalStyle = createGlobalStyle`
     text-decoration: none;
     color: #000000
   }
-  #id {
-    position: fixed;
-    overflow: hidden;
-  }   
 `;
 ReactDOM.render(
   <Provider store={createStore(rootReducer)}>
