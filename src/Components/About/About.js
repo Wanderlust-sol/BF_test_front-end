@@ -129,7 +129,7 @@ const Text = styled.div`
   }
 
   @media only screen and (max-width: 320px) {
-    height: 45%;
+    height: 40%;
     overflow: scroll;
     font-size: 0.8rem;
   }
