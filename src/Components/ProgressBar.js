@@ -1,45 +1,18 @@
-import React, { useState, useLayoutEffect, useEffect, useRef } from "react";
+import React, { useState, useLayoutEffect } from "react";
 import axios from "axios";
+import { URL } from "config";
 import { connect } from "react-redux";
 import { showResult, closeResult, addResult } from "Redux/Actions";
 import styled from "styled-components";
-import { URL } from "config";
 import Dog from "Images/Progress/Dog.png";
 import HomeBF from "Images/Progress/home_bf.png";
 import Home from "Images/Progress/home.png";
-
-const useInterval = (callback, delay) => {
-  const progressRef = useRef();
-
-  // remember latest callback
-  useEffect(() => {
-    progressRef.current = callback;
-  }, [callback]);
-
-  // setup the interval
-  useEffect(() => {
-    function tick() {
-      progressRef.current();
-    }
-
-    if (delay !== null) {
-      let id = setInterval(tick, delay);
-      return () => clearInterval(id);
-    }
-  }, [delay]);
-};
 
 const ProgressBar = props => {
   const { res, showResult, closeResult, addResult } = props;
   const [progress, setProgress] = useState(0);
   const [popupResult, setPopupResult] = useState(false);
   const [result, setResult] = useState(false);
-
-  //   useCallback(() => {
-  //     const a = useInterval(() => {
-  //       setProgress(progress + 1);
-  //     }, 100);
-  //   }, [a]);
 
   const clickResult = async () => {
     setResult(true);
