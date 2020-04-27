@@ -12,19 +12,16 @@ import WECODE from "Images/Main/WeTV.png";
 
 const Main = props => {
   const { res } = props;
-  const [mode, setMode] = useState(false);
   const [postData, setPostData] = useState({});
   const [about, setAbout] = useState(false);
 
   const getData = postData => {
-    console.log("data왔다~~~ : ", postData);
     setPostData(postData);
   };
+
   const goToWecode = () => {
     window.open("https://wecode.co.kr/");
   };
-
-  console.log(about);
 
   return (
     <MainWrapper>
