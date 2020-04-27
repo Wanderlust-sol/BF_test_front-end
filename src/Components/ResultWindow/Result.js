@@ -120,7 +120,6 @@ const BodyWrapper = styled.div`
   @media only screen and (max-width: 415px) {
     display: flex;
     flex-direction: column;
-    min-height: calc(100% - 60px);
     overflow-y: scroll;
   }
 `;
@@ -135,20 +134,20 @@ const Body = styled.div`
 `;
 
 const TypeContainer = styled.div`
-  margin-top: 10px;
-  margin-left: 10px;
+  margin: 10px;
   font-size: 22px;
   line-height: 1.9rem;
   color: white;
   position: relative;
   @media only screen and (max-width: 415px) {
-    margin-top: 10px;
     font-size: 1.2rem;
     line-height: 1rem;
   }
 `;
 const TypeTitleBox = styled.div`
-  margin-top: 20px;
+  @media only screen and (max-width: 415px) {
+    margin-top: 10px;
+  }
 `;
 
 const TitleName = styled.span`
@@ -323,20 +322,16 @@ const TypeContents = styled.div`
 `;
 
 const RecommendContainer = styled.div`
-  margin-top: 10px;
-  margin-left: 10px;
+  margin: 10px;
   font-size: 1.6rem;
   line-height: 2rem;
   color: white;
   position: relative;
-  margin-bottom: 10px;
+
   @media only screen and (max-width: 415px) {
+    margin: 20px;
     font-size: 1.2rem;
     line-height: 1.2rem;
-    margin-bottom: 0px;
-  }
-
-  @media only screen and (max-width: 320px) and (min-height: 568px) {
   }
 `;
 
