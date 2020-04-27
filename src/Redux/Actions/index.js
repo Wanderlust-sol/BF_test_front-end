@@ -16,3 +16,15 @@ export const addResult = (data) => {
     payload: data,
   };
 };
+
+export const openQuestion = () => {
+  return {
+    type: "OPEN_QUESTION",
+  };
+};
+
+export const closeQuestion = () => {
+  return {
+    type: "ClOSE_QUESTION",
+  };
+};

@@ -7,11 +7,11 @@ import ProgressBar from "Components/ProgressBar";
 
 const typeSpeed = 20;
 
-const QuestionWindow = props => {
+const QuestionWindow = (props) => {
   const [loading, setLoading] = useState(false);
   const [postData, setPostData] = useState([]);
 
-  const getLoadingStatus = status => {
+  const getLoadingStatus = (status) => {
     setTimeout(setLoading(status), 2000);
   };
 
@@ -45,12 +45,24 @@ const QuestionWindow = props => {
             <Typing.Backspace
               count={50}
               speed={typeSpeed}
-              delay={typeSpeed * 100}
+              delay={typeSpeed * 50}
+            />
+          </Typing>
+          <Typing speed={typeSpeed}>
+            <span>
+              <Typing.Delay ms={typeSpeed * 400} />
+              ⚠️ 선택 시 다시 선택하실 수 없으니 신중히 선택해주시기 바랍니다.
+              ⚠️
+            </span>
+            <Typing.Backspace
+              count={50}
+              speed={typeSpeed * 2}
+              delay={typeSpeed * 50}
             />
           </Typing>
 
           <QuestionMain
-            getLoadingStatus={status => getLoadingStatus(status)}
+            getLoadingStatus={(status) => getLoadingStatus(status)}
             getData={(data, type) => {
               getData(data, type);
             }}
