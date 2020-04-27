@@ -112,22 +112,33 @@ const Logo = styled.div`
   background-size: cover;
 
   @media only screen and (max-width: 375px) and (max-height: 667px) {
-    width: 20px;
-    height: 20px;
+    width: 1.5rem;
+    height: 1.5rem;
   }
-  /* iphone X size */
-  @media only screen and (max-width: 375px) and (min-height: 668px) {
+  @media only screen and (max-width: 320px) and (min-height: 568px) {
+    width: 1.4rem;
+    height: 1.4rem;
   }
 `;
 
 const MenuBox = styled.div`
-  padding-left: 3px;
+  padding-left: 5px;
   height: 100%;
 `;
 
 const Menu = styled.div`
   font-size: 1.5rem;
   line-height: 1.9rem;
+  @media only screen and (max-width: 415px) {
+    font-size: 1.5rem;
+  }
+  @media only screen and (max-width: 415px) {
+    font-size: 1.3rem;
+  }
+  /* 5, se size */
+  @media only screen and (max-width: 320px) and (min-height: 568px) {
+    font-size: 1.2rem;
+  }
 `;
 
 const ControlSection = styled.div`

@@ -3,8 +3,8 @@ import { connect } from "react-redux";
 import styled, { keyframes } from "styled-components";
 import WindowNav from "./WindowNav";
 import About from "Components/About/About";
-
-const Result = props => {
+import Footer from "./Footer";
+const Result = (props) => {
   const { type } = props;
   const [typeName, setTypeName] = useState("");
   const [about, setAbout] = useState(false);
@@ -13,7 +13,7 @@ const Result = props => {
     handleType(type.name);
   }, [type.name]);
 
-  const handleType = name => {
+  const handleType = (name) => {
     const lastLetter = name[name.length - 3];
     if (lastLetter === "풀") {
       setTypeName("Full-Stack Developer");
@@ -75,25 +75,27 @@ const Result = props => {
             </TypeResultBox>
           </RecommendContainer>
         </Body>
+        <ShareBox>
+          <GlobeIcon
+            id="captureBtn"
+            onClick={() => {
+              setAbout(true);
+            }}
+            src="https://user-images.githubusercontent.com/53595582/80277881-12635800-872d-11ea-8377-ecf69598ed36.png"
+          ></GlobeIcon>
+        </ShareBox>
       </BodyWrapper>
-      <ShareBox>
-        <GlobeIcon
-          id="captureBtn"
-          onClick={() => {
-            setAbout(true);
-          }}
-          src="https://user-images.githubusercontent.com/53595582/80277881-12635800-872d-11ea-8377-ecf69598ed36.png"
-        ></GlobeIcon>
-      </ShareBox>
+
       {about && <About />}
+      <Footer />
     </Container>
   );
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   console.log(state);
   return {
-    type: state.getResult
+    type: state.getResult,
   };
 };
 
@@ -112,11 +114,12 @@ const Container = styled.div`
   z-index: 10;
   @media only screen and (max-width: 415px) {
     width: 100%;
-    height: 100%;
+    height: 100vh;
     box-shadow: none;
     margin: 0;
     padding: 0;
-    overflow: scroll;
+    overflow: hidden;
+    overflow-y: scroll;
   }
 `;
 
@@ -128,7 +131,6 @@ const Body = styled.div`
   justify-content: flex-start;
   @media only screen and (max-width: 415px) {
     height: 100%;
-    posiiton: relative;
   }
 `;
 
@@ -160,6 +162,10 @@ const TitleName = styled.span`
   @media only screen and (max-width: 415px) {
     font-size: 1.1rem;
     line-height: 1.2rem;
+  }
+  @media only screen and (max-width: 320px) and (max-height: 568px) {
+    font-size: 0.8rem;
+    line-height: 1rem;
   }
 `;
 const TypeResultBox = styled.span``;
@@ -231,6 +237,10 @@ const CardImg = styled.img`
     width: 226px;
     height: 306px;
   }
+  @media only screen and (max-width: 320px) and (max-height: 568px) {
+    width: 30%;
+    height: 30%;
+  }
 `;
 
 const ContentContainer = styled.div`
@@ -291,6 +301,10 @@ const TypeName = styled.div`
     font-size: 0.8rem;
     line-height: 1.6rem;
   }
+  @media only screen and (max-width: 320px) and (max-height: 568px) {
+    font-size: 0.6rem;
+    color: yellow;
+  }
 `;
 
 const TypeContents = styled.div`
@@ -310,6 +324,9 @@ const TypeContents = styled.div`
   /* iphone X size */
   @media only screen and (max-width: 375px) and (min-height: 668px) {
     font-size: 1rem;
+  }
+  @media only screen and (max-width: 320px) and (max-height: 568px) {
+    font-size: 0.7rem;
   }
 `;
 
@@ -356,10 +373,10 @@ const ShareBox = styled.div`
   display: none;
 
   @media only screen and (max-width: 415px) {
-    position: absolute;
+    /* position: absolute;
     right: -10px;
-    bottom: 3px;
-    /* display: inline-block; */
+    bottom: 3px; */
+    display: inline-block;
     color: white;
     display: flex;
     flex-direction: row;
