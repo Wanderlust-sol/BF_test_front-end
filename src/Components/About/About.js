@@ -124,12 +124,12 @@ const Text = styled.div`
   text-align: justify;
 
   @media only screen and (max-width: 415px) {
-    height: 40%;
+    height: 42%;
     overflow: scroll;
   }
 
   @media only screen and (max-width: 320px) {
-    height: 40%;
+    height: 42%;
     overflow: scroll;
     font-size: 0.8rem;
   }
