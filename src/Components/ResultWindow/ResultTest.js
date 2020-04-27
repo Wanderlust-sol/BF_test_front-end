@@ -5,13 +5,13 @@ import WindowNav from "./WindowNav";
 import About from "Components/About/About";
 import Footer from "./Footer";
 const Result = (props) => {
-  const { type } = props;
+  const [type, setType] = useState([]);
   const [typeName, setTypeName] = useState("");
   const [about, setAbout] = useState(false);
 
   useEffect(() => {
-    handleType(type.name);
-  }, [type.name]);
+    fetchMockData();
+  });
 
   const handleType = (name) => {
     const lastLetter = name[name.length - 3];
@@ -22,6 +22,15 @@ const Result = (props) => {
     } else {
       setTypeName("Back-End Developer");
     }
+  };
+
+  const fetchMockData = () => {
+    fetch("http://localhost:3000/Data/result.json")
+      .then((res) => res.json())
+      .then((res) => {
+        setType(res.result);
+        handleType(res.result.name);
+      });
   };
 
   return (
@@ -74,8 +83,6 @@ const Result = (props) => {
           ></GlobeIcon>
         </ShareBox>
       </BodyWrapper>
-
-      {about && <About />}
       <Footer />
     </Container>
   );
@@ -102,24 +109,15 @@ const Container = styled.div`
   z-index: 10;
 
   @media only screen and (max-width: 415px) {
+    border: 1px;
     width: 100vw;
     height: 100vh;
     box-shadow: none;
-    border: none;
     margin: 0;
     padding: 0;
     overflow: hidden;
+    border: 2px solid black;
     justify-content: space-between;
-  }
-  @media only screen and (max-width: 320px) and (min-height: 568px) {
-    font-size: 0.6rem;
-    margin-bottom: 0px;
-    margin-top: 0px;
-  }
-  @media only screen and (max-width: 320px) and (min-height: 568px) {
-    font-size: 0.6rem;
-    margin-bottom: 0px;
-    margin-top: 0px;
   }
 `;
 
