@@ -89,10 +89,8 @@ const TextWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   margin: 20px 0 40px;
-
-  @media only screen and (max-width: 420px) {
-    /* font-size: 0.7rem; */
-  }
+  width: 100%;
+  min-width: 230px;
 `;
 
 const Name = styled.div`
@@ -110,12 +108,17 @@ const LinkWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
+  min-width: 230px;
 `;
 
 const Link = styled.div`
   margin-top: 3px;
   display: flex;
   justify-content: center;
+  width: 100%;
+  min-width: 230px;
+  max-height: 20px;
 
   a {
     cursor: pointer;
