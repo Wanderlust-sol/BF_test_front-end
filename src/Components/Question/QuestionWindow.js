@@ -49,7 +49,7 @@ const QuestionWindow = (props) => {
           </Typing>
           <Typing speed={typeSpeed}>
             <span>
-              <Typing.Delay ms={typeSpeed * 400} />
+              <Typing.Delay ms={typeSpeed * 380} />
               ⚠️ 선택 시 다시 선택하실 수 없으니 신중히 선택해주시기 바랍니다.
               ⚠️
             </span>
