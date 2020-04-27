@@ -10,16 +10,21 @@ const typeSpeed = 20;
 
 const QuestionWindow = (props) => {
   const [loading, setLoading] = useState(false);
-  const [postData, setPostData] = useState([]);
+  // const [postData, setPostData] = useState([]);
+  const [practice, setPractice] = useState([]);
 
   const getLoadingStatus = (status) => {
     setTimeout(setLoading(status), 2000);
   };
 
-  const getData = (postData, typeData) => {
+  const getData = (typeData) => {
     //postData 는 문제(키:벨류)/ type는 type
-    const result = [postData, typeData];
-    setPostData(result);
+    const result = [practice, typeData];
+    setPractice(result);
+  };
+
+  const getKeyValue = (quesData, id) => {
+    setPractice({ ...practice, [quesData]: id });
   };
 
   return (
@@ -62,12 +67,13 @@ const QuestionWindow = (props) => {
 
           <QuestionMain
             getLoadingStatus={(status) => getLoadingStatus(status)}
-            getData={(data, type) => {
-              getData(data, type);
+            getData={(type) => {
+              getData(type);
             }}
             loading={loading}
+            getKeyValue={(quesData, id) => getKeyValue(quesData, id)}
           ></QuestionMain>
-          {loading && <ProgressBar postData={postData} loading={loading} />}
+          {loading && <ProgressBar postData={practice} loading={loading} />}
         </QuestionMainDiv>
         <Footer />
       </QuestionsContainer>
