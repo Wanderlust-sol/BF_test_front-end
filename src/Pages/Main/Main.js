@@ -11,12 +11,12 @@ import QUIZ from "Images/Main/quiz.png";
 import COMPUTER from "Images/Main/computer.png";
 import WECODE from "Images/Main/WeTV.png";
 
-const Main = (props) => {
+const Main = props => {
   const { res, openQuestion, ques, about, openAbout } = props;
 
   const [postData, setPostData] = useState({});
 
-  const getData = (postData) => {
+  const getData = postData => {
     setPostData(postData);
   };
 
@@ -51,12 +51,12 @@ const Main = (props) => {
   );
 };
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   console.log("state", state);
   return {
     res: state.controlResult.res,
     about: state.controlAbout.about,
-    ques: state.controlQuestion.ques,
+    ques: state.controlQuestion.ques
   };
 };
 
@@ -66,7 +66,7 @@ const MainWrapper = styled.div`
   width: 100vw;
   height: 100vh;
   border: 2px solid #000000;
-  /* overflow: scroll; */
+  overflow: hidden;
 `;
 
 const Section = styled.div`
