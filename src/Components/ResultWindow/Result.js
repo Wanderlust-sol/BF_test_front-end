@@ -102,6 +102,8 @@ const Container = styled.div`
   z-index: 10;
 
   @media only screen and (max-width: 415px) {
+    position: absolute;
+    left: 0;
     width: 100vw;
     height: 100vh;
     box-shadow: none;
@@ -150,11 +152,7 @@ const TypeContainer = styled.div`
     line-height: 1rem;
   }
 `;
-const TypeTitleBox = styled.div`
-  @media only screen and (max-width: 415px) {
-    margin-top: 10px;
-  }
-`;
+const TypeTitleBox = styled.div``;
 
 const TitleName = styled.span`
   font-size: 22px;
@@ -193,16 +191,12 @@ const ResultContainer = styled.div`
     justify-content: center;
   }
   @media only screen and (max-width: 415px) {
-    flex-direction: column;
-    justify-content: center;
+    display: block;
   }
 `;
 
 const CardContainer = styled.div`
   margin-left: 2%;
-  @media only screen and (max-width: 415px) {
-    margin-top: 10px;
-  }
 `;
 
 const CardBox = styled.div`
