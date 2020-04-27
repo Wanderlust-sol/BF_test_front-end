@@ -48,11 +48,22 @@ const DetailWrapper = styled.div`
   border: 2px solid #000000;
   background: #699584;
   position: absolute;
-  right: 5%;
+  top: 15%;
+  right: -35%;
   z-index: 999;
 
-  @media only screen and (max-width: 415px) {
-    display: none;
+  @media only screen and (max-width: 1025px) {
+    right: 5%;
+  }
+
+  @media only screen and (max-width: 420px) {
+    right: 50%;
+    transform: translateX(50%);
+  }
+
+  @media only screen and (max-width: 380px) {
+    width: 90%;
+    top: 8%;
   }
 `;
 
@@ -78,6 +89,10 @@ const TextWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   margin: 20px 0 40px;
+
+  @media only screen and (max-width: 420px) {
+    /* font-size: 0.7rem; */
+  }
 `;
 
 const Name = styled.div`

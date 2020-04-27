@@ -6,6 +6,7 @@ import Nav from "Components/Nav";
 import Question from "Components/Question/QuestionWindow";
 import Result from "Components/ResultWindow/Result";
 import About from "Components/About/About";
+import Footer from "Components/ResultWindow/Footer";
 import QUIZ from "Images/Main/quiz.png";
 import COMPUTER from "Images/Main/computer.png";
 import WECODE from "Images/Main/WeTV.png";
@@ -45,6 +46,7 @@ const Main = (props) => {
         {res && <Result />}
         {about && <About />}
       </Section>
+      <Footer />
     </MainWrapper>
   );
 };
