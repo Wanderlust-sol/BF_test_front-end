@@ -25,7 +25,7 @@ export const openQuestion = () => {
 
 export const closeQuestion = () => {
   return {
-    type: "ClOSE_QUESTION",
+    type: "CLOSE_QUESTION",
   };
 };
 
