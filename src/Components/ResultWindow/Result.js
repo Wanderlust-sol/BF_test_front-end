@@ -114,13 +114,18 @@ const Container = styled.div`
   @media only screen and (max-width: 320px) and (min-height: 568px) {
     font-size: 0.6rem;
   }
+  @media only screen and (max-width: 375px) and (max-height: 667px) {
+    min-height: 198px;
+    width: 100%;
+    height: 100%;
+  }
 `;
 
 const BodyWrapper = styled.div`
   @media only screen and (max-width: 415px) {
     display: flex;
     flex-direction: column;
-    overflow-y: scroll;
+    justify-content: space-between;
   }
 `;
 
@@ -130,6 +135,7 @@ const Body = styled.div`
   justify-content: flex-start;
 
   @media only screen and (max-width: 415px) {
+    height: 100%;
   }
 `;
 
@@ -309,7 +315,7 @@ const TypeContents = styled.div`
   }
   /* iphone 6/7/8 size */
   @media only screen and (max-width: 375px) and (max-height: 667px) {
-    font-size: 0.6rem;
+    font-size: 0.8rem;
   }
   /* iphone X size */
   @media only screen and (max-width: 375px) and (min-height: 668px) {
@@ -332,6 +338,7 @@ const RecommendContainer = styled.div`
     margin: 20px;
     font-size: 1.2rem;
     line-height: 1.2rem;
+    margin-bottom: 0px;
   }
 `;
 
