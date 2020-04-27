@@ -134,6 +134,10 @@ const QBoxWrapper = styled.div`
   width: 90%;
   margin: 35px auto 0 auto;
   display: ${(props) => (props.loading ? "none" : "block")};
+
+  @media only screen and (max-width: 320px) {
+    margin: 20px auto 0 auto;
+  }
 `;
 
 const QBoxContainer = styled.div`
@@ -149,6 +153,9 @@ const QuestionBox = styled.div`
 
   @media only screen and (max-width: 415px) {
     font-size: 1.2rem;
+  }
+  @media only screen and (max-width: 320px) {
+    font-size: 16px;
   }
 `;
 
@@ -194,5 +201,8 @@ const TextSelect = styled.div`
       color: white;
       background-color: #244c88;
     }
+  }
+  @media only screen and (max-width: 320px) {
+    font-size: 16px;
   }
 `;

@@ -1,6 +1,11 @@
 import React from "react";
 import { connect } from "react-redux";
-import { closeDetail, closeAbout, closeResult } from "Redux/Actions";
+import {
+  closeDetail,
+  closeAbout,
+  closeResult,
+  closeQuestion,
+} from "Redux/Actions";
 import styled from "styled-components";
 import BFICON from "Images/Group6.png";
 import CLOSEICON from "Images/Nav/close.png";
@@ -14,8 +19,10 @@ const WindowNav = (props) => {
     about,
     closeAbout,
     closeResult,
+    closeQuestion,
     title,
     res,
+    ques,
   } = props;
 
   const handleClose = () => {
@@ -25,6 +32,8 @@ const WindowNav = (props) => {
       closeAbout();
     } else if (res) {
       closeResult();
+    } else if (ques) {
+      closeQuestion();
     }
   };
 
@@ -63,6 +72,7 @@ const mapStateToProps = (state) => {
     detail: state.controlDetail.detail,
     about: state.controlAbout.about,
     res: state.controlResult.res,
+    ques: state.controlQuestion.ques,
   };
 };
 
@@ -70,6 +80,7 @@ export default connect(mapStateToProps, {
   closeDetail,
   closeAbout,
   closeResult,
+  closeQuestion,
 })(WindowNav);
 
 const NavContainer = styled.nav`
@@ -83,6 +94,10 @@ const NavContainer = styled.nav`
 
   @media only screen and (max-width: 415px) {
     height: 30px;
+  }
+  @media only screen and (max-width: 720px) {
+    position: absolute;
+    z-index: -1;
   }
 `;
 

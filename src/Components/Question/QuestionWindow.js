@@ -121,4 +121,9 @@ const QuestionMainDiv = styled.div`
     width: 100vw;
     height: 100vh;
   }
+  span {
+    @media only screen and (max-width: 320px) {
+      font-size: 16px;
+    }
+  }
 `;
