@@ -120,7 +120,8 @@ const BodyWrapper = styled.div`
   @media only screen and (max-width: 415px) {
     display: flex;
     flex-direction: column;
-    /* min-height: calc(100% - 60px); */
+    min-height: calc(100% - 60px);
+    overflow-y: scroll;
   }
 `;
 
@@ -128,6 +129,7 @@ const Body = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+
   @media only screen and (max-width: 415px) {
   }
 `;
@@ -145,7 +147,9 @@ const TypeContainer = styled.div`
     line-height: 1rem;
   }
 `;
-const TypeTitleBox = styled.div``;
+const TypeTitleBox = styled.div`
+  margin-top: 20px;
+`;
 
 const TitleName = styled.span`
   font-size: 22px;
@@ -201,11 +205,11 @@ const CardBox = styled.div`
   flex-direction: row;
   @media only screen and (max-width: 700px) {
     justify-content: center;
-    margin-bottom: 10px;
+    margin: 10px;
   }
   @media only screen and (max-width: 415px) {
     justify-content: center;
-    margin-bottom: 10px;
+    margin: 10px;
   }
 `;
 
