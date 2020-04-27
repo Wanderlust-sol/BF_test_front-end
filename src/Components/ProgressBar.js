@@ -29,7 +29,7 @@ const useInterval = (callback, delay) => {
   }, [delay]);
 };
 
-const ProgressBar = props => {
+const ProgressBar = (props) => {
   const { res, showResult, closeResult, addResult } = props;
   const [progress, setProgress] = useState(0);
   const [popupResult, setPopupResult] = useState(false);
@@ -47,7 +47,7 @@ const ProgressBar = props => {
     try {
       const res = await axios.post(`${URL}/poll/result`, {
         answer: props.postData[0],
-        type: props.postData[1]
+        type: props.postData[1],
       });
       console.log(res);
       addResult(res.data.result);
@@ -85,9 +85,9 @@ const ProgressBar = props => {
   );
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
-    res: state.controlResult.res
+    res: state.controlResult.res,
   };
 };
 
@@ -136,25 +136,26 @@ const MovingDog = styled.div`
     width: 40px;
     height: 40px;
     background: url('${Dog}') no-repeat;
-    background-position-x: ${props => (props.progress % 2 ? "5px" : "-35.5px")};
+    background-position-x: ${(props) =>
+      props.progress % 2 ? "5px" : "-35.5px"};
     background-size: 75px;
     position: absolute;
     top: -35px;
-    left: ${props => props.progress * 5}px;
+    left: ${(props) => props.progress * 5}px;
     z-index: 5;
 
     @media only screen and (max-width: 720px) {
-      left: ${props => props.progress - 11}%;
+      left: ${(props) => props.progress - 11}%;
     }
 
     @media only screen and (max-width: 415px) {
-      left: ${props => props.progress - 14}%;
+      left: ${(props) => props.progress - 14}%;
     }
 `;
 const HomeDog = styled.div`
     width: 60px;
     height: 60px;
-    background: url('${props =>
+    background: url('${(props) =>
       props.progress % 2 ? Home : HomeBF}') no-repeat;
     background-size: cover;
     position: absolute;
@@ -164,7 +165,7 @@ const HomeDog = styled.div`
 
 `;
 const InProgress = styled.div`
-  width: ${props => props.progress && props.progress}%;
+  width: ${(props) => props.progress && props.progress}%;
   height: 100%;
   position: absolute;
   background-color: white;
@@ -184,5 +185,5 @@ const Result = styled.div`
   margin-top: 30px;
   cursor: pointer;
 
-  visibility: ${props => (props.popupResult ? "visible" : "hidden")};
+  visibility: ${(props) => (props.popupResult ? "visible" : "hidden")};
 `;

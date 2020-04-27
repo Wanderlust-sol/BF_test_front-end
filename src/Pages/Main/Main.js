@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
+import { openQuestion } from "Redux/Actions";
 import styled from "styled-components";
 import Nav from "Components/Nav";
 import About from "Components/About/About";
@@ -10,13 +11,13 @@ import RECYCLE from "Images/Main/trash.png";
 import COMPUTER from "Images/Main/computer.png";
 import WECODE from "Images/Main/WeTV.png";
 
-const Main = props => {
-  const { res } = props;
+const Main = (props) => {
+  const { res, openQuestion, ques } = props;
   const [mode, setMode] = useState(false);
   const [postData, setPostData] = useState({});
   const [about, setAbout] = useState(false);
 
-  const getData = postData => {
+  const getData = (postData) => {
     console.log("data왔다~~~ : ", postData);
     setPostData(postData);
   };
@@ -25,13 +26,14 @@ const Main = props => {
   };
 
   console.log(about);
+  console.log(props);
 
   return (
     <MainWrapper>
       <Nav />
       <Section>
         <IconWrapper>
-          <Icon>
+          <Icon onClick={() => openQuestion()}>
             <img className="recycle" src={RECYCLE} alt="computer" />
             <Text>Recycle Bin</Text>
           </Icon>
@@ -45,20 +47,23 @@ const Main = props => {
           </Icon>
         </IconWrapper>
         {about && <About />}
-        {!res ? <Question /> : <Result />}
+        {ques && <Question />}
+        {res && <Result />}
       </Section>
       <Footer />
     </MainWrapper>
   );
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
+  console.log("state", state);
   return {
-    res: state.controlResult.res
+    res: state.controlResult.res,
+    ques: state.controlQuestion.ques,
   };
 };
 
-export default connect(mapStateToProps)(Main);
+export default connect(mapStateToProps, { openQuestion })(Main);
 
 const MainWrapper = styled.div`
   width: 100vw;
@@ -92,10 +97,6 @@ const IconWrapper = styled.div`
     display: flex;
     justify-content: center;
     align-items: flex-end;
-  }
-
-  @media only screen and (max-width: 415px) {
-    display: none;
   }
 `;
 
