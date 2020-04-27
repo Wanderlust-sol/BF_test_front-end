@@ -45,20 +45,26 @@ const QuestionMain = (props) => {
       if (quesNumUrl === 11) {
         if (index === 0) {
           setQuesNumUrl(quesNumUrl + 1);
+          console.log("11번문제 1번 선택", quesNumUrl + 1);
         } else {
           setQuesNumUrl(quesNumUrl + 2);
+          console.log("11번문제 2번 선택", quesNumUrl + 2);
         }
       } else if (quesNumUrl === 12) {
         if (index === 0) {
           setQuesNumUrl(quesNumUrl + 2);
+          console.log("12번문제 1번 선택", quesNumUrl + 3);
         } else {
           setQuesNumUrl(quesNumUrl + 3);
+          console.log("12번문제 2번 선택", quesNumUrl + 2);
         }
       } else if (quesNumUrl === 13) {
         if (index === 0) {
           setQuesNumUrl(quesNumUrl + 1);
+          console.log("13번문제 1번 선택", quesNumUrl + 1);
         } else {
           setQuesNumUrl(quesNumUrl + 3);
+          console.log("12번문제 2번 선택", quesNumUrl + 3);
         }
       }
     }
@@ -129,8 +135,8 @@ const QBoxWrapper = styled.div`
   margin: 35px auto 0 auto;
   display: ${(props) => (props.loading ? "none" : "block")};
 
-  @media only screen and (max-width: 400px) {
-    margin: 5px auto 0 auto;
+  @media only screen and (max-width: 320px) {
+    margin: 20px auto 0 auto;
   }
 `;
 
@@ -190,13 +196,19 @@ const TextSelect = styled.div`
     background-color: white;
   }
   cursor: pointer;
-  @media only screen and (max-width: 770px) {
+
+  @media only screen and (max-width: 800px) {
     &:hover {
       color: white;
       background-color: #244c88;
     }
   }
+
   @media only screen and (max-width: 320px) {
     font-size: 16px;
+    &:hover {
+      color: white;
+      background-color: #244c88;
+    }
   }
 `;
