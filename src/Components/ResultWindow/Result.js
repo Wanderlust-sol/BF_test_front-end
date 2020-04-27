@@ -186,10 +186,13 @@ const ResultContainer = styled.div`
   flex-direction: row;
   justify-content: start;
   @media only screen and (max-width: 700px) {
-    display: block;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 0;
   }
   @media only screen and (max-width: 415px) {
     display: block;
+    margin-top: 0;
   }
 `;
 
@@ -202,9 +205,11 @@ const CardBox = styled.div`
   flex-direction: row;
   @media only screen and (max-width: 700px) {
     justify-content: center;
+    margin: 10px;
   }
   @media only screen and (max-width: 415px) {
     justify-content: center;
+    margin: 10px;
   }
 `;
 
@@ -243,13 +248,16 @@ const ContentContainer = styled.div`
   position: relative;
   max-height: 326px;
   @media only screen and (max-width: 415px) {
+    margin-top: 10px;
   }
   /* iphone 6/7/8 size */
   @media only screen and (max-width: 375px) and (max-height: 667px) {
+    margin-top: 10px;
     min-height: 198px;
   }
   /* iphone X size */
   @media only screen and (max-width: 375px) and (min-height: 668px) {
+    margin-top: 10px;
     min-height: 214px;
   }
 `;
