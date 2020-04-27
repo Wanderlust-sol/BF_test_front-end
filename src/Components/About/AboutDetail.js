@@ -5,12 +5,14 @@ import { Instagram } from "@styled-icons/boxicons-logos";
 import WindowNav from "Components/ResultWindow/WindowNav";
 import BG from "Images/AboutDetail/BG.png";
 
-const AboutDetail = ({ data, close }) => {
+const AboutDetail = ({ data }) => {
   return (
     <DetailWrapper>
-      <WindowNav title={data.name} close={close} />
+      <WindowNav title={data.name} />
       <Section>
-        <Image src={require(`Images/AboutDetail/${data.img}`)}></Image>
+        {data.img && (
+          <Image src={require(`Images/AboutDetail/${data.img}`)}></Image>
+        )}
         <TextWrapper>
           <Name>{data.name}</Name>
           <Position>{data.position} </Position>
