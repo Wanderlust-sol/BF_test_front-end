@@ -113,13 +113,9 @@ const Container = styled.div`
   }
   @media only screen and (max-width: 320px) and (min-height: 568px) {
     font-size: 0.6rem;
-    margin-bottom: 0px;
-    margin-top: 0px;
   }
   @media only screen and (max-width: 320px) and (min-height: 568px) {
     font-size: 0.6rem;
-    margin-bottom: 0px;
-    margin-top: 0px;
   }
 `;
 
@@ -127,8 +123,7 @@ const BodyWrapper = styled.div`
   @media only screen and (max-width: 415px) {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    /* height: calc(100% - 60px); */
+    height: calc(100% - 60px);
     overflow-y: scroll;
   }
 `;
@@ -149,7 +144,7 @@ const TypeContainer = styled.div`
   color: white;
   position: relative;
   @media only screen and (max-width: 415px) {
-    margin-top: 0px;
+    margin-top: 10px;
     font-size: 1.2rem;
     line-height: 1rem;
   }
@@ -256,11 +251,11 @@ const ContentContainer = styled.div`
   }
   /* iphone 6/7/8 size */
   @media only screen and (max-width: 375px) and (max-height: 667px) {
-    min-height: 198px;
+    min-height: 238px;
   }
   /* iphone X size */
   @media only screen and (max-width: 375px) and (min-height: 668px) {
-    min-height: 214px;
+    min-height: 234px;
   }
 `;
 const ContentWrapper = styled.div`
