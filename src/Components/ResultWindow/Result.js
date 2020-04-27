@@ -246,7 +246,7 @@ const ContentContainer = styled.div`
   flex-direction: row;
   justify-content: center;
   position: relative;
-  /* max-height: 326px; */
+  max-height: 326px;
   @media only screen and (max-width: 415px) {
   }
   /* iphone 6/7/8 size */
