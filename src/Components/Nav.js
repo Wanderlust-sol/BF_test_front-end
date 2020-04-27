@@ -98,6 +98,15 @@ const NavLeft = styled.div`
       font-size: 1.5rem;
     }
   }
+
+  @media only screen and (max-width: 320px) {
+    .logo {
+      width: 1.3rem;
+    }
+    div {
+      font-size: 1.3rem;
+    }
+  }
 `;
 
 const NavRight = styled.div`
@@ -139,6 +148,24 @@ const NavRight = styled.div`
     }
     div {
       font-size: 1.5rem;
+    }
+  }
+
+  @media only screen and (max-width: 320px) {
+    .sun {
+      width: 1.3rem;
+    }
+
+    .moon {
+      width: 0.4rem;
+    }
+
+    .battery {
+      width: 2.3rem;
+      margin: 0 3px;
+    }
+    div {
+      font-size: 1.3rem;
     }
   }
 `;
