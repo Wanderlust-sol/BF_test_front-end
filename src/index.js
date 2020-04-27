@@ -21,12 +21,20 @@ const GlobalStyle = createGlobalStyle`
     cursor: default;
 
   }
+  html, body {
+    width: 100%,
+    height: 100%
+  }
   body {
     font-family:  DungGuenMo, 'Noto Sans KR', sans-serif;   
   };  
   a {
     text-decoration: none;
     color: #000000
+  }
+  #id {
+    position: fixed;
+    overflow: hidden;
   }   
 `;
 ReactDOM.render(
