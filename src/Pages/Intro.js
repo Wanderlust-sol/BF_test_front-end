@@ -210,14 +210,14 @@ const TypedText = styled.p`
     display: ${props => props.finishType && "none"};
     font-size: 15px;
     width: 90%;
-    line-height: 20px;
+    line-height: 1rem;
   }
 
   @media only screen and (min-width: 416px) and (max-width: 970px) {
     display: ${props => props.finishType && "none"};
     font-size: 15px;
     width: 90%;
-    line-height: 20px;
+    line-height: 1rem;
   }
 `;
 
