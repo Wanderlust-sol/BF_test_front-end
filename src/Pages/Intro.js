@@ -7,7 +7,7 @@ import Typing from "react-typing-animation";
 import Grain from "Images/grain.png";
 import Mono from "Styles/Fonts/monospace.ttf";
 
-const Intro = props => {
+const Intro = (props) => {
   const [mainText, setMainText] = useState("");
   const [count, setCount] = useState(5);
   const [finishType, setFinishType] = useState(false);
@@ -19,7 +19,7 @@ const Intro = props => {
     figlet.text(
       "BF-TEST",
       {
-        font: "Standard"
+        font: "Standard",
       },
       function (err, data) {
         console.log(data);
@@ -207,14 +207,14 @@ const TypedText = styled.p`
   z-index: 100;
 
   @media only screen and (max-width: 415px) {
-    display: ${props => props.finishType && "none"};
+    display: ${(props) => props.finishType && "none"};
     font-size: 15px;
     width: 90%;
     line-height: 1rem;
   }
 
   @media only screen and (min-width: 416px) and (max-width: 970px) {
-    display: ${props => props.finishType && "none"};
+    display: ${(props) => props.finishType && "none"};
     font-size: 15px;
     width: 90%;
     line-height: 1rem;
@@ -238,7 +238,7 @@ const TypedNum = styled.span`
   }
 
   @media only screen and (min-width: 416px) and (max-width: 970px) {
-    display: ${props => props.finishType && "none"};
+    display: ${(props) => props.finishType && "none"};
     font-size: 145px;
     left: 45%;
     top: 46%;

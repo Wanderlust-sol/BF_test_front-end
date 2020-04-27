@@ -32,7 +32,6 @@ const Result = (props) => {
   //       handleType(res.result.name);
   //     });
   // };
-  console.log("type", type);
   return (
     <Container>
       {about}
