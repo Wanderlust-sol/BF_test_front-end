@@ -93,7 +93,7 @@ const NavContainer = styled.nav`
   justify-content: space-between;
 
   @media only screen and (max-width: 415px) {
-    width: 100vw;
+    /* width: 100vw; */
     height: 30px;
   }
   @media only screen and (max-width: 720px) {
@@ -163,7 +163,7 @@ const ControlSection = styled.div`
   margin-right: 3px;
 
   @media only screen and (max-width: 415px) {
-    margin-right: 7px;
+    margin-right: 5px;
   }
 `;
 
