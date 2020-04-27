@@ -202,6 +202,10 @@ const TextSelect = styled.div`
       color: white;
       background-color: #244c88;
     }
+    -webkit-autofill:hover {
+      color: white;
+      background-color: #244c88;
+    }
   }
 
   @media only screen and (max-width: 320px) {
