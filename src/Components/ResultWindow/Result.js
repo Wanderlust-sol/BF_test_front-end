@@ -183,8 +183,7 @@ const ResultContainer = styled.div`
     justify-content: center;
   }
   @media only screen and (max-width: 415px) {
-    flex-direction: column;
-    justify-content: center;
+    display: block;
   }
   @media only screen and (max-width: 375px) and (max-height: 667px) {
     display: block;
