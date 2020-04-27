@@ -80,13 +80,12 @@ const AboutWrapper = styled.div`
   height: auto;
   border: 2px solid #000000;
   box-shadow: 13px 10px 0px -1px rgba(74, 79, 79, 1);
-  position: absolute;
-  right: 10%;
+  /* position: absolute;
+  right: 10%; */
   z-index: 99;
 
   @media only screen and (max-width: 780px) {
     margin: 0 20px;
-    border: 2px solid #000000;
   }
 
   @media only screen and (max-width: 415px) {
@@ -113,8 +112,8 @@ const Section = styled.div`
 
   @media only screen and (max-width: 415px) {
     height: 100%;
-    display: flex;
-    justify-content: start;
+    /* display: flex; */
+    /* justify-content: start; */
   }
 `;
 
@@ -125,6 +124,15 @@ const Text = styled.div`
   line-height: 1.2;
   letter-spacing: 1px;
   text-align: justify;
+
+  @media only screen and (max-width: 415px) {
+    height: 80%;
+    overflow: scroll;
+  }
+
+  @media only screen and (max-width: 320px) {
+    font-size: 0.8rem;
+  }
 `;
 
 const ImageWrapper = styled.div`
@@ -168,7 +176,7 @@ const ImageWrapper = styled.div`
   }
 
   @media only screen and (min-height: 700px) and (max-height: 815px) {
-    margin: auto 0;
+    height: 350px;
   }
 `;
 
@@ -187,8 +195,12 @@ const Color = styled.div`
   text-align: center;
   cursor: pointer;
 
-  @media only screen and (max-width: 415px) {
+  /* @media only screen and (max-width: 415px) {
     cursor: none;
+  } */
+
+  @media only screen and (max-width: 320px) {
+    font-size: 0.6rem;
   }
 
   &.red {

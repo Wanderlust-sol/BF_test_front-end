@@ -12,19 +12,16 @@ import WECODE from "Images/Main/WeTV.png";
 
 const Main = (props) => {
   const { res } = props;
-  const [mode, setMode] = useState(false);
   const [postData, setPostData] = useState({});
   const [about, setAbout] = useState(false);
 
   const getData = (postData) => {
-    console.log("data왔다~~~ : ", postData);
     setPostData(postData);
   };
+
   const goToWecode = () => {
     window.open("https://wecode.co.kr/");
   };
-
-  console.log(about);
 
   return (
     <MainWrapper>
@@ -44,6 +41,7 @@ const Main = (props) => {
             <Text>Wecode</Text>
           </Icon>
         </IconWrapper>
+        {/* <Question /> */}
         {about && <About />}
         {!res ? <Question /> : <Result />}
       </Section>
@@ -64,7 +62,7 @@ const MainWrapper = styled.div`
   width: 100vw;
   height: 100vh;
   border: 2px solid #000000;
-  overflow: hidden;
+  /* overflow: scroll; */
 `;
 
 const Section = styled.div`
@@ -78,7 +76,7 @@ const Section = styled.div`
 
   @media only screen and (max-width: 415px) {
     height: calc(100% - 60px);
-    background: #244c88;
+    /* background: #244c88; */
   }
 `;
 
@@ -94,9 +92,9 @@ const IconWrapper = styled.div`
     align-items: flex-end;
   }
 
-  @media only screen and (max-width: 415px) {
+  /* @media only screen and (max-width: 415px) {
     display: none;
-  }
+  } */
 `;
 
 const Icon = styled.div`

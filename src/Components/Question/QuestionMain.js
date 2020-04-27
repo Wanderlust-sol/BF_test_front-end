@@ -1,11 +1,8 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import axios from "axios";
 import { URL } from "config";
-// import Typing from "react-typing-animation";
-// import TypingEffect from "Components/TypingEffect";
 
-// const typeSpeed = 50;
 const QuestionMain = props => {
   const [quesData, setData] = useState({});
   const [quesNum, setQuesNum] = useState(1);
@@ -94,7 +91,6 @@ const QuestionMain = props => {
         fetchFirstQuestion();
       }, 8700);
     } else if (quesNum === 14) {
-      console.log("13번 문제에서 클릭했을때");
       props.getData(pickedData, type);
       props.getLoadingStatus(true);
     } else {
