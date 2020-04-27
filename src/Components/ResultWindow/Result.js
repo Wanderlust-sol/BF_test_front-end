@@ -309,7 +309,7 @@ const TypeContents = styled.div`
   }
   /* iphone 6/7/8 size */
   @media only screen and (max-width: 375px) and (max-height: 667px) {
-    font-size: 0.8rem;
+    font-size: 0.6rem;
   }
   /* iphone X size */
   @media only screen and (max-width: 375px) and (min-height: 668px) {
