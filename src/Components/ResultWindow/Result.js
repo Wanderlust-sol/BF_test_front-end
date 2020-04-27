@@ -192,7 +192,7 @@ const ResultContainer = styled.div`
 const CardContainer = styled.div`
   margin-left: 2%;
   @media only screen and (max-width: 415px) {
-    margin: 0;
+    margin-top: 10px;
   }
 `;
 
@@ -315,8 +315,6 @@ const TypeContents = styled.div`
   /* iphone se, 5 */
   @media only screen and (max-width: 320px) and (min-height: 568px) {
     font-size: 0.6rem;
-    margin-bottom: 0px;
-    margin-top: 0px;
   }
 `;
 
@@ -335,7 +333,6 @@ const RecommendContainer = styled.div`
   }
 
   @media only screen and (max-width: 320px) and (min-height: 568px) {
-    margin-top: 4px;
   }
 `;
 
