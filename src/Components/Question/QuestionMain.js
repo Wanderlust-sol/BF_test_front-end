@@ -129,8 +129,8 @@ const QBoxWrapper = styled.div`
   margin: 35px auto 0 auto;
   display: ${(props) => (props.loading ? "none" : "block")};
 
-  @media only screen and (max-width: 320px) {
-    margin: 20px auto 0 auto;
+  @media only screen and (max-width: 400px) {
+    margin: 5px auto 0 auto;
   }
 `;
 
@@ -190,7 +190,7 @@ const TextSelect = styled.div`
     background-color: white;
   }
   cursor: pointer;
-  @media only screen and (max-width: 768px) {
+  @media only screen and (max-width: 770px) {
     &:hover {
       color: white;
       background-color: #244c88;
