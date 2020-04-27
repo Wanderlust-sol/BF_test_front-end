@@ -47,26 +47,26 @@ const QuestionMain = (props) => {
       if (quesNumUrl === 11) {
         if (index === 0) {
           setQuesNumUrl(quesNumUrl + 1);
-          console.log("11번문제 1번 선택", quesNumUrl + 1);
+          // console.log("11번문제 1번 선택", quesNumUrl + 1);
         } else {
           setQuesNumUrl(quesNumUrl + 2);
-          console.log("11번문제 2번 선택", quesNumUrl + 2);
+          // console.log("11번문제 2번 선택", quesNumUrl + 2);
         }
       } else if (quesNumUrl === 12) {
         if (index === 0) {
           setQuesNumUrl(quesNumUrl + 2);
-          console.log("12번문제 1번 선택", quesNumUrl + 3);
+          // console.log("12번문제 1번 선택", quesNumUrl + 3);
         } else {
           setQuesNumUrl(quesNumUrl + 3);
-          console.log("12번문제 2번 선택", quesNumUrl + 2);
+          // console.log("12번문제 2번 선택", quesNumUrl + 2);
         }
       } else if (quesNumUrl === 13) {
         if (index === 0) {
           setQuesNumUrl(quesNumUrl + 1);
-          console.log("13번문제 1번 선택", quesNumUrl + 1);
+          // console.log("13번문제 1번 선택", quesNumUrl + 1);
         } else {
           setQuesNumUrl(quesNumUrl + 3);
-          console.log("12번문제 2번 선택", quesNumUrl + 3);
+          // console.log("12번문제 2번 선택", quesNumUrl + 3);
         }
       }
     }
