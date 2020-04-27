@@ -82,7 +82,7 @@ const NavContainer = styled.nav`
   justify-content: space-between;
 
   @media only screen and (max-width: 415px) {
-    display: none;
+    height: 30px;
   }
 `;
 

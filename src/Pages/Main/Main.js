@@ -11,12 +11,12 @@ import QUIZ from "Images/Main/quiz.png";
 import COMPUTER from "Images/Main/computer.png";
 import WECODE from "Images/Main/WeTV.png";
 
-const Main = props => {
+const Main = (props) => {
   const { res, openQuestion, ques, about, openAbout } = props;
 
   const [postData, setPostData] = useState({});
 
-  const getData = postData => {
+  const getData = (postData) => {
     setPostData(postData);
   };
 
@@ -51,12 +51,11 @@ const Main = props => {
   );
 };
 
-const mapStateToProps = state => {
-  console.log("state", state);
+const mapStateToProps = (state) => {
   return {
     res: state.controlResult.res,
     about: state.controlAbout.about,
-    ques: state.controlQuestion.ques
+    ques: state.controlQuestion.ques,
   };
 };
 
@@ -80,7 +79,6 @@ const Section = styled.div`
 
   @media only screen and (max-width: 415px) {
     height: calc(100% - 60px);
-    /* background: #244c88; */
   }
 `;
 
@@ -94,6 +92,11 @@ const IconWrapper = styled.div`
     display: flex;
     justify-content: center;
     align-items: flex-end;
+  }
+
+  @media only screen and (max-width: 415px) {
+    top: 20px;
+    left: 10px;
   }
 `;
 
@@ -112,12 +115,20 @@ const Icon = styled.div`
     height: auto;
     margin-bottom: 5px;
     cursor: pointer;
+
+    @media only screen and (max-width: 420px) {
+      width: 50px;
+    }
   }
 
   .computer {
     width: 80px;
     height: auto;
     cursor: pointer;
+
+    @media only screen and (max-width: 420px) {
+      width: 60px;
+    }
   }
 
   .wecode {
@@ -125,6 +136,10 @@ const Icon = styled.div`
     height: auto;
     margin-bottom: 5px;
     cursor: pointer;
+
+    @media only screen and (max-width: 420px) {
+      width: 50px;
+    }
   }
 `;
 
@@ -137,4 +152,10 @@ const Text = styled.div`
   background: #fabdfc;
   border: 1px solid #000000;
   cursor: pointer;
+
+  @media only screen and (max-width: 420px) {
+    width: 80px;
+    font-size: 12px;
+    line-height: 17px;
+  }
 `;
