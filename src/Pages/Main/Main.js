@@ -24,6 +24,8 @@ const Main = (props) => {
     window.open("https://wecode.co.kr/");
   };
 
+  console.log("❤️뭘 보냐 6기야, 니들이나 잘해라! 사랑해 이것들아❤️");
+
   return (
     <MainWrapper>
       <Nav />
@@ -59,7 +61,10 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, { openAbout, openQuestion })(Main);
+export default connect(mapStateToProps, {
+  openAbout,
+  openQuestion,
+})(Main);
 
 const MainWrapper = styled.div`
   width: 100vw;
