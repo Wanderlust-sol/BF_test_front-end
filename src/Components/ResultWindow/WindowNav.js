@@ -1,11 +1,15 @@
 import React from "react";
+import { connect } from "react-redux";
+import { closeResult } from "Redux/Actions";
 import styled from "styled-components";
 import BFICON from "Images/Group6.png";
 import CLOSEICON from "Images/Nav/close.png";
 import EXPANDICON from "Images/Nav/expand.png";
 import MINICON from "Images/Nav/min.png";
 
-const WindowNav = ({ title, close }) => {
+const WindowNav = (props) => {
+  console.log(props);
+  const { closeResult, title } = props;
   return (
     <NavContainer>
       <TitleSection>
@@ -24,14 +28,19 @@ const WindowNav = ({ title, close }) => {
           <Expand src={EXPANDICON}></Expand>
         </ControlBox>
         <ControlBox>
-          <Close src={CLOSEICON} onClick={close}></Close>
+          <Close
+            src={CLOSEICON}
+            onClick={() => {
+              closeResult();
+            }}
+          ></Close>
         </ControlBox>
       </ControlSection>
     </NavContainer>
   );
 };
 
-export default WindowNav;
+export default connect({ closeResult })(WindowNav);
 
 const NavContainer = styled.nav`
   width: 100%;
