@@ -18,9 +18,9 @@ const Main = (props) => {
   const [about, setAbout] = useState(false);
 
   const getData = (postData) => {
-    console.log("data왔다~~~ : ", postData);
     setPostData(postData);
   };
+
   const goToWecode = () => {
     window.open("https://wecode.co.kr/");
   };
@@ -46,6 +46,7 @@ const Main = (props) => {
             <Text>Wecode</Text>
           </Icon>
         </IconWrapper>
+        {/* <Question /> */}
         {about && <About />}
         {ques && <Question />}
         {res && <Result />}
@@ -69,7 +70,7 @@ const MainWrapper = styled.div`
   width: 100vw;
   height: 100vh;
   border: 2px solid #000000;
-  overflow: hidden;
+  /* overflow: scroll; */
 `;
 
 const Section = styled.div`
@@ -83,7 +84,7 @@ const Section = styled.div`
 
   @media only screen and (max-width: 415px) {
     height: calc(100% - 60px);
-    background: #244c88;
+    /* background: #244c88; */
   }
 `;
 

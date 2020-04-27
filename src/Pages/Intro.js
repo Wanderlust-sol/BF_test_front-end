@@ -9,7 +9,7 @@ import Mono from "Styles/Fonts/monospace.ttf";
 
 const Intro = props => {
   const [mainText, setMainText] = useState("");
-  const [count, setCount] = useState(3);
+  const [count, setCount] = useState(5);
   const [finishType, setFinishType] = useState(false);
   const [finishCount, setFinishCount] = useState(false);
 

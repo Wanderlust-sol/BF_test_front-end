@@ -6,7 +6,6 @@ import About from "Components/About/About";
 
 const Result = props => {
   const { type } = props;
-  // const [type, setType] = useState([]);
   const [typeName, setTypeName] = useState("");
   const [about, setAbout] = useState(false);
 
