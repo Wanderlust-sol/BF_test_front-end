@@ -102,23 +102,15 @@ const Container = styled.div`
   z-index: 10;
 
   @media only screen and (max-width: 415px) {
-    position: absolute;
-    left: 0;
+    border: 1px;
     width: 100vw;
     height: 100vh;
     box-shadow: none;
-    border: none;
     margin: 0;
     padding: 0;
     overflow: hidden;
     overflow-y: scroll;
-  }
-  @media only screen and (max-width: 320px) and (min-height: 568px) {
-    font-size: 0.6rem;
-  }
-  @media only screen and (max-width: 375px) and (max-height: 667px) {
-    width: 100vw;
-    height: 100vh;
+    border: 2px solid black;
   }
 `;
 
@@ -127,6 +119,7 @@ const BodyWrapper = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    height: 100%;
   }
 `;
 
@@ -134,19 +127,19 @@ const Body = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-
   @media only screen and (max-width: 415px) {
-    height: 100%;
   }
 `;
 
 const TypeContainer = styled.div`
-  margin: 10px;
+  margin-top: 10px;
+  margin-left: 10px;
   font-size: 22px;
   line-height: 1.9rem;
   color: white;
   position: relative;
   @media only screen and (max-width: 415px) {
+    margin-top: 0px;
     font-size: 1.2rem;
     line-height: 1rem;
   }
@@ -187,17 +180,22 @@ const ResultContainer = styled.div`
   justify-content: start;
   @media only screen and (max-width: 700px) {
     flex-direction: column;
-    justify-content: space-between;
-    margin-top: 0;
+    justify-content: center;
   }
   @media only screen and (max-width: 415px) {
+    flex-direction: column;
+    justify-content: center;
+  }
+  @media only screen and (max-width: 375px) and (max-height: 667px) {
     display: block;
-    margin-top: 0;
   }
 `;
 
 const CardContainer = styled.div`
   margin-left: 2%;
+  @media only screen and (max-width: 415px) {
+    margin: 0;
+  }
 `;
 
 const CardBox = styled.div`
@@ -205,11 +203,11 @@ const CardBox = styled.div`
   flex-direction: row;
   @media only screen and (max-width: 700px) {
     justify-content: center;
-    margin: 10px;
+    margin-bottom: 10px;
   }
   @media only screen and (max-width: 415px) {
     justify-content: center;
-    margin: 10px;
+    margin-bottom: 10px;
   }
 `;
 
@@ -248,16 +246,13 @@ const ContentContainer = styled.div`
   position: relative;
   max-height: 326px;
   @media only screen and (max-width: 415px) {
-    margin-top: 10px;
   }
   /* iphone 6/7/8 size */
   @media only screen and (max-width: 375px) and (max-height: 667px) {
-    margin-top: 10px;
     min-height: 198px;
   }
   /* iphone X size */
   @media only screen and (max-width: 375px) and (min-height: 668px) {
-    margin-top: 10px;
     min-height: 214px;
   }
 `;
@@ -322,21 +317,27 @@ const TypeContents = styled.div`
   /* iphone se, 5 */
   @media only screen and (max-width: 320px) and (min-height: 568px) {
     font-size: 0.6rem;
+    margin-bottom: 0px;
+    margin-top: 0px;
   }
 `;
 
 const RecommendContainer = styled.div`
-  margin: 10px;
+  margin-top: 10px;
+  margin-left: 10px;
   font-size: 1.6rem;
   line-height: 2rem;
   color: white;
   position: relative;
-
+  margin-bottom: 10px;
   @media only screen and (max-width: 415px) {
-    margin: 5px;
     font-size: 1.2rem;
     line-height: 1.2rem;
     margin-bottom: 0px;
+  }
+
+  @media only screen and (max-width: 320px) and (min-height: 568px) {
+    margin-top: 4px;
   }
 `;
 
