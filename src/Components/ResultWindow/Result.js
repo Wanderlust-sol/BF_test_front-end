@@ -116,8 +116,8 @@ const Container = styled.div`
   }
   @media only screen and (max-width: 375px) and (max-height: 667px) {
     min-height: 198px;
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
   }
 `;
 
