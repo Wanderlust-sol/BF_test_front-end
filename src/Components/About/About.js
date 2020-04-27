@@ -124,7 +124,7 @@ const Text = styled.div`
   text-align: justify;
 
   @media only screen and (max-width: 415px) {
-    height: 50%;
+    height: 45%;
     overflow: scroll;
   }
 
@@ -218,7 +218,7 @@ const Color = styled.div`
     line-height: 1.7;
   }
 
-  @media only screen and (max-width: 325px) {
+  @media only screen and (max-width: 380px) {
     font-size: 0.6rem;
     line-height: 1.9;
   }
