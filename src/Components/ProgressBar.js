@@ -2,14 +2,19 @@ import React, { useState, useLayoutEffect } from "react";
 import axios from "axios";
 import { URL } from "config";
 import { connect } from "react-redux";
-import { showResult, closeResult, addResult } from "Redux/Actions";
+import {
+  showResult,
+  closeResult,
+  addResult,
+  closeQuestion,
+} from "Redux/Actions";
 import styled from "styled-components";
 import Dog from "Images/Progress/Dog.png";
 import HomeBF from "Images/Progress/home_bf.png";
 import Home from "Images/Progress/home.png";
 
 const ProgressBar = (props) => {
-  const { res, showResult, closeResult, addResult } = props;
+  const { res, showResult, closeResult, addResult, closeQuestion } = props;
   const [progress, setProgress] = useState(0);
   const [popupResult, setPopupResult] = useState(false);
   const [result, setResult] = useState(false);
@@ -26,6 +31,7 @@ const ProgressBar = (props) => {
       console.log("err", err);
     }
     showResult();
+    closeQuestion();
   };
   useLayoutEffect(() => {
     const interval =
@@ -57,12 +63,16 @@ const ProgressBar = (props) => {
 const mapStateToProps = (state) => {
   return {
     res: state.controlResult.res,
+    ques: state.controlQuestion.res,
   };
 };
 
-export default connect(mapStateToProps, { showResult, closeResult, addResult })(
-  ProgressBar
-);
+export default connect(mapStateToProps, {
+  showResult,
+  closeResult,
+  addResult,
+  closeQuestion,
+})(ProgressBar);
 
 const Wrapper = styled.div`
   width: 100%;
