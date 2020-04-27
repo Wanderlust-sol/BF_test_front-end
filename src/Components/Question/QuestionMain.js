@@ -7,7 +7,7 @@ const QuestionMain = (props) => {
   const [quesData, setData] = useState({});
   const [quesNum, setQuesNum] = useState(1);
   const [quesNumUrl, setQuesNumUrl] = useState(1);
-  const [pickedData, setPickData] = useState({});
+  // const [pickedData, setPickData] = useState({});
   const [type, setType] = useState();
   const [sendResult, setSendResult] = useState(false);
 
@@ -20,25 +20,27 @@ const QuestionMain = (props) => {
     //quesNumUrl를 이용해서 데이터 통신을 해야힘
     setQuesNumUrl(quesNumUrl + 1);
 
-    setPickData({ ...pickedData, [quesData.id]: quesData.choice[index].id });
+    // setPickData({ ...pickedData, [quesData.id]: quesData.choice[index].id });
+    props.getKeyValue(quesData.id, quesData.choice[index].id);
+
     if (quesNum === 13) {
       if (quesNumUrl === 14) {
         if (index === 0) {
           setType("A");
-          props.getData(pickedData, type);
+          props.getData(type);
           props.getLoadingStatus(true);
         } else {
           setType("B");
-          props.getData(pickedData, type);
+          props.getData(type);
           props.getLoadingStatus(true);
         }
       } else if (quesNumUrl === 15) {
         setType("A");
-        props.getData(pickedData, type);
+        props.getData(type);
         props.getLoadingStatus(true);
       } else {
         setType("C");
-        props.getData(pickedData, type);
+        props.getData(type);
         props.getLoadingStatus(true);
       }
     } else {
@@ -91,7 +93,7 @@ const QuestionMain = (props) => {
         fetchFirstQuestion();
       }, 13500);
     } else if (quesNum === 14) {
-      props.getData(pickedData, type);
+      props.getData(type);
       props.getLoadingStatus(true);
     } else {
       fetchFirstQuestion();

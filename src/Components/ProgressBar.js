@@ -23,7 +23,7 @@ const ProgressBar = (props) => {
     setResult(true);
     try {
       const res = await axios.post(`${URL}/poll/result`, {
-        answer: props.postData[0],
+        answer: props.postData[0][0],
         type: props.postData[1],
       });
       addResult(res.data.result);
