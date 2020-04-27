@@ -109,10 +109,7 @@ const Container = styled.div`
     margin: 0;
     padding: 0;
     overflow: hidden;
-    justify-content: space-between;
-  }
-  @media only screen and (max-width: 320px) and (min-height: 568px) {
-    font-size: 0.6rem;
+    overflow-y: scroll;
   }
   @media only screen and (max-width: 320px) and (min-height: 568px) {
     font-size: 0.6rem;
