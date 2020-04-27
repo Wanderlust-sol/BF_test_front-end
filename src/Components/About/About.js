@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { connect } from "react-redux";
+import { openDetail } from "Redux/Actions";
 import styled, { keyframes } from "styled-components";
 import WindowNav from "Components/ResultWindow/WindowNav";
 import AboutDetail from "Components/About/AboutDetail";
@@ -7,18 +9,14 @@ import MEMBERS from "Images/About/members.jpg";
 import CLICK from "Images/About/click.svg";
 
 const About = (props) => {
+  const { detail, openDetail } = props;
   const [info, setInfo] = useState({});
-  const [detail, setDetail] = useState(false);
 
   const Data = { InfoData }.InfoData;
 
-  const openDetail = (id) => {
-    setDetail(true);
+  const handleOpenDetail = (id) => {
     setInfo(Data[id]);
-  };
-
-  const closeDetail = () => {
-    setDetail(false);
+    openDetail();
   };
 
   return (
@@ -55,7 +53,7 @@ const About = (props) => {
                 <Color
                   className={card.color}
                   key={card.id}
-                  onClick={() => openDetail(card.id)}
+                  onClick={() => handleOpenDetail(card.id)}
                 >
                   {card.name}
                 </Color>
@@ -67,13 +65,21 @@ const About = (props) => {
             <img className="click" src={CLICK} alt="click" />
           </Click>
         </ImageWrapper>
-        {detail && <AboutDetail data={info} close={closeDetail} />}
+        {detail && <AboutDetail data={info} />}
       </Section>
     </AboutWrapper>
   );
 };
 
-export default About;
+//내가 사용하고 싶은 state값 불러오기
+// ex) detail오픈하려면 reducer -> controlDetail에 있는 detail state값 가져와야해
+const mapStateToProps = (state) => {
+  return {
+    detail: state.controlDetail.detail,
+  };
+};
+
+export default connect(mapStateToProps, { openDetail })(About);
 
 const AboutWrapper = styled.div`
   width: 750px;

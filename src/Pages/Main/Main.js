@@ -1,21 +1,20 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import { openQuestion } from "Redux/Actions";
+import { openAbout, openQuestion } from "Redux/Actions";
 import styled from "styled-components";
 import Nav from "Components/Nav";
-import About from "Components/About/About";
 import Question from "Components/Question/QuestionWindow";
 import Result from "Components/ResultWindow/Result";
+import About from "Components/About/About";
 import Footer from "Components/ResultWindow/Footer";
-import RECYCLE from "Images/Main/trash.png";
+import QUIZ from "Images/Main/quiz.png";
 import COMPUTER from "Images/Main/computer.png";
 import WECODE from "Images/Main/WeTV.png";
 
 const Main = (props) => {
-  const { res, openQuestion, ques } = props;
-  const [mode, setMode] = useState(false);
+  const { res, openQuestion, ques, about, openAbout } = props;
+
   const [postData, setPostData] = useState({});
-  const [about, setAbout] = useState(false);
 
   const getData = (postData) => {
     setPostData(postData);
@@ -25,19 +24,16 @@ const Main = (props) => {
     window.open("https://wecode.co.kr/");
   };
 
-  console.log(about);
-  console.log(props);
-
   return (
     <MainWrapper>
       <Nav />
       <Section>
         <IconWrapper>
           <Icon onClick={() => openQuestion()}>
-            <img className="recycle" src={RECYCLE} alt="computer" />
-            <Text>Recycle Bin</Text>
+            <img className="test" src={QUIZ} alt="computer" />
+            <Text>Test</Text>
           </Icon>
-          <Icon onClick={() => setAbout(!about)}>
+          <Icon onClick={() => openAbout()}>
             <img className="computer" src={COMPUTER} alt="computer" />
             <Text>Contributor</Text>
           </Icon>
@@ -46,10 +42,9 @@ const Main = (props) => {
             <Text>Wecode</Text>
           </Icon>
         </IconWrapper>
-        {/* <Question /> */}
-        {about && <About />}
         {ques && <Question />}
         {res && <Result />}
+        {about && <About />}
       </Section>
       <Footer />
     </MainWrapper>
@@ -60,11 +55,12 @@ const mapStateToProps = (state) => {
   console.log("state", state);
   return {
     res: state.controlResult.res,
+    about: state.controlAbout.about,
     ques: state.controlQuestion.ques,
   };
 };
 
-export default connect(mapStateToProps, { openQuestion })(Main);
+export default connect(mapStateToProps, { openAbout, openQuestion })(Main);
 
 const MainWrapper = styled.div`
   width: 100vw;
@@ -111,8 +107,8 @@ const Icon = styled.div`
     margin-right: 10px;
   }
 
-  .recycle {
-    width: 60px;
+  .test {
+    width: 70px;
     height: auto;
     margin-bottom: 5px;
     cursor: pointer;

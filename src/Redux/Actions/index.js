@@ -28,3 +28,27 @@ export const closeQuestion = () => {
     type: "ClOSE_QUESTION",
   };
 };
+
+export const openDetail = () => {
+  return {
+    type: "OPEN_DETAIL",
+  };
+};
+
+export const closeDetail = () => {
+  return {
+    type: "CLOSE_DETAIL",
+  };
+};
+
+export const openAbout = () => {
+  return {
+    type: "OPEN_ABOUT",
+  };
+};
+
+export const closeAbout = () => {
+  return {
+    type: "CLOSE_ABOUT",
+  };
+};

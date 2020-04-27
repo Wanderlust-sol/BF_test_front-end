@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { closeResult } from "Redux/Actions";
+import { closeDetail, closeAbout, closeResult } from "Redux/Actions";
 import styled from "styled-components";
 import BFICON from "Images/Group6.png";
 import CLOSEICON from "Images/Nav/close.png";
@@ -8,8 +8,26 @@ import EXPANDICON from "Images/Nav/expand.png";
 import MINICON from "Images/Nav/min.png";
 
 const WindowNav = (props) => {
-  console.log(props);
-  const { closeResult, title } = props;
+  const {
+    detail,
+    closeDetail,
+    about,
+    closeAbout,
+    closeResult,
+    title,
+    res,
+  } = props;
+
+  const handleClose = () => {
+    if (detail) {
+      closeDetail();
+    } else if (about) {
+      closeAbout();
+    } else if (res) {
+      closeResult();
+    }
+  };
+
   return (
     <NavContainer>
       <TitleSection>
@@ -31,7 +49,7 @@ const WindowNav = (props) => {
           <Close
             src={CLOSEICON}
             onClick={() => {
-              closeResult();
+              handleClose();
             }}
           ></Close>
         </ControlBox>
@@ -40,7 +58,19 @@ const WindowNav = (props) => {
   );
 };
 
-export default connect({ closeResult })(WindowNav);
+const mapStateToProps = (state) => {
+  return {
+    detail: state.controlDetail.detail,
+    about: state.controlAbout.about,
+    res: state.controlResult.res,
+  };
+};
+
+export default connect(mapStateToProps, {
+  closeDetail,
+  closeAbout,
+  closeResult,
+})(WindowNav);
 
 const NavContainer = styled.nav`
   width: 100%;
