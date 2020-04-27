@@ -10,12 +10,12 @@ import RECYCLE from "Images/Main/trash.png";
 import COMPUTER from "Images/Main/computer.png";
 import WECODE from "Images/Main/WeTV.png";
 
-const Main = props => {
+const Main = (props) => {
   const { res } = props;
   const [postData, setPostData] = useState({});
   const [about, setAbout] = useState(false);
 
-  const getData = postData => {
+  const getData = (postData) => {
     setPostData(postData);
   };
 
@@ -41,6 +41,7 @@ const Main = props => {
             <Text>Wecode</Text>
           </Icon>
         </IconWrapper>
+        {/* <Question /> */}
         {about && <About />}
         {!res ? <Question /> : <Result />}
       </Section>
@@ -49,9 +50,9 @@ const Main = props => {
   );
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
-    res: state.controlResult.res
+    res: state.controlResult.res,
   };
 };
 
@@ -61,7 +62,7 @@ const MainWrapper = styled.div`
   width: 100vw;
   height: 100vh;
   border: 2px solid #000000;
-  overflow: hidden;
+  /* overflow: scroll; */
 `;
 
 const Section = styled.div`
@@ -75,7 +76,7 @@ const Section = styled.div`
 
   @media only screen and (max-width: 415px) {
     height: calc(100% - 60px);
-    background: #244c88;
+    /* background: #244c88; */
   }
 `;
 
@@ -91,9 +92,9 @@ const IconWrapper = styled.div`
     align-items: flex-end;
   }
 
-  @media only screen and (max-width: 415px) {
+  /* @media only screen and (max-width: 415px) {
     display: none;
-  }
+  } */
 `;
 
 const Icon = styled.div`
