@@ -120,8 +120,7 @@ const BodyWrapper = styled.div`
   @media only screen and (max-width: 415px) {
     display: flex;
     flex-direction: column;
-    height: calc(100% - 60px);
-    overflow-y: scroll;
+    /* min-height: calc(100% - 60px); */
   }
 `;
 
@@ -248,9 +247,11 @@ const ContentContainer = styled.div`
   }
   /* iphone 6/7/8 size */
   @media only screen and (max-width: 375px) and (max-height: 667px) {
+    min-height: 198px;
   }
   /* iphone X size */
   @media only screen and (max-width: 375px) and (min-height: 668px) {
+    min-height: 214px;
   }
 `;
 const ContentWrapper = styled.div`
