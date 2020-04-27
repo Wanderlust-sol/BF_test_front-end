@@ -187,8 +187,7 @@ const ResultContainer = styled.div`
   flex-direction: row;
   justify-content: start;
   @media only screen and (max-width: 700px) {
-    flex-direction: column;
-    justify-content: center;
+    display: block;
   }
   @media only screen and (max-width: 415px) {
     display: block;
@@ -204,11 +203,9 @@ const CardBox = styled.div`
   flex-direction: row;
   @media only screen and (max-width: 700px) {
     justify-content: center;
-    margin: 10px;
   }
   @media only screen and (max-width: 415px) {
     justify-content: center;
-    margin: 10px;
   }
 `;
 
@@ -329,7 +326,7 @@ const RecommendContainer = styled.div`
   position: relative;
 
   @media only screen and (max-width: 415px) {
-    margin: 20px;
+    margin: 5px;
     font-size: 1.2rem;
     line-height: 1.2rem;
     margin-bottom: 0px;
