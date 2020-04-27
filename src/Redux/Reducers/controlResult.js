@@ -1,5 +1,6 @@
 const INITIAL_STATE = {
-  res: false
+  res: false,
+  ques: false,
 };
 
 export default function controlResult(state = INITIAL_STATE, action) {

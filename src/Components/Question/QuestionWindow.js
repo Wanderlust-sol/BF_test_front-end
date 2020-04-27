@@ -115,7 +115,7 @@ const QuestionMainDiv = styled.div`
   padding: 10px;
   span {
     color: white;
-    font-size: 20px;
+    font-size: 18px;
   }
   @media only screen and (max-width: 720px) {
     width: 100vw;
