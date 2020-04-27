@@ -4,6 +4,7 @@ import Typing from "react-typing-animation";
 import QuestionMain from "Components/Question/QuestionMain";
 import WindowNav from "Components/ResultWindow/WindowNav";
 import ProgressBar from "Components/ProgressBar";
+import Footer from "Components/ResultWindow/Footer";
 
 const typeSpeed = 20;
 
@@ -38,9 +39,7 @@ const QuestionWindow = (props) => {
           <Typing speed={typeSpeed}>
             <span>
               <Typing.Delay ms={typeSpeed * 100} />
-              자, 그럼 당신의 성향을 알려줄 BF -
-              <Typing.Delay ms={typeSpeed * 20} />
-              TEST 를 시작하겠습니다. . . !!!
+              자, 그럼 당신의 성향을 알려줄 BF - TEST 를 시작하겠습니다. . . !!!
             </span>
             <Typing.Backspace
               count={50}
@@ -70,6 +69,7 @@ const QuestionWindow = (props) => {
           ></QuestionMain>
           {loading && <ProgressBar postData={postData} loading={loading} />}
         </QuestionMainDiv>
+        <Footer />
       </QuestionsContainer>
     </QuestionsWrapper>
   );
@@ -87,7 +87,7 @@ const QuestionsWrapper = styled.div`
 
   @media only screen and (max-width: 720px) {
     width: 100vw;
-    height: 100%;
+    height: 100vh;
   }
 `;
 

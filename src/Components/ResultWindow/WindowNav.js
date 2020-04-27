@@ -96,8 +96,6 @@ const NavContainer = styled.nav`
     height: 30px;
   }
   @media only screen and (max-width: 720px) {
-    position: absolute;
-    z-index: -1;
   }
 `;
 

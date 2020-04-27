@@ -7,6 +7,7 @@ import AboutDetail from "Components/About/AboutDetail";
 import InfoData from "./AboutData";
 import MEMBERS from "Images/About/members.jpg";
 import CLICK from "Images/About/click.svg";
+import Footer from "Components/ResultWindow/Footer";
 
 const About = (props) => {
   const { detail, openDetail } = props;
@@ -46,7 +47,26 @@ const About = (props) => {
           그럼 다들 멋진 개발자로 성장하시길 응원합니다!!
           <br />
         </Text>
-        <ImageWrapper>
+        <ImgContainer>
+          <ImageWrapper>
+            {/* <Rainbow>
+            {Data.map((card) => {
+              return (
+                <Color
+                  className={card.color}
+                  key={card.id}
+                  onClick={() => handleOpenDetail(card.id)}
+                >
+                  {card.name}
+                </Color>
+              );
+            })}
+          </Rainbow> */}
+            <Click>
+              <h3>click here</h3>
+              <img className="click" src={CLICK} alt="click" />
+            </Click>
+          </ImageWrapper>
           <Rainbow>
             {Data.map((card) => {
               return (
@@ -60,13 +80,10 @@ const About = (props) => {
               );
             })}
           </Rainbow>
-          <Click>
-            <h3>click here</h3>
-            <img className="click" src={CLICK} alt="click" />
-          </Click>
-        </ImageWrapper>
+        </ImgContainer>
         {detail && <AboutDetail data={info} />}
       </Section>
+      <Footer />
     </AboutWrapper>
   );
 };
@@ -83,27 +100,19 @@ export default connect(mapStateToProps, { openDetail })(About);
 
 const AboutWrapper = styled.div`
   width: 750px;
-  height: auto;
   border: 2px solid #000000;
   box-shadow: 13px 10px 0px -1px rgba(74, 79, 79, 1);
-  /* position: absolute;
-  right: 10%; */
+  position: absolute;
   z-index: 99;
-
-  @media only screen and (max-width: 780px) {
-    margin: 0 20px;
-  }
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 
   @media only screen and (max-width: 415px) {
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     margin: 0;
-    border: none;
-    box-shadow: none;
-    position: absolute;
-    top: 0;
-    left: 0;
-    border: none;
   }
 `;
 
@@ -117,7 +126,7 @@ const Section = styled.div`
   align-items: center;
 
   @media only screen and (max-width: 415px) {
-    height: 100%;
+    // height: 100%;
     /* display: flex; */
     /* justify-content: start; */
   }
@@ -132,7 +141,6 @@ const Text = styled.div`
   text-align: justify;
 
   @media only screen and (max-width: 415px) {
-    height: 80%;
     overflow: scroll;
   }
 
@@ -141,10 +149,14 @@ const Text = styled.div`
   }
 `;
 
+const ImgContainer = styled.div`
+  width: 90%;
+`;
+
 const ImageWrapper = styled.div`
-  width: 65%;
+  width: 100%;
   height: 350px;
-  margin: 20px auto 15px;
+  margin: 20px auto 0;
   background: url(${MEMBERS}) no-repeat center center;
   background-size: cover;
   position: relative;
@@ -186,15 +198,20 @@ const ImageWrapper = styled.div`
   }
 `;
 
+// const Rainbow = styled.div`
+//   width: 100%;
+//   height: 20px;
+//   position: absolute;
+//   bottom: 0;
+//   display: flex;
+//   z-index: 999;
+// `;
+
 const Rainbow = styled.div`
   width: 100%;
   height: 20px;
-  position: absolute;
-  bottom: 0;
   display: flex;
-  z-index: 999;
 `;
-
 const Color = styled.div`
   width: calc(100% / 7);
   height: 100%;
