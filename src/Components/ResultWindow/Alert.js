@@ -1,12 +1,12 @@
 import React from "react";
 import styled from "styled-components";
-import ALERTICON from "../../Images/Result/alert.png";
+import ALERTICON from "Images/Result/alert.png";
 
 const Alert = () => {
   return (
     <AlertWindow>
       <IconBox>
-        <AlertIcon src={ALERTICON}></AlertIcon>
+        <AlertIcon src={ALERTICON} alt="alert"></AlertIcon>
       </IconBox>
       <AlertMessage>테스트를 진행해주세요</AlertMessage>
     </AlertWindow>
