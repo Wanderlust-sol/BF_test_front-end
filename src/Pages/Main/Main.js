@@ -5,7 +5,8 @@ import {
   openQuestion,
   closeAbout,
   closeDetail,
-  closeResult
+  closeResult,
+  showResult
 } from "Redux/Actions";
 import styled from "styled-components";
 import Nav from "Components/Nav";
@@ -16,6 +17,8 @@ import Footer from "Components/ResultWindow/Footer";
 import QUIZ from "Images/Main/quiz.png";
 import COMPUTER from "Images/Main/computer.png";
 import WECODE from "Images/Main/WeTV.png";
+import RECORD from "Images/Main/Record.png";
+import { type } from "os";
 
 const Main = props => {
   const {
@@ -26,7 +29,8 @@ const Main = props => {
     openAbout,
     closeAbout,
     closeDetail,
-    closeResult
+    closeResult,
+    showResult
   } = props;
 
   const [postData, setPostData] = useState({});
@@ -51,11 +55,14 @@ const Main = props => {
               closeDetail();
               closeAbout();
               closeResult();
-              window.localStorage.clear();
             }}
           >
             <img className="test" src={QUIZ} alt="computer" />
             <Text>Test</Text>
+          </Icon>
+          <Icon onClick={() => showResult()}>
+            <img className="record" src={RECORD} alt="record" />
+            <Text>Result</Text>
           </Icon>
           <Icon onClick={() => openAbout()}>
             <img className="computer" src={COMPUTER} alt="computer" />
@@ -88,7 +95,8 @@ export default connect(mapStateToProps, {
   openQuestion,
   closeAbout,
   closeDetail,
-  closeResult
+  closeResult,
+  showResult
 })(Main);
 
 const MainWrapper = styled.div`
@@ -148,6 +156,17 @@ const Icon = styled.div`
 
     @media only screen and (max-width: 420px) {
       width: 50px;
+    }
+  }
+
+  .record {
+    width: 60px;
+    height: auto;
+    margin-bottom: 7px;
+    cursor: pointer;
+
+    @media only screen and (max-width: 420px) {
+      width: 45px;
     }
   }
 

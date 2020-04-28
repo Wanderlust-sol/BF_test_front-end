@@ -11,7 +11,6 @@ const Result = props => {
   const [about, setAbout] = useState(false);
 
   useEffect(() => {
-    window.localStorage.setItem("type", JSON.stringify(type));
     handleType(type.name);
   }, [type.name]);
 
@@ -84,7 +83,6 @@ const Result = props => {
 };
 
 const mapStateToProps = state => {
-  console.log(state);
   return {
     type: state.getResult
   };
@@ -117,6 +115,8 @@ const Container = styled.div`
 `;
 
 const BodyWrapper = styled.div`
+  border: 1px solid yellow;
+
   @media only screen and (max-width: 415px) {
     display: flex;
     flex-direction: column;
