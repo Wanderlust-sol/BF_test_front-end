@@ -11,6 +11,7 @@ const Result = props => {
   const [about, setAbout] = useState(false);
 
   useEffect(() => {
+    window.localStorage.setItem("type", JSON.stringify(type));
     handleType(type.name);
   }, [type.name]);
 
