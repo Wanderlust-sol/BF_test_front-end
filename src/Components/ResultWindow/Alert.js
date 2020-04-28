@@ -5,10 +5,7 @@ import ALERTICON from "Images/Result/alert.png";
 const Alert = () => {
   return (
     <AlertWindow>
-      <IconBox>
-        <AlertIcon src={ALERTICON} alt="alert"></AlertIcon>
-      </IconBox>
-      <AlertMessage>테스트를 진행해주세요</AlertMessage>
+      <AlertMessage>⚠️ 테스트를 진행해주세요 ⚠️</AlertMessage>
     </AlertWindow>
   );
 };
@@ -29,24 +26,10 @@ const AlertWindow = styled.div`
     display: block;
   }
 `;
-const IconBox = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-`;
-
-const AlertIcon = styled.img`
-  width: 60px;
-  height: 100%;
-  max-height: 60px;
-`;
 
 const AlertMessage = styled.div`
   margin: 10px;
   text-align: center;
-  line-height: 1.5rem;
-  font-size: 1.3rem;
-  @media only screen and (max-width: 415px) {
-    margin: 20px;
-  }
+  line-height: 1.4rem;
+  font-size: 1.2rem;
 `;
