@@ -111,7 +111,6 @@ const Container = styled.div`
   z-index: 10;
 
   @media only screen and (max-width: 415px) {
-    border: 1px;
     width: 100vw;
     height: 100vh;
     box-shadow: none;
@@ -119,7 +118,6 @@ const Container = styled.div`
     padding: 0;
     overflow: hidden;
     overflow-y: scroll;
-    border: 2px solid black;
   }
 `;
 

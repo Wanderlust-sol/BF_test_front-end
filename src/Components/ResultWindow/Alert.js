@@ -36,6 +36,8 @@ const IconBox = styled.div`
 
 const AlertIcon = styled.img`
   width: 60px;
+  height: 100%;
+  max-height: 60px;
 `;
 
 const AlertMessage = styled.div`
