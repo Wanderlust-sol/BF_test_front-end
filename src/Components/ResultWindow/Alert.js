@@ -26,6 +26,7 @@ const AlertWindow = styled.div`
     height: 100%;
     box-shadow: none;
     padding-top: 55%;
+    display: block;
   }
 `;
 const IconBox = styled.div`
@@ -46,6 +47,6 @@ const AlertMessage = styled.div`
   line-height: 1.5rem;
   font-size: 1.3rem;
   @media only screen and (max-width: 415px) {
-    margin: 0px;
+    margin: 20px;
   }
 `;

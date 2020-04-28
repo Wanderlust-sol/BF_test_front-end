@@ -118,6 +118,8 @@ const Container = styled.div`
     padding: 0;
     overflow: hidden;
     overflow-y: scroll;
+    border-left: 0;
+    border-right: 0;
   }
 `;
 
