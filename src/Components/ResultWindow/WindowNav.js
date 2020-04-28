@@ -4,7 +4,7 @@ import {
   closeDetail,
   closeAbout,
   closeResult,
-  closeQuestion,
+  closeQuestion
 } from "Redux/Actions";
 import styled from "styled-components";
 import BFICON from "Images/Group6.png";
@@ -12,17 +12,17 @@ import CLOSEICON from "Images/Nav/close.png";
 import EXPANDICON from "Images/Nav/expand.png";
 import MINICON from "Images/Nav/min.png";
 
-const WindowNav = (props) => {
+const WindowNav = props => {
   const {
     detail,
-    closeDetail,
     about,
-    closeAbout,
-    closeResult,
-    closeQuestion,
     title,
     res,
     ques,
+    closeDetail,
+    closeAbout,
+    closeResult,
+    closeQuestion
   } = props;
 
   const handleClose = () => {
@@ -67,12 +67,12 @@ const WindowNav = (props) => {
   );
 };
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {
     detail: state.controlDetail.detail,
     about: state.controlAbout.about,
     res: state.controlResult.res,
-    ques: state.controlQuestion.ques,
+    ques: state.controlQuestion.ques
   };
 };
 
@@ -80,7 +80,7 @@ export default connect(mapStateToProps, {
   closeDetail,
   closeAbout,
   closeResult,
-  closeQuestion,
+  closeQuestion
 })(WindowNav);
 
 const NavContainer = styled.nav`

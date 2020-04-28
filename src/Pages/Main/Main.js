@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import { openAbout, openQuestion } from "Redux/Actions";
+import { openAbout, openQuestion, closeResult } from "Redux/Actions";
 import styled from "styled-components";
 import Nav from "Components/Nav";
 import Question from "Components/Question/QuestionWindow";
@@ -11,12 +11,12 @@ import QUIZ from "Images/Main/quiz.png";
 import COMPUTER from "Images/Main/computer.png";
 import WECODE from "Images/Main/WeTV.png";
 
-const Main = (props) => {
-  const { res, openQuestion, ques, about, openAbout } = props;
+const Main = props => {
+  const { res, ques, about, openQuestion, openAbout, closeResult } = props;
 
   const [postData, setPostData] = useState({});
 
-  const getData = (postData) => {
+  const getData = postData => {
     setPostData(postData);
   };
 
@@ -31,16 +31,21 @@ const Main = (props) => {
       <Nav />
       <Section>
         <IconWrapper>
-          <Icon onClick={() => openQuestion()}>
-            <img className="test" src={QUIZ} alt="computer" />
+          <Icon
+            onClick={() => {
+              openQuestion();
+              closeResult();
+            }}
+          >
+            <img className="test" src={QUIZ} alt="test" />
             <Text>Test</Text>
           </Icon>
           <Icon onClick={() => openAbout()}>
             <img className="computer" src={COMPUTER} alt="computer" />
-            <Text>Contributor</Text>
+            <Text>Contributors</Text>
           </Icon>
           <Icon onClick={() => goToWecode()}>
-            <img className="wecode" src={WECODE} alt="computer" />
+            <img className="wecode" src={WECODE} alt="wecode" />
             <Text>Wecode</Text>
           </Icon>
         </IconWrapper>
@@ -53,17 +58,18 @@ const Main = (props) => {
   );
 };
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {
     res: state.controlResult.res,
     about: state.controlAbout.about,
-    ques: state.controlQuestion.ques,
+    ques: state.controlQuestion.ques
   };
 };
 
 export default connect(mapStateToProps, {
   openAbout,
   openQuestion,
+  closeResult
 })(Main);
 
 const MainWrapper = styled.div`

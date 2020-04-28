@@ -4,7 +4,8 @@ import styled, { keyframes } from "styled-components";
 import WindowNav from "./WindowNav";
 import About from "Components/About/About";
 import Footer from "./Footer";
-const Result = (props) => {
+
+const Result = props => {
   const { type } = props;
   const [typeName, setTypeName] = useState("");
   const [about, setAbout] = useState(false);
@@ -13,7 +14,7 @@ const Result = (props) => {
     handleType(type.name);
   }, [type.name]);
 
-  const handleType = (name) => {
+  const handleType = name => {
     const lastLetter = name[name.length - 3];
     if (lastLetter === "풀") {
       setTypeName("Full-Stack Developer");
@@ -81,10 +82,10 @@ const Result = (props) => {
   );
 };
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   console.log(state);
   return {
-    type: state.getResult,
+    type: state.getResult
   };
 };
 
