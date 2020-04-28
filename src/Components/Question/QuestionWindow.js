@@ -29,9 +29,8 @@ const QuestionWindow = (props) => {
 
   return (
     <QuestionsWrapper>
+      <WindowNav title="Front..? Back..?" />
       <QuestionsContainer>
-        <WindowNav title="Front..? Back..?" />
-
         <QuestionMainDiv>
           <Typing speed={typeSpeed}>
             <span>준비되셨나요 . . . ?</span>
@@ -89,6 +88,8 @@ const QuestionsWrapper = styled.div`
   position: absolute;
   top: 50%;
   left: 50%;
+  border: 2px solid #000000;
+  box-shadow: 13px 10px 0px -1px rgba(74, 79, 79, 1);
   transform: translate(-50%, -50%);
 
   @media only screen and (max-width: 720px) {
@@ -98,9 +99,8 @@ const QuestionsWrapper = styled.div`
 `;
 
 const QuestionsContainer = styled.div`
-  box-shadow: 13px 10px 0px -1px rgba(74, 79, 79, 1);
   width: 700px;
-  border: 2px solid #000000;
+
   @media only screen and (max-width: 720px) {
     width: 100vw;
     box-shadow: none;
