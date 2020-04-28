@@ -1,6 +1,12 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import { openAbout, openQuestion, closeResult } from "Redux/Actions";
+import {
+  openAbout,
+  openQuestion,
+  closeAbout,
+  closeDetail,
+  closeResult,
+} from "Redux/Actions";
 import styled from "styled-components";
 import Nav from "Components/Nav";
 import Question from "Components/Question/QuestionWindow";
@@ -11,12 +17,21 @@ import QUIZ from "Images/Main/quiz.png";
 import COMPUTER from "Images/Main/computer.png";
 import WECODE from "Images/Main/WeTV.png";
 
-const Main = props => {
-  const { res, ques, about, openQuestion, openAbout, closeResult } = props;
+const Main = (props) => {
+  const {
+    res,
+    openQuestion,
+    ques,
+    about,
+    openAbout,
+    closeAbout,
+    closeDetail,
+    closeResult,
+  } = props;
 
   const [postData, setPostData] = useState({});
 
-  const getData = postData => {
+  const getData = (postData) => {
     setPostData(postData);
   };
 
@@ -25,7 +40,6 @@ const Main = props => {
   };
 
   console.log("❤️뭘 보냐 6기야, 니들이나 잘해라! 사랑해 이것들아❤️");
-
   return (
     <MainWrapper>
       <Nav />
@@ -34,10 +48,12 @@ const Main = props => {
           <Icon
             onClick={() => {
               openQuestion();
+              closeDetail();
+              closeAbout();
               closeResult();
             }}
           >
-            <img className="test" src={QUIZ} alt="test" />
+            <img className="test" src={QUIZ} alt="computer" />
             <Text>Test</Text>
           </Icon>
           <Icon onClick={() => openAbout()}>
@@ -58,18 +74,20 @@ const Main = props => {
   );
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
     res: state.controlResult.res,
     about: state.controlAbout.about,
-    ques: state.controlQuestion.ques
+    ques: state.controlQuestion.ques,
   };
 };
 
 export default connect(mapStateToProps, {
   openAbout,
   openQuestion,
-  closeResult
+  closeAbout,
+  closeDetail,
+  closeResult,
 })(Main);
 
 const MainWrapper = styled.div`
