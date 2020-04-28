@@ -6,7 +6,7 @@ import {
   closeAbout,
   closeDetail,
   closeResult,
-  showResult
+  showResult,
 } from "Redux/Actions";
 import styled from "styled-components";
 import Nav from "Components/Nav";
@@ -20,7 +20,7 @@ import WECODE from "Images/Main/WeTV.png";
 import RECORD from "Images/Main/Record.png";
 import { type } from "os";
 
-const Main = props => {
+const Main = (props) => {
   const {
     res,
     openQuestion,
@@ -30,12 +30,12 @@ const Main = props => {
     closeAbout,
     closeDetail,
     closeResult,
-    showResult
+    showResult,
   } = props;
 
   const [postData, setPostData] = useState({});
 
-  const getData = postData => {
+  const getData = (postData) => {
     setPostData(postData);
   };
 
@@ -43,7 +43,9 @@ const Main = props => {
     window.open("https://wecode.co.kr/");
   };
 
-  console.log("❤️뭘 보냐 6기야, 니들이나 잘해라! 사랑해 이것들아❤️");
+  console.log(
+    "❤️으이구우 또 열어봤네 또 열어봤어!! 뭐가 그렇게 궁금한데? 콘솔 닫고 테스트에 집중해 ❤️"
+  );
   return (
     <MainWrapper>
       <Nav />
@@ -82,11 +84,11 @@ const Main = props => {
   );
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
     res: state.controlResult.res,
     about: state.controlAbout.about,
-    ques: state.controlQuestion.ques
+    ques: state.controlQuestion.ques,
   };
 };
 
@@ -96,7 +98,7 @@ export default connect(mapStateToProps, {
   closeAbout,
   closeDetail,
   closeResult,
-  showResult
+  showResult,
 })(Main);
 
 const MainWrapper = styled.div`

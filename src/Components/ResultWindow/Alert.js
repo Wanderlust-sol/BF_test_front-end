@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import ALERTICON from "Images/Result/alert.png";
 
 const Alert = () => {
   return (
