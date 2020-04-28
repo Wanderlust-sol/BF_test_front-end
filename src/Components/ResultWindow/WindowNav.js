@@ -4,15 +4,15 @@ import {
   closeDetail,
   closeAbout,
   closeResult,
-  closeQuestion
+  closeQuestion,
 } from "Redux/Actions";
 import styled from "styled-components";
-import BFICON from "Images/Group6.png";
+import LOGO from "Images/Group6.png";
 import CLOSEICON from "Images/Nav/close.png";
 import EXPANDICON from "Images/Nav/expand.png";
 import MINICON from "Images/Nav/min.png";
 
-const WindowNav = props => {
+const WindowNav = (props) => {
   const {
     detail,
     about,
@@ -22,7 +22,7 @@ const WindowNav = props => {
     closeDetail,
     closeAbout,
     closeResult,
-    closeQuestion
+    closeQuestion,
   } = props;
 
   const handleClose = () => {
@@ -39,40 +39,30 @@ const WindowNav = props => {
 
   return (
     <NavContainer>
-      <TitleSection>
-        <LogoBox>
-          <Logo></Logo>
-        </LogoBox>
-        <MenuBox>
-          <Menu>{title}</Menu>
-        </MenuBox>
-      </TitleSection>
-      <ControlSection>
-        <ControlBox>
-          <Min src={MINICON}></Min>
-        </ControlBox>
-        <ControlBox>
-          <Expand src={EXPANDICON}></Expand>
-        </ControlBox>
-        <ControlBox>
-          <Close
-            src={CLOSEICON}
-            onClick={() => {
-              handleClose();
-            }}
-          ></Close>
-        </ControlBox>
-      </ControlSection>
+      <NavLeft>
+        <img className="logo" src={LOGO} alt="logo" />
+        <div>{title}</div>
+      </NavLeft>
+      <NavRight>
+        <Min src={MINICON}></Min>
+        <Expand src={EXPANDICON}></Expand>
+        <Close
+          src={CLOSEICON}
+          onClick={() => {
+            handleClose();
+          }}
+        ></Close>
+      </NavRight>
     </NavContainer>
   );
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
     detail: state.controlDetail.detail,
     about: state.controlAbout.about,
     res: state.controlResult.res,
-    ques: state.controlQuestion.ques
+    ques: state.controlQuestion.ques,
   };
 };
 
@@ -80,131 +70,86 @@ export default connect(mapStateToProps, {
   closeDetail,
   closeAbout,
   closeResult,
-  closeQuestion
+  closeQuestion,
 })(WindowNav);
 
 const NavContainer = styled.nav`
   width: 100%;
   height: 30px;
-  border-bottom: 2px solid black;
+  font-size: 26px;
   background-color: #fdfd96;
+  border-bottom: 2px solid black;
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
-
-  @media only screen and (max-width: 415px) {
-    height: 30px;
-  }
-  @media only screen and (max-width: 720px) {
-  }
-`;
-
-const TitleSection = styled.div`
-  width: 70%;
-  display: flex;
-  flex-direction: row;
   align-items: center;
 `;
 
-const LogoBox = styled.div`
-  margin-left: 2px;
-  width: 30px;
-  height: 30px;
+const NavLeft = styled.div`
+  margin-left: 10px;
   display: flex;
-  justify-content: center;
-  flex-direction: column;
-`;
+  align-items: center;
 
-const Logo = styled.div`
-  width: 23px;
-  height: 23px;
-  margin: 0px auto;
-  background-image: url(${BFICON});
-  background-position: center;
-  background-repeat: none;
-  background-size: cover;
-
-  @media only screen and (max-width: 375px) and (max-height: 667px) {
-    width: 1.5rem;
-    height: 1.5rem;
+  .logo {
+    width: 23px;
+    height: auto;
+    cursor: pointer;
   }
-  @media only screen and (max-width: 320px) and (min-height: 568px) {
-    width: 1.4rem;
-    height: 1.4rem;
+
+  div {
+    font-size: 24px;
+    margin-left: 10px;
   }
-`;
 
-const MenuBox = styled.div`
-  padding-left: 5px;
-  height: 100%;
-`;
-
-const Menu = styled.div`
-  font-size: 1.5rem;
-  line-height: 1.9rem;
   @media only screen and (max-width: 415px) {
-    font-size: 1.5rem;
+    margin-left: 2px;
+
+    .logo {
+      width: 1.3rem;
+    }
+    div {
+      font-size: 1.3rem;
+      margin-left: 5px;
+      margin-bottom: 2px;
+    }
   }
+`;
+
+const NavRight = styled.div`
+  margin-right: 10px;
+  display: flex;
+  align-items: center;
+
   @media only screen and (max-width: 415px) {
-    font-size: 1.3rem;
+    margin-right: 5px;
   }
-  /* 5, se size */
-  @media only screen and (max-width: 320px) and (min-height: 568px) {
-    font-size: 1.2rem;
-  }
-`;
-
-const ControlSection = styled.div`
-  width: 80px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  margin-right: 3px;
-`;
-
-const ControlBox = styled.div`
-  width: 25%;
-  height: 80%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin: 3px;
 `;
 
 const Min = styled.img`
-  margin: 0 auto;
   width: 23px;
-  height: 23px;
-  margin-right: 3px;
+  height: auto;
   cursor: pointer;
+
   @media only screen and (max-width: 415px) {
     width: 21px;
-    height: 21px;
-    margin: 0 auto;
   }
 `;
 
 const Expand = styled.img`
-  margin: 0 auto;
   width: 23px;
-  height: 23px;
-  margin-right: 3px;
+  height: auto;
+  margin: 0 5px;
   cursor: pointer;
+
   @media only screen and (max-width: 415px) {
     width: 21px;
-    height: 21px;
-    margin: 0 auto;
   }
 `;
 const Close = styled.img`
-  margin: 0 auto;
   width: 23px;
-  height: 23px;
-  margin-right: 3px;
+  height: auto;
   cursor: pointer;
+
   @media only screen and (max-width: 415px) {
     width: 21px;
-    height: 21px;
-    margin: 0 auto;
   }
 `;

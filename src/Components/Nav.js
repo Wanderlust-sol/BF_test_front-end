@@ -13,10 +13,6 @@ const Nav = () => {
   let minute = date.getMinutes();
   let second = date.getSeconds();
 
-  const goToMain = () => {
-    window.location.reload();
-  };
-
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const timeCheck = () => {
     setTime(
@@ -36,12 +32,7 @@ const Nav = () => {
   return (
     <NavWrapper>
       <NavLeft>
-        <img
-          className="logo"
-          src={LOGO}
-          alt="logo"
-          onClick={() => goToMain()}
-        />
+        <img className="logo" src={LOGO} alt="logo" />
         <div>Test</div>
       </NavLeft>
       <NavRight>
@@ -68,7 +59,6 @@ const NavWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  z-index: 999;
 
   @media only screen and (max-width: 415px) {
     height: 30px;
@@ -76,7 +66,7 @@ const NavWrapper = styled.div`
 `;
 
 const NavLeft = styled.div`
-  margin-left: 15px;
+  margin-left: 10px;
   display: flex;
   align-items: center;
 
@@ -98,13 +88,15 @@ const NavLeft = styled.div`
     }
     div {
       font-size: 1.3rem;
+      margin-left: 5px;
+      margin-bottom: 2px;
     }
   }
 `;
 
 const NavRight = styled.div`
   font-size: 26px;
-  margin-right: 15px;
+  margin-right: 10px;
   display: flex;
   align-items: center;
 
@@ -142,6 +134,7 @@ const NavRight = styled.div`
     }
     div {
       font-size: 1.3rem;
+      margin-bottom: 2px;
     }
   }
 `;

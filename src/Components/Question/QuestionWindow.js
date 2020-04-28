@@ -30,7 +30,7 @@ const QuestionWindow = (props) => {
   return (
     <QuestionsWrapper>
       <QuestionsContainer>
-        <WindowNav title="Front...? Back...?" />
+        <WindowNav title="Front..? Back..?" />
 
         <QuestionMainDiv>
           <Typing speed={typeSpeed}>
