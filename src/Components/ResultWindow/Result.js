@@ -4,7 +4,8 @@ import styled, { keyframes } from "styled-components";
 import WindowNav from "./WindowNav";
 import About from "Components/About/About";
 import Footer from "./Footer";
-const Result = (props) => {
+
+const Result = props => {
   const { type } = props;
   const [typeName, setTypeName] = useState("");
   const [about, setAbout] = useState(false);
@@ -13,7 +14,7 @@ const Result = (props) => {
     handleType(type.name);
   }, [type.name]);
 
-  const handleType = (name) => {
+  const handleType = name => {
     const lastLetter = name[name.length - 3];
     if (lastLetter === "풀") {
       setTypeName("Full-Stack Developer");
@@ -81,10 +82,10 @@ const Result = (props) => {
   );
 };
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   console.log(state);
   return {
-    type: state.getResult,
+    type: state.getResult
   };
 };
 
@@ -102,17 +103,15 @@ const Container = styled.div`
   z-index: 10;
 
   @media only screen and (max-width: 415px) {
+    border: 1px;
     width: 100vw;
     height: 100vh;
     box-shadow: none;
-    border: none;
     margin: 0;
     padding: 0;
     overflow: hidden;
     overflow-y: scroll;
-  }
-  @media only screen and (max-width: 320px) and (min-height: 568px) {
-    font-size: 0.6rem;
+    border: 2px solid black;
   }
 `;
 
@@ -120,7 +119,8 @@ const BodyWrapper = styled.div`
   @media only screen and (max-width: 415px) {
     display: flex;
     flex-direction: column;
-    overflow-y: scroll;
+    justify-content: space-between;
+    height: 100%;
   }
 `;
 
@@ -128,27 +128,24 @@ const Body = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-
   @media only screen and (max-width: 415px) {
   }
 `;
 
 const TypeContainer = styled.div`
-  margin: 10px;
+  margin-top: 10px;
+  margin-left: 10px;
   font-size: 22px;
   line-height: 1.9rem;
   color: white;
   position: relative;
   @media only screen and (max-width: 415px) {
+    margin-top: 0px;
     font-size: 1.2rem;
     line-height: 1rem;
   }
 `;
-const TypeTitleBox = styled.div`
-  @media only screen and (max-width: 415px) {
-    margin-top: 10px;
-  }
-`;
+const TypeTitleBox = styled.div``;
 
 const TitleName = styled.span`
   font-size: 22px;
@@ -187,15 +184,17 @@ const ResultContainer = styled.div`
     justify-content: center;
   }
   @media only screen and (max-width: 415px) {
-    flex-direction: column;
-    justify-content: center;
+    display: block;
+  }
+  @media only screen and (max-width: 375px) and (max-height: 667px) {
+    display: block;
   }
 `;
 
 const CardContainer = styled.div`
   margin-left: 2%;
   @media only screen and (max-width: 415px) {
-    margin-top: 10px;
+    margin: 0;
   }
 `;
 
@@ -204,11 +203,11 @@ const CardBox = styled.div`
   flex-direction: row;
   @media only screen and (max-width: 700px) {
     justify-content: center;
-    margin: 10px;
+    margin-bottom: 10px;
   }
   @media only screen and (max-width: 415px) {
     justify-content: center;
-    margin: 10px;
+    margin-bottom: 10px;
   }
 `;
 
@@ -309,7 +308,7 @@ const TypeContents = styled.div`
   }
   /* iphone 6/7/8 size */
   @media only screen and (max-width: 375px) and (max-height: 667px) {
-    font-size: 0.6rem;
+    font-size: 0.8rem;
   }
   /* iphone X size */
   @media only screen and (max-width: 375px) and (min-height: 668px) {
@@ -318,20 +317,27 @@ const TypeContents = styled.div`
   /* iphone se, 5 */
   @media only screen and (max-width: 320px) and (min-height: 568px) {
     font-size: 0.6rem;
+    margin-bottom: 0px;
+    margin-top: 0px;
   }
 `;
 
 const RecommendContainer = styled.div`
-  margin: 10px;
+  margin-top: 10px;
+  margin-left: 10px;
   font-size: 1.6rem;
   line-height: 2rem;
   color: white;
   position: relative;
-
+  margin-bottom: 10px;
   @media only screen and (max-width: 415px) {
-    margin: 20px;
     font-size: 1.2rem;
     line-height: 1.2rem;
+    margin-bottom: 0px;
+  }
+
+  @media only screen and (max-width: 320px) and (min-height: 568px) {
+    margin-top: 4px;
   }
 `;
 

@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import styled from "styled-components";
 import axios from "axios";
 import { URL } from "config";
+import styled from "styled-components";
 
-const QuestionMain = (props) => {
+const QuestionMain = props => {
   const [quesData, setData] = useState({});
   const [quesNum, setQuesNum] = useState(1);
   const [quesNumUrl, setQuesNumUrl] = useState(1);
@@ -11,7 +11,7 @@ const QuestionMain = (props) => {
   const [type, setType] = useState();
   const [sendResult, setSendResult] = useState(false);
 
-  const clickChoice = (index) => {
+  const clickChoice = index => {
     // setFinished(false);
     // 밑에 두 줄은 마지막 문제일 때, 결과보내는 용
     setSendResult(true);
@@ -135,7 +135,7 @@ export default QuestionMain;
 const QBoxWrapper = styled.div`
   width: 90%;
   margin: 35px auto 0 auto;
-  display: ${(props) => (props.loading ? "none" : "block")};
+  display: ${props => (props.loading ? "none" : "block")};
 
   @media only screen and (max-width: 320px) {
     margin: 20px auto 0 auto;
@@ -184,7 +184,7 @@ const SelectOutLineDiv = styled.div`
   border: 1px solid white;
   margin-top: 20px;
   padding: 2px;
-  display: ${(props) => (props.display ? "block" : "none")};
+  display: ${props => (props.display ? "block" : "none")};
   display: block;
 `;
 

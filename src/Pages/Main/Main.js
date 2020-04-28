@@ -61,7 +61,7 @@ const Main = (props) => {
             <Text>Contributors</Text>
           </Icon>
           <Icon onClick={() => goToWecode()}>
-            <img className="wecode" src={WECODE} alt="computer" />
+            <img className="wecode" src={WECODE} alt="wecode" />
             <Text>Wecode</Text>
           </Icon>
         </IconWrapper>
