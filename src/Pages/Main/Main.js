@@ -5,7 +5,7 @@ import {
   openQuestion,
   closeAbout,
   closeDetail,
-  closeResult,
+  closeResult
 } from "Redux/Actions";
 import styled from "styled-components";
 import Nav from "Components/Nav";
@@ -17,7 +17,7 @@ import QUIZ from "Images/Main/quiz.png";
 import COMPUTER from "Images/Main/computer.png";
 import WECODE from "Images/Main/WeTV.png";
 
-const Main = (props) => {
+const Main = props => {
   const {
     res,
     openQuestion,
@@ -26,12 +26,12 @@ const Main = (props) => {
     openAbout,
     closeAbout,
     closeDetail,
-    closeResult,
+    closeResult
   } = props;
 
   const [postData, setPostData] = useState({});
 
-  const getData = (postData) => {
+  const getData = postData => {
     setPostData(postData);
   };
 
@@ -51,6 +51,7 @@ const Main = (props) => {
               closeDetail();
               closeAbout();
               closeResult();
+              window.localStorage.clear();
             }}
           >
             <img className="test" src={QUIZ} alt="computer" />
@@ -74,11 +75,11 @@ const Main = (props) => {
   );
 };
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {
     res: state.controlResult.res,
     about: state.controlAbout.about,
-    ques: state.controlQuestion.ques,
+    ques: state.controlQuestion.ques
   };
 };
 
@@ -87,7 +88,7 @@ export default connect(mapStateToProps, {
   openQuestion,
   closeAbout,
   closeDetail,
-  closeResult,
+  closeResult
 })(Main);
 
 const MainWrapper = styled.div`
