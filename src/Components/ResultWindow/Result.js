@@ -4,17 +4,22 @@ import styled, { keyframes } from "styled-components";
 import WindowNav from "./WindowNav";
 import About from "Components/About/About";
 import Footer from "./Footer";
-
-const Result = props => {
+import Alert from "./Alert";
+const Result = (props) => {
   const { type } = props;
   const [typeName, setTypeName] = useState("");
   const [about, setAbout] = useState(false);
-
+  const [data, getData] = useState(false);
   useEffect(() => {
-    handleType(type.name);
+    if (props.type.name !== undefined) {
+      getData(true);
+      handleType(type.name);
+    } else {
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [type.name]);
 
-  const handleType = name => {
+  const handleType = (name) => {
     const lastLetter = name[name.length - 3];
     if (lastLetter === "풀") {
       setTypeName("Full-Stack Developer");
@@ -28,53 +33,57 @@ const Result = props => {
   return (
     <Container>
       <WindowNav title="Result"></WindowNav>
-      <BodyWrapper>
-        <Body>
-          <TypeContainer>
-            <TypeTitleBox>
-              <TitleName>Your BF test result is: </TitleName>
-            </TypeTitleBox>
-            <TypeResultBox>
-              <Arrow>→</Arrow>
-              <Wave>~ </Wave>
-              <TitleName>{typeName}</TitleName>
-            </TypeResultBox>
-          </TypeContainer>
-          <ResultContainer>
-            <CardContainer>
-              <CardBox>
-                <CardImg src={type.image_url}></CardImg>
-              </CardBox>
-            </CardContainer>
-            <ContentContainer>
-              <ContentWrapper>
-                <ContentInner>
-                  <TypeName>{type.name}</TypeName>
-                  <TypeContents>{type.description} </TypeContents>
-                </ContentInner>
-              </ContentWrapper>
-            </ContentContainer>
-          </ResultContainer>
-          <RecommendContainer>
-            <TypeTitleBox>
-              <TitleName>Your ideal project team member is: </TitleName>
-            </TypeTitleBox>
-            <TypeResultBox>
-              <Arrow>→</Arrow>
-              <Wave style={{ color: "#D7AEF7" }}>~ </Wave>
-              <FitTypeName>{type.dev_fit}</FitTypeName>
-            </TypeResultBox>
-          </RecommendContainer>
-        </Body>
-        <ShareBox>
-          <GlobeIcon
-            onClick={() => {
-              setAbout(true);
-            }}
-            src="https://user-images.githubusercontent.com/53595582/80277881-12635800-872d-11ea-8377-ecf69598ed36.png"
-          ></GlobeIcon>
-        </ShareBox>
-      </BodyWrapper>
+      {data ? (
+        <BodyWrapper>
+          <Body>
+            <TypeContainer>
+              <TypeTitleBox>
+                <TitleName>Your BF test result is: </TitleName>
+              </TypeTitleBox>
+              <TypeResultBox>
+                <Arrow>→</Arrow>
+                <Wave>~ </Wave>
+                <TitleName>{typeName}</TitleName>
+              </TypeResultBox>
+            </TypeContainer>
+            <ResultContainer>
+              <CardContainer>
+                <CardBox>
+                  <CardImg src={type.image_url}></CardImg>
+                </CardBox>
+              </CardContainer>
+              <ContentContainer>
+                <ContentWrapper>
+                  <ContentInner>
+                    <TypeName>{type.name}</TypeName>
+                    <TypeContents>{type.description} </TypeContents>
+                  </ContentInner>
+                </ContentWrapper>
+              </ContentContainer>
+            </ResultContainer>
+            <RecommendContainer>
+              <TypeTitleBox>
+                <TitleName>Your ideal project team member is: </TitleName>
+              </TypeTitleBox>
+              <TypeResultBox>
+                <Arrow>→</Arrow>
+                <Wave style={{ color: "#D7AEF7" }}>~ </Wave>
+                <FitTypeName>{type.dev_fit}</FitTypeName>
+              </TypeResultBox>
+            </RecommendContainer>
+          </Body>
+          <ShareBox>
+            <GlobeIcon
+              onClick={() => {
+                setAbout(true);
+              }}
+              src="https://user-images.githubusercontent.com/53595582/80459619-94da5a80-896d-11ea-804c-ebecc535d637.png"
+            ></GlobeIcon>
+          </ShareBox>
+        </BodyWrapper>
+      ) : (
+        <Alert></Alert>
+      )}
 
       {about && <About />}
       <Footer />
@@ -82,9 +91,9 @@ const Result = props => {
   );
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
-    type: state.getResult
+    type: state.getResult,
   };
 };
 
@@ -115,8 +124,6 @@ const Container = styled.div`
 `;
 
 const BodyWrapper = styled.div`
-  border: 1px solid yellow;
-
   @media only screen and (max-width: 415px) {
     display: flex;
     flex-direction: column;
