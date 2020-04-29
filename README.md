@@ -14,7 +14,8 @@
 
 ### 데모 영상(이미지 클릭)
 
-[![BF-TEST 미리보기](https://images.velog.io/images/aerirang647/post/88e2b424-dc6d-40f9-b6bd-6ec52e9247b1/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202020-03-22%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%207.52.30.png)](https://vimeo.com/399385820)
+[![BF-TEST 미리보기](./Images/ReadMe.png)
+
 ---------
 
 ### 적용 기술
