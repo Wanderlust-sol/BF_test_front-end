@@ -20,7 +20,7 @@
 
 ### 적용 기술
 
-+ Front-End : React.js, Styled Component, Redux
++ Front-End : React.js, Redux, Styled Component
 + Back-End : Python, Django
 + Common : AWS, Google Analytics
 
@@ -45,9 +45,9 @@
 + contributor에서 클릭 시, 개인 프로필 모달 구현 
 
 #### Question
-+ 써
++ 
 
 #### Result
-+ 써
++ 유형 결과에 따른 full, front, back 결과 체크
 
 
