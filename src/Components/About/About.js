@@ -86,14 +86,14 @@ export default connect(mapStateToProps, { openDetail })(About);
 
 const AboutWrapper = styled.div`
   width: 750px;
+  height: auto;
   border: 2px solid #000000;
   box-shadow: 13px 10px 0px -1px rgba(74, 79, 79, 1);
-  position: absolute;
-  z-index: 99;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  z-index: 99;
 
   @media only screen and (max-width: 415px) {
     width: 100vw;
@@ -136,12 +136,16 @@ const Text = styled.div`
 `;
 
 const ImgWrapper = styled.div`
-  width: 80%;
+  width: 60%;
 
   img {
     width: 100%;
     height: auto;
     margin: 20px auto 0;
+  }
+
+  @media only screen and (max-width: 420px) {
+    width: 80%;
   }
 `;
 
@@ -257,8 +261,8 @@ to {
 
 const Click = styled.div`
   position: absolute;
-  bottom: 10px;
-  left: 30px;
+  bottom: 25px;
+  left: 100px;
   animation: ${drop} 1.5s linear infinite;
 
   h3 {
