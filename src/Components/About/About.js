@@ -121,7 +121,6 @@ const Text = styled.div`
   color: #ffffff;
   line-height: 1.2;
   letter-spacing: 1px;
-  text-align: justify;
 
   @media only screen and (max-width: 415px) {
     height: 42%;
@@ -129,8 +128,6 @@ const Text = styled.div`
   }
 
   @media only screen and (max-width: 320px) {
-    height: 42%;
-    overflow: scroll;
     font-size: 0.8rem;
   }
 `;
@@ -146,57 +143,6 @@ const ImgWrapper = styled.div`
 
   @media only screen and (max-width: 420px) {
     width: 80%;
-  }
-`;
-
-const Image = styled.img`
-  width: 100%;
-  height: auto;
-  margin: 20px auto 0;
-
-  position: relative;
-
-  @media only screen and (max-width: 415px) {
-    width: 95%;
-    height: 200px;
-    margin-top: 70px;
-
-    h3,
-    img {
-      display: none;
-    }
-
-    div {
-      font-size: 0.7rem;
-      line-height: 1.6;
-    }
-  }
-
-  @media only screen and (max-width: 375px) {
-    width: 95%;
-    height: 200px;
-    margin-top: 20px;
-
-    h3,
-    img {
-      display: none;
-    }
-
-    div {
-      font-size: 0.7rem;
-      line-height: 1.6;
-    }
-  }
-
-  @media only screen and (max-width: 325px) {
-    div {
-      font-size: 0.6rem;
-      line-height: 1.9;
-    }
-  }
-
-  @media only screen and (min-height: 700px) and (max-height: 815px) {
-    height: 350px;
   }
 `;
 
