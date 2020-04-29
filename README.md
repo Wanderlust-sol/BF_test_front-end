@@ -14,7 +14,7 @@
 
 ### 데모 영상(이미지 클릭)
 
-[![BF-TEST 미리보기]("Images/ReadMe.png")
+[![BF-TEST 미리보기](./src/Images/ReadMe.png)
 
 ---------
 
