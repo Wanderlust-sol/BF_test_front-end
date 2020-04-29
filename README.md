@@ -1,68 +1,52 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Project
 
-## Available Scripts
++ Wecode 6기 졸업생들의 토이 프로젝트
++ 프론트엔드와 백엔드 중에 당신에 성향에 맞는 포지션이 무엇인지 알아보는 테스트 사이트
 
-In the project directory, you can run:
+---------
 
-### `yarn start`
+### 개발 인원 및 기간
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
++ 개발기간 : 2020/4/20 ~ 2020/4/28
++ 개발 인원 : Front-End 4명, Back-End 3명
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+---------
 
-### `yarn test`
+### 데모 영상(이미지 클릭)
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+[![BF-TEST 미리보기](https://images.velog.io/images/aerirang647/post/88e2b424-dc6d-40f9-b6bd-6ec52e9247b1/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202020-03-22%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%207.52.30.png)](https://vimeo.com/399385820)
+---------
 
-### `yarn build`
+### 적용 기술
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
++ Front-End : React.js, Styled Component, Redux
++ Back-End : Python, Django
++ Common : AWS, Google Analytics
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+---------
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 구현 기능
 
-### `yarn eject`
+#### COMMON
++ 프로젝트 기획 및 디자인
++ 모바일, 태블릿 사이즈 반응형 구현
++ 리덕스 사용하여 전역 상태 관리
++ Open Graph 적용
++ Google Analytics 적용
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+#### Intro & Loading
++ React-typing-animation 사용하여 Typing 효과 구현
++ figlet 사용하여 ASCII Art 구현
++ setInterval 사용하여 progress bar 구현
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+#### Main & Contributors
++ setInterval 사용하여 nav bar 시계 구현
++ contributor에서 클릭 시, 개인 프로필 모달 구현 
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+#### Question
++ 써
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+#### Result
++ 써
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
