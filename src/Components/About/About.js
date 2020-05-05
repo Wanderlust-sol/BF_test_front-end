@@ -53,7 +53,7 @@ const About = (props) => {
             {Data.map((card) => {
               return (
                 <Color
-                  className={card.color}
+                  color={card.color}
                   key={card.id}
                   onClick={() => handleOpenDetail(card.id)}
                 >
@@ -162,6 +162,7 @@ const Color = styled.div`
   height: 100%;
   text-align: center;
   cursor: pointer;
+  background: ${props => props.color};
 
   @media only screen and (max-width: 420px) {
     font-size: 0.7rem;
@@ -172,28 +173,7 @@ const Color = styled.div`
     font-size: 0.6rem;
     line-height: 1.9;
   }
-
-  &.red {
-    background: red;
-  }
-  &.orange {
-    background: orange;
-  }
-  &.yellow {
-    background: yellow;
-  }
-  &.green {
-    background: green;
-  }
-  &.blue {
-    background: blue;
-  }
-  &.navy {
-    background: navy;
-  }
-  &.purple {
-    background: purple;
-  }
+ 
 `;
 
 const drop = keyframes`
