@@ -45,7 +45,8 @@
 + contributor에서 클릭 시, 개인 프로필 모달 구현 
 
 #### Question
-+ 
++ React-typing-animation 사용하여 Typing 효과 구현
++ TEST에서 선택되는 선택지에 따라 성향 및 타입분류
 
 #### Result
 + 유형 결과에 따른 full, front, back 결과 체크
